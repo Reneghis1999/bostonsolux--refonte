@@ -135,12 +135,18 @@ Formulaire (nom, entreprise, email, téléphone, service concerné, message) ave
 
 ## 6. Direction artistique
 
-- **Garder l'identité** : le logo BostonSolux et le **rouge bordeaux** de la marque (environ `#8B2525`, à confirmer sur le logo). Le rouge sert d'accent, il ne doit pas remplir de grands aplats comme la barre de menu actuelle.
-- **Palette proposée** : bordeaux (accent), anthracite ou bleu nuit très foncé (textes, sections sombres), blanc et gris très clairs (fonds). Tu peux ajuster si tu justifies le choix.
-- **Typographie** : une sans-serif moderne et lisible (par exemple Inter, Manrope ou Plus Jakarta Sans), titres affirmés.
-- **Style** : beaucoup d'espace blanc, grille claire, cartes sobres, icônes au trait, micro-animations discrètes (apparition au scroll, survol des cartes). Rien de clinquant.
-- **Images** : éviter les photos de stock « hommes en costume » datées. Préfère des visuels tech abstraits, des photos d'équipe réelles si elles sont fournies, ou des illustrations. En attendant, utilise des images de remplacement neutres, clairement nommées (`hero-placeholder.webp`…).
-- **À éviter** : texte posé sur des photos chargées, carrousels automatiques, trop de couleurs.
+### Règle d'or : nouveau design, même contenu
+- **Le design doit être TOTALEMENT différent de l'ancien site.** Ne reprends ni sa mise en page, ni son header rouge plein, ni son carrousel, ni ses blocs gris superposés. Pars d'une feuille blanche, au niveau d'un site de grand cabinet de conseil ou d'intégrateur IT international (références d'esprit : Accenture, Capgemini, Sopra Steria, Orange Business).
+- **Le contenu reste le même** : mêmes informations, mêmes services, mêmes solutions, mêmes bureaux, mêmes contacts, mêmes témoignages, mêmes actualités. Tu peux reformuler pour plus de clarté, sans rien inventer ni supprimer d'information.
+- **Les images restent les mêmes** : utilise exclusivement les images du site actuel, placées dans `contenu/images/`. N'ajoute pas de photos de banques d'images extérieures. C'est la **mise en scène** des images qui change : recadrage (`object-fit`), formats plus généreux, coins arrondis, superposition d'un dégradé ou d'un filtre de couleur de la marque pour harmoniser des photos hétérogènes, alternance texte / image… Ne pose jamais de texte directement sur une photo chargée sans voile de contraste.
+- Si une image manque dans `contenu/images/`, mets un emplacement neutre de même format, nommé clairement, et signale-le dans le README (liste `[À COMPLÉTER]`).
+
+### Identité visuelle
+- **Garder** le logo BostonSolux et le **rouge bordeaux** de la marque (environ `#8B2525`, à confirmer sur le logo). Le rouge sert d'accent : boutons, liens, détails. Il ne doit pas remplir de grands aplats comme la barre de menu actuelle.
+- **Palette proposée** : bordeaux (accent), bleu nuit ou anthracite très foncé (textes, sections sombres, footer), blanc et gris très clairs (fonds). Tu peux ajuster si tu justifies le choix.
+- **Typographie** : une sans-serif moderne et lisible (par exemple Inter, Manrope ou Plus Jakarta Sans), titres grands et affirmés.
+- **Style** : beaucoup d'espace blanc, grille claire et aérée, cartes sobres, icônes au trait cohérentes, micro-animations discrètes (apparition au scroll, survol des cartes, header qui se réduit au scroll). Rien de clinquant : le rendu doit être haut de gamme et institutionnel.
+- **À éviter** : carrousels automatiques, texte illisible sur photo, trop de couleurs, effets gadget, tout ce qui rappelle l'ancien site.
 
 ## 7. Bilinguisme
 
@@ -165,3 +171,38 @@ Le site est en anglais (langue principale) et en français. Pour la maquette :
 - Académie : https://bostonsoluxacademy.com/
 - Réseaux : https://www.linkedin.com/company/bostonsolux · https://www.facebook.com/BostonSolux/ · https://twitter.com/Bostonsolux · https://www.youtube.com/channel/UCd7b9K_BGh5menUsi_QJyAg
 - Dossier `contenu/` : textes et images du site actuel, quand ils sont fournis. Ils font foi par rapport au site en ligne.
+
+### Images du site actuel (à placer dans `contenu/images/`)
+Commence par les fichiers présents dans `contenu/images/`. S'il en manque et que tu peux les télécharger depuis ces adresses, place-les dans `assets/img/` ; sinon, demande-les-moi.
+
+Hero / bannières :
+- https://bostonsolux.com/wp-content/uploads/2023/05/Boston-solux-mmie.jpg (référence MMIE Malabo)
+- https://bostonsolux.com/wp-content/uploads/2023/05/cabinet-informatiqueslide.jpg
+- https://bostonsolux.com/wp-content/uploads/2023/01/slide3__c.jpeg
+- https://bostonsolux.com/wp-content/uploads/2023/05/Bostonsolux-slide.jpg
+- https://bostonsolux.com/wp-content/uploads/2023/05/solutions-informatiques.jpg
+
+À propos / mises en avant :
+- https://bostonsolux.com/wp-content/uploads/2023/01/Picture1.webp (À propos)
+- https://bostonsolux.com/wp-content/uploads/2023/04/Cyber-security.webp (CyberSecurity Center)
+- https://bostonsolux.com/wp-content/uploads/2023/01/1-2-1.webp (Power Training)
+- https://bostonsolux.com/wp-content/uploads/2023/01/Cat_BS-min.jpg
+- https://bostonsolux.com/wp-content/uploads/2023/04/Couv-2-2048x2048-1-12-min.jpg
+- https://bostonsolux.com/wp-content/uploads/2023/05/bstv.webp (BostonSolux TV)
+
+Domaines d'expertise (une image par service) :
+- https://bostonsolux.com/wp-content/uploads/2023/05/Bostonsolux-Business-1.jpg (Business Continuity)
+- https://bostonsolux.com/wp-content/uploads/2023/05/Bostonsolux-solutions.jpg (Desktop Deployments)
+- https://bostonsolux.com/wp-content/uploads/2023/05/Bostonsolux-digital-transformatoin.jpg (Digital Transformation)
+- https://bostonsolux.com/wp-content/uploads/2023/05/Bostonsolux-BackupDisasterRecovery.jpg (Enterprise Backup)
+- https://bostonsolux.com/wp-content/uploads/2023/05/the-best-business-messaging-bostonsolux.jpg (Enterprise Messaging)
+- https://bostonsolux.com/wp-content/uploads/2023/05/bostonsolux-erp.jpg (ERP & PLM)
+- https://bostonsolux.com/wp-content/uploads/2023/05/bostonsolux-hard_1-1.jpg (Hardware & Software)
+- https://bostonsolux.com/wp-content/uploads/2023/05/bostonsoluxmonetiques-min-1.jpg (Monetics)
+- https://bostonsolux.com/wp-content/uploads/2023/05/Bostonsolux-Network_.jpg (Network Design)
+- https://bostonsolux.com/wp-content/uploads/2023/05/Bostonsolyux-network.jpg (Network Security)
+- https://bostonsolux.com/wp-content/uploads/2023/05/boston-projectprojects-1.jpg (Project Management)
+
+Logos partenaires (bande de confiance) :
+- https://bostonsolux.com/wp-content/uploads/2023/01/1.jpg · 3-1.jpg · 4-1.png · 5.png · 6.jpg · 7-1-1.png · 8.jpg · 9.png · 10.png · 11.png · 13.png · 14.png
+- https://bostonsolux.com/wp-content/uploads/2023/01/odoo-logo-62B6A3D625-seeklogo.com_.png
