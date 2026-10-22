@@ -24,7 +24,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, 'src')
 LANGS = {'en': '', 'fr': 'fr'}          # language -> output folder
 SKIP_LINK = {'en': 'Skip to content', 'fr': 'Aller au contenu'}
-NAV_LINKS = ('news', 'careers', 'contact')
+NAV_LINKS = ('home', 'news', 'careers', 'contact')
 NAV_PANELS = ('services', 'solutions')
 
 
