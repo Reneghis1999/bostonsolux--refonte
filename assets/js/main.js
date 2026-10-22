@@ -179,3 +179,26 @@
     });
   }
 })();
+
+/* ==========================================================================
+   Network map: draw the links when the map scrolls into view
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var maps = document.querySelectorAll('[data-network-map]');
+  if (!maps.length || !('IntersectionObserver' in window)) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('network-map--animate');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -15% 0px' });
+
+  Array.prototype.forEach.call(maps, function (map) {
+    // Only animate maps that start below the fold, so nothing flashes
+    if (map.getBoundingClientRect().top > window.innerHeight) observer.observe(map);
+  });
+})();
