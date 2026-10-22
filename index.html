@@ -8,7 +8,7 @@
   <link rel="icon" type="image/webp" href="assets/img/logo-bostonsolux.webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=Instrument+Serif&amp;display=swap">
   <link rel="stylesheet" href="assets/css/main.css">
   <script src="assets/js/main.js" defer></script>
 </head>
@@ -120,55 +120,34 @@
 
   <!-- Hero -->
   <section class="section-hero">
-    <div class="section-hero__inner container">
-      <div class="section-hero__content">
-        <h1 class="section-hero__title">Secure, integrated IT for banks, ministries and enterprises.</h1>
-        <p class="section-hero__lead">From network design to cybersecurity and ERP, BostonSolux delivers with speed and efficiency to better serve its partners, from Rockville to Malabo.</p>
+    <div class="section-hero__panel">
+      <div class="section-hero__inner container">
+        <a class="hero-badge" href="#cybersecurity-center"><span class="hero-badge__dot" aria-hidden="true"></span>Discover our CyberSecurity Center</a>
+        <h1 class="section-hero__title">Your IT, <span class="highlight">secured</span> and built to grow.</h1>
+        <p class="section-hero__lead">From network design to cybersecurity and ERP, BostonSolux serves banks, ministries and enterprises with speed and efficiency, from Rockville to Malabo.</p>
         <div class="section-hero__actions">
-          <a class="btn btn--primary" href="services.html">Explore our services</a>
-          <a class="btn btn--secondary" href="contact.html">Contact us</a>
+          <a class="btn btn--primary btn--large" href="contact.html">Contact us</a>
+          <a class="btn btn--secondary btn--large" href="services.html">Explore our services</a>
         </div>
+        <ul class="hero-stats" aria-label="BostonSolux in figures">
+          <li class="hero-stats__item">
+            <svg class="hero-stats__icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 25s8-6.6 8-13a8 8 0 00-16 0c0 6.4 8 13 8 13z"/><circle cx="14" cy="12" r="3"/></svg>
+            <span><span class="hero-stats__value">7</span> offices</span>
+          </li>
+          <li class="hero-stats__item">
+            <svg class="hero-stats__icon" viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="11"/><path d="M3 14h22M14 3c3 3.2 4.5 6.8 4.5 11S17 21.8 14 25c-3-3.2-4.5-6.8-4.5-11S11 6.2 14 3z"/></svg>
+            <span><span class="hero-stats__value">3</span> continents</span>
+          </li>
+          <li class="hero-stats__item">
+            <svg class="hero-stats__icon" viewBox="0 0 28 28" aria-hidden="true"><rect x="4" y="4" width="8" height="8" rx="1.5"/><rect x="16" y="4" width="8" height="8" rx="1.5"/><rect x="4" y="16" width="8" height="8" rx="1.5"/><rect x="16" y="16" width="8" height="8" rx="1.5"/></svg>
+            <span><span class="hero-stats__value">12</span> services</span>
+          </li>
+          <li class="hero-stats__item">
+            <svg class="hero-stats__icon" viewBox="0 0 28 28" aria-hidden="true"><path d="M14 3l11 6-11 6L3 9z"/><path d="M3 14l11 6 11-6M3 19l11 6 11-6"/></svg>
+            <span><span class="hero-stats__value">6</span> solutions</span>
+          </li>
+        </ul>
       </div>
-
-      <figure class="network-map section-hero__visual">
-        <svg class="network-map__svg" viewBox="-70 0 790 370" role="img" aria-labelledby="network-map-title">
-          <title id="network-map-title">Map of the BostonSolux offices: Rockville headquarters, Paris, Conakry, Lomé, Cotonou, Malabo and N'Djamena</title>
-          <g class="network-map__grid" aria-hidden="true">
-            <path d="M80 10V350M170 10V350M260 10V350M350 10V350M440 10V350M530 10V350M620 10V350"/>
-            <path d="M-60 70H700M-60 160H700M-60 250H700"/>
-            <path class="network-map__equator" d="M-60 340H700"/>
-          </g>
-          <g class="network-map__links" aria-hidden="true">
-            <path class="network-map__link network-map__link--1" pathLength="1" d="M67 106Q300 -20 544 47"/>
-            <path class="network-map__link network-map__link--2" pathLength="1" d="M67 106Q230 260 448 282"/>
-            <path class="network-map__link network-map__link--3" pathLength="1" d="M544 47Q620 140 620 267"/>
-            <path class="network-map__link network-map__link--3" pathLength="1" d="M544 47Q510 180 535 303"/>
-            <path class="network-map__link network-map__link--4" pathLength="1" d="M448 282Q495 280 535 303"/>
-            <path class="network-map__link network-map__link--4" pathLength="1" d="M535 303Q541 296 547 300"/>
-            <path class="network-map__link network-map__link--5" pathLength="1" d="M547 300Q570 302 583 318"/>
-            <path class="network-map__link network-map__link--5" pathLength="1" d="M583 318Q612 300 620 267"/>
-          </g>
-          <g class="network-map__nodes">
-            <circle class="network-map__node network-map__node--hq" cx="67" cy="106" r="7"/>
-            <circle class="network-map__node" cx="544" cy="47" r="4.5"/>
-            <circle class="network-map__node" cx="448" cy="282" r="4.5"/>
-            <circle class="network-map__node" cx="535" cy="303" r="4.5"/>
-            <circle class="network-map__node" cx="547" cy="300" r="4.5"/>
-            <circle class="network-map__node" cx="583" cy="318" r="4.5"/>
-            <circle class="network-map__node" cx="620" cy="267" r="4.5"/>
-          </g>
-          <g class="network-map__labels" aria-hidden="true">
-            <text class="network-map__label network-map__label--hq" x="52" y="105" text-anchor="end">Rockville</text>
-            <text class="network-map__sublabel" x="52" y="122" text-anchor="end">Headquarters</text>
-            <text class="network-map__label" x="557" y="52">Paris</text>
-            <text class="network-map__label" x="448" y="308" text-anchor="middle">Conakry</text>
-            <text class="network-map__label" x="526" y="336" text-anchor="middle">Lomé, Cotonou</text>
-            <text class="network-map__label" x="600" y="336">Malabo</text>
-            <text class="network-map__label" x="631" y="262">N'Djamena</text>
-          </g>
-        </svg>
-        <figcaption class="network-map__caption">Seven offices on three continents: Rockville (headquarters), Paris, Lomé, N'Djamena, Malabo, Conakry and Cotonou.</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -317,7 +296,7 @@
 
   <!-- Highlights: CyberSecurity Center and Power Training -->
   <section class="section-highlights" aria-label="BostonSolux CyberSecurity Center and Power Training">
-    <article class="feature feature--dark">
+    <article class="feature feature--dark" id="cybersecurity-center">
       <div class="feature__inner container">
         <img class="feature__image" src="assets/img/cybersecurity-center.webp" alt="Digital lock and security alerts on a network" width="898" height="505" loading="lazy">
         <div class="feature__content">
@@ -470,6 +449,46 @@
         <h2 class="section-head__title" id="offices-title">Our offices</h2>
         <p class="section-head__lead">Headquarters in the United States, offices in Europe and in West and Central Africa.</p>
       </header>
+
+      <figure class="network-map section-offices__map" data-network-map>
+        <svg class="network-map__svg" viewBox="-70 0 790 370" role="img" aria-labelledby="network-map-title">
+          <title id="network-map-title">Map of the BostonSolux offices: Rockville headquarters, Paris, Conakry, Lomé, Cotonou, Malabo and N'Djamena</title>
+          <g class="network-map__grid" aria-hidden="true">
+            <path d="M80 10V350M170 10V350M260 10V350M350 10V350M440 10V350M530 10V350M620 10V350"/>
+            <path d="M-60 70H700M-60 160H700M-60 250H700"/>
+            <path class="network-map__equator" d="M-60 340H700"/>
+          </g>
+          <g class="network-map__links" aria-hidden="true">
+            <path class="network-map__link network-map__link--1" pathLength="1" d="M67 106Q300 -20 544 47"/>
+            <path class="network-map__link network-map__link--2" pathLength="1" d="M67 106Q230 260 448 282"/>
+            <path class="network-map__link network-map__link--3" pathLength="1" d="M544 47Q620 140 620 267"/>
+            <path class="network-map__link network-map__link--3" pathLength="1" d="M544 47Q510 180 535 303"/>
+            <path class="network-map__link network-map__link--4" pathLength="1" d="M448 282Q495 280 535 303"/>
+            <path class="network-map__link network-map__link--4" pathLength="1" d="M535 303Q541 296 547 300"/>
+            <path class="network-map__link network-map__link--5" pathLength="1" d="M547 300Q570 302 583 318"/>
+            <path class="network-map__link network-map__link--5" pathLength="1" d="M583 318Q612 300 620 267"/>
+          </g>
+          <g class="network-map__nodes">
+            <circle class="network-map__node network-map__node--hq" cx="67" cy="106" r="7"/>
+            <circle class="network-map__node" cx="544" cy="47" r="4.5"/>
+            <circle class="network-map__node" cx="448" cy="282" r="4.5"/>
+            <circle class="network-map__node" cx="535" cy="303" r="4.5"/>
+            <circle class="network-map__node" cx="547" cy="300" r="4.5"/>
+            <circle class="network-map__node" cx="583" cy="318" r="4.5"/>
+            <circle class="network-map__node" cx="620" cy="267" r="4.5"/>
+          </g>
+          <g class="network-map__labels" aria-hidden="true">
+            <text class="network-map__label network-map__label--hq" x="52" y="105" text-anchor="end">Rockville</text>
+            <text class="network-map__sublabel" x="52" y="122" text-anchor="end">Headquarters</text>
+            <text class="network-map__label" x="557" y="52">Paris</text>
+            <text class="network-map__label" x="448" y="308" text-anchor="middle">Conakry</text>
+            <text class="network-map__label" x="526" y="336" text-anchor="middle">Lomé, Cotonou</text>
+            <text class="network-map__label" x="600" y="336">Malabo</text>
+            <text class="network-map__label" x="631" y="262">N'Djamena</text>
+          </g>
+        </svg>
+        <figcaption class="network-map__caption">Seven offices on three continents: Rockville (headquarters), Paris, Lomé, N'Djamena, Malabo, Conakry and Cotonou.</figcaption>
+      </figure>
 
       <ul class="office-list">
         <li class="office office--hq">
