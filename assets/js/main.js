@@ -97,3 +97,85 @@
     });
   });
 })();
+
+/* ==========================================================================
+   Forms: client-side validation (no submission — handled by WordPress
+   with Contact Form 7 or WPForms) and job position preselection.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  var PHONE = /^\+?[\d\s().-]{6,}$/;
+
+  function labelText(control) {
+    var label = document.querySelector('label[for="' + control.id + '"]');
+    return label ? label.firstChild.textContent.trim().toLowerCase() : 'this field';
+  }
+
+  function validate(control) {
+    var value = control.type === 'checkbox' ? control.checked : control.value.trim();
+    var message = '';
+
+    if (control.required && !value) {
+      message = control.getAttribute('data-error-required') || 'Please fill in ' + labelText(control) + '.';
+    } else if (value && control.type === 'email' && !EMAIL.test(value)) {
+      message = 'Enter an email address like name@company.com.';
+    } else if (value && control.type === 'tel' && !PHONE.test(value)) {
+      message = 'Enter a phone number with digits only, including the country code.';
+    }
+
+    var error = document.getElementById(control.id + '-error');
+    control.setAttribute('aria-invalid', message ? 'true' : 'false');
+    if (error) {
+      error.textContent = message;
+      error.classList.toggle('form__error--visible', Boolean(message));
+    }
+    return !message;
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('[data-validate]'), function (form) {
+    var controls = Array.prototype.slice.call(form.querySelectorAll('.form__control, .form__check input'));
+    var status = form.querySelector('[data-form-status]');
+
+    controls.forEach(function (control) {
+      // Validate on leaving a field, then live once it has been flagged
+      control.addEventListener('blur', function () {
+        if (control.value.trim() || control.getAttribute('aria-invalid') === 'true') validate(control);
+      });
+      control.addEventListener('input', function () {
+        if (control.getAttribute('aria-invalid') === 'true') validate(control);
+      });
+    });
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var invalid = controls.filter(function (control) { return !validate(control); });
+
+      status.classList.add('form__status--visible');
+      if (invalid.length) {
+        status.classList.remove('form__status--success');
+        status.textContent = invalid.length === 1
+          ? 'One field needs your attention.'
+          : invalid.length + ' fields need your attention.';
+        invalid[0].focus();
+        return;
+      }
+
+      status.classList.add('form__status--success');
+      status.textContent = status.getAttribute('data-success');
+      form.reset();
+      controls.forEach(function (control) { control.removeAttribute('aria-invalid'); });
+    });
+  });
+
+  // Careers: "Apply" links preselect the position in the application form
+  var positionSelect = document.querySelector('[data-position-select]');
+  if (positionSelect) {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-apply-position]'), function (link) {
+      link.addEventListener('click', function () {
+        positionSelect.value = link.getAttribute('data-apply-position');
+      });
+    });
+  }
+})();
