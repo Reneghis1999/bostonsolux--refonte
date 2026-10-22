@@ -1,0 +1,153 @@
+<!--title: Contact us | BostonSolux-->
+<!--description: Contact BostonSolux about a project, a solution or support: info@bostonsolux.com, support@bostonsolux.com, +228 91 38 17 17. Offices in Rockville, Paris, Lomé, N'Djamena, Malabo, Conakry and Cotonou.-->
+<!--nav: contact-->
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol class="breadcrumb__list">
+          <li class="breadcrumb__item"><a class="breadcrumb__link" href="index.html">Home</a></li>
+          <li class="breadcrumb__item"><span aria-current="page">Contact</span></li>
+        </ol>
+      </nav>
+      <h1 class="page-hero__title">Let's talk about your project.</h1>
+      <p class="page-hero__lead">Tell us what you need. A consultant will get back to you, or contact the team you need directly.</p>
+    </div>
+  </section>
+
+  <!-- Form and contact details -->
+  <section class="section-block" aria-label="Contact form and details">
+    <div class="container contact-layout">
+      <form class="form" action="#" method="post" novalidate data-validate>
+        <h2 class="form__title">Send us a message</h2>
+        <p class="form__intro">Fields marked optional can be left empty.</p>
+
+        <div class="form__row">
+          <div class="form__field">
+            <label class="form__label" for="contact-name">Full name</label>
+            <input class="form__control" id="contact-name" name="name" type="text" autocomplete="name" required aria-describedby="contact-name-error">
+            <p class="form__error" id="contact-name-error"></p>
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="contact-company">Company or institution <span class="form__optional">(optional)</span></label>
+            <input class="form__control" id="contact-company" name="company" type="text" autocomplete="organization">
+          </div>
+        </div>
+
+        <div class="form__row">
+          <div class="form__field">
+            <label class="form__label" for="contact-email">Email</label>
+            <input class="form__control" id="contact-email" name="email" type="email" autocomplete="email" required aria-describedby="contact-email-error">
+            <p class="form__error" id="contact-email-error"></p>
+          </div>
+          <div class="form__field">
+            <label class="form__label" for="contact-phone">Phone <span class="form__optional">(optional)</span></label>
+            <input class="form__control" id="contact-phone" name="phone" type="tel" autocomplete="tel" aria-describedby="contact-phone-hint contact-phone-error">
+            <p class="form__hint" id="contact-phone-hint">Include the country code, for example +228.</p>
+            <p class="form__error" id="contact-phone-error"></p>
+          </div>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="contact-service">Service or solution</label>
+          <select class="form__control" id="contact-service" name="service" required aria-describedby="contact-service-error" data-error-required="Please choose a service, a solution or another request.">
+            <option value="">Choose a topic</option>
+            <optgroup label="Infrastructure &amp; Networks">
+              <option>Network Design &amp; Implementations</option>
+              <option>Active Directory Design &amp; Implementations</option>
+              <option>Corporate Desktop Deployments and Support</option>
+              <option>Hardware &amp; Software Application Solutions</option>
+            </optgroup>
+            <optgroup label="Security &amp; Continuity">
+              <option>Network Security</option>
+              <option>Business Continuity and Disaster Recovery</option>
+              <option>Enterprise Backup Solutions</option>
+              <option>CyberSecurity Center: security audit</option>
+            </optgroup>
+            <optgroup label="Business Applications">
+              <option>ERP &amp; PLM Implementations</option>
+              <option>Enterprise Messaging Implementations</option>
+              <option>Monetics</option>
+            </optgroup>
+            <optgroup label="Consulting &amp; Transformation">
+              <option>Digital Transformation</option>
+              <option>Project Management</option>
+            </optgroup>
+            <optgroup label="Solutions">
+              <option>Bsecured Park</option>
+              <option>BSmartGrid</option>
+              <option>Mobile Banking</option>
+              <option>Bsales Pro</option>
+              <option>SSLoGe</option>
+              <option>Quick Billing</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option>Training</option>
+              <option>Support</option>
+              <option>Other request</option>
+            </optgroup>
+          </select>
+          <p class="form__error" id="contact-service-error"></p>
+        </div>
+
+        <div class="form__field">
+          <label class="form__label" for="contact-message">Message</label>
+          <textarea class="form__control form__control--textarea" id="contact-message" name="message" rows="6" required aria-describedby="contact-message-error" data-error-required="Please tell us a few words about your request."></textarea>
+          <p class="form__error" id="contact-message-error"></p>
+        </div>
+
+        <div class="form__field">
+          <label class="form__check" for="contact-consent">
+            <input id="contact-consent" name="consent" type="checkbox" required aria-describedby="contact-consent-error" data-error-required="Please accept so we can reply to you.">
+            <span>I agree that BostonSolux uses this information to reply to my request.</span>
+          </label>
+          <p class="form__error" id="contact-consent-error"></p>
+        </div>
+
+        <div class="form__footer">
+          <button class="btn btn--primary btn--large" type="submit">Send message</button>
+        </div>
+        <p class="form__status" role="status" aria-live="polite" data-form-status data-success="Thank you, your message is ready to be sent. In this mock-up nothing is sent: WordPress will handle delivery."></p>
+      </form>
+
+      <aside aria-labelledby="direct-title">
+        <h2 class="aside-panel__title" id="direct-title">Contact a team directly</h2>
+        <ul class="contact-list">
+          <li class="contact-list__item">
+            <p class="contact-list__label">General enquiries</p>
+            <a class="contact-list__value" href="mailto:info@bostonsolux.com">info@bostonsolux.com</a>
+          </li>
+          <li class="contact-list__item">
+            <p class="contact-list__label">Support</p>
+            <a class="contact-list__value" href="mailto:support@bostonsolux.com">support@bostonsolux.com</a><br>
+            <a class="contact-list__value" href="tel:+22891381717">+228 91 38 17 17</a>
+          </li>
+          <li class="contact-list__item">
+            <p class="contact-list__label">Solutions</p>
+            <a class="contact-list__value" href="mailto:strategy@bostonsolux.com">strategy@bostonsolux.com</a>
+            <p class="contact-list__note">Strategy Solutions department</p>
+          </li>
+          <li class="contact-list__item">
+            <p class="contact-list__label">Looking for a PMP?</p>
+            <a class="contact-list__value" href="mailto:pmo@bostonsolux.com">pmo@bostonsolux.com</a>
+          </li>
+          <li class="contact-list__item">
+            <p class="contact-list__label">Headquarters</p>
+            <a class="contact-list__value" href="tel:+12403423141">+1 240-342-3141</a>
+            <p class="contact-list__note">11140 Rockville Pike, Suite 400, Rockville, MD 20852, USA</p>
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Offices -->
+  <section class="section-offices section-block--surface" aria-labelledby="offices-title">
+    <div class="container">
+      <header class="section-head">
+        <h2 class="section-head__title" id="offices-title">Our offices</h2>
+        <p class="section-head__lead">Seven offices on three continents.</p>
+      </header>
+      {{OFFICES}}
+    </div>
+  </section>
