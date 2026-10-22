@@ -13,6 +13,32 @@ Maquette HTML/CSS/JS (vanilla, sans build) de la refonte de [bostonsolux.com](ht
 
 Une connexion Internet est nécessaire pour charger les polices Instrument Serif et IBM Plex Sans (Google Fonts). Sans connexion, le site s'affiche avec des polices de secours.
 
+## Version française
+
+Le site existe en anglais (racine du dossier) et en français (dossier `fr/`). Le sélecteur **EN / FR** du header renvoie vers la même page dans l'autre langue, et chaque page déclare son équivalent avec `<link rel="alternate" hreflang>`.
+
+- Les noms des services reprennent ceux de la version française du site actuel (« Conception et mise en place de réseaux », « Monétique », « Gestion de projet »…).
+- Les messages d'erreur des formulaires suivent la langue de la page.
+- Dans WordPress, la traduction sera gérée par WPML ou Polylang : les pages de `fr/` servent de référence pour les textes.
+
+## Modifier la maquette
+
+Les pages HTML sont **générées** à partir du dossier `src/`, pour que le header, le footer et les blocs partagés restent identiques sur les 18 pages :
+
+```
+src/_head.html              <head> commun
+src/en/  et  src/fr/        _header.html, _footer.html, blocs partagés (_offices, _partners, _network-map)
+src/<langue>/pages/*.html   contenu principal de chaque page
+```
+
+Après une modification dans `src/`, lancer :
+
+```bash
+python3 tools/build.py
+```
+
+Les fichiers générés sont commités : la maquette s'ouvre toujours directement dans un navigateur, sans étape de build. Le CSS (`assets/css/main.css`) et le JS (`assets/js/main.js`) se modifient directement.
+
 ## Pages
 
 | Page | Contenu |
@@ -26,6 +52,8 @@ Une connexion Internet est nécessaire pour charger les polices Instrument Serif
 | `contact.html` | Formulaire validé en JS (aucun envoi), contacts par équipe, bureaux |
 | `news.html` | Article à la une, archive des actualités, interviews |
 | `careers.html` | Les 14 postes groupés par famille, parcours d'Emmanuel Amou, formulaire de candidature avec CV |
+
+Chaque page existe aussi en français dans `fr/` (même nom de fichier).
 
 Toutes les pages partagent exactement le même header et le même footer. Seul change le marquage de la page courante dans le menu (`aria-current`), que WordPress ajoutera lui-même.
 
@@ -75,7 +103,8 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à la charte Bosto
 - [ ] **Étude de cas MMIE** : aucun chiffre de résultat disponible ; seule la mention « livré dans les délais et le budget » (annonce d'origine) est reprise.
 - [ ] **Carrières** : lieu et type de contrat des postes non communiqués ; adresse email RH à confirmer (la page renvoie vers info@bostonsolux.com). L'option « Spontaneous application » est un ajout de la maquette.
 - [ ] **Liens des interviews et actualités** : ils pointent vers les articles du site actuel, en attendant les pages WordPress.
-- [ ] **Sélecteur FR** : lien visuel uniquement (`#`), la traduction sera gérée par WPML ou Polylang.
+- [ ] **Actualités en français** : la version française du site actuel publie des articles absents de la version anglaise (« Recrutement : commercial(e) », « Recrutement : business developer », « Soirée des certifiés à BostonSolux »). La maquette FR reprend pour l'instant les mêmes articles que la version anglaise, traduits.
+- [ ] **Traductions** : les citations de Richard Dotse et Yvon Vodounon reprennent les versions françaises du site actuel ; les autres textes sont traduits depuis l'anglais et sont à relire.
 
 ### Images
 - [ ] **Logo blanc officiel** : dans le pied de page, le logo est passé en blanc par un filtre CSS.
