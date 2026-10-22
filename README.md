@@ -59,15 +59,17 @@ Toutes les pages partagent exactement le même header et le même footer. Seul c
 
 ## Direction artistique
 
-Inspirée du style de la page d'accueil de CinetPay, adaptée à la charte BostonSolux (rouge, noir, blanc) :
+Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité BostonSolux :
 
-- **Hero** : grande carte noire arrondie, légèrement en retrait des bords, avec un halo rouge dans les coins et de fines lignes concentriques. Contenu centré : badge pilule, grand titre serif avec un mot mis en valeur dans un bloc rouge incliné, sous-titre, boutons pilules, puis bandeau de chiffres réels (7 bureaux, 3 continents, 12 services, 6 solutions).
-- **Panneaux arrondis** : les blocs sombres (héros des pages intérieures, CyberSecurity Center, appels à l'action) et les sections grises reprennent ce format de carte arrondie en retrait.
-- **Couleurs** : rouge `#991B1F` (et dégradé `#8E1A1E` → `#C23A2E` pour les boutons), noir nuit `#141112` pour les panneaux, noir du logo `#231F20` pour les textes et le pied de page, blanc et gris clair `#F6F5F5`.
-- **Typographie** : Instrument Serif pour les grands titres (h1, h2), IBM Plex Sans pour les textes, sous-titres et interfaces.
-- **Boutons** en forme de pilule ; liens soulignés en rouge.
-- **Carte réseau des 7 bureaux** : dans la section Bureaux de l'accueil et sur la page À propos ; elle se dessine quand elle arrive à l'écran.
-- **Animations** : apparition en cascade du contenu du hero au chargement, tracé de la carte. Toutes deux sont désactivées si l'utilisateur a demandé à réduire les animations.
+- **Rouge BostonSolux `#8C2826`**, mesuré sur le site actuel (barre de menu, bouton Blog). Il sert aux boutons, liens, icônes sociales et au mot mis en valeur du hero.
+- **Coins carrés partout** : boutons, cartes, images, panneaux, champs de formulaire, badges. Aucun arrondi.
+- **Hero de l'accueil** : grand panneau sombre en retrait des bords. En fond, **diaporama des images du carrousel du site actuel** (MMIE Malabo, cabinet informatique, « Building the future », « We are here for you »), agrandies en 1920 px, plus nettes et légèrement plus contrastées, sous un voile sombre et un halo rouge pour garder le texte lisible. Les images se fondent toutes les 6 secondes avec un léger zoom ; un bouton permet de mettre en pause (obligatoire pour l'accessibilité), et le diaporama reste à l'arrêt si l'utilisateur a demandé à réduire les animations.
+- Contenu du hero centré : badge, grand titre serif avec un mot dans un bloc rouge, sous-titre, deux boutons, bandeau de chiffres réels (7 bureaux, 3 continents, 12 services, 6 solutions).
+- **Header** : logo, menu avec lien Accueil, sélecteur EN / FR, icônes Facebook, X et LinkedIn, bouton « Contact us ».
+- **Panneaux** : les blocs sombres (héros des pages intérieures, CyberSecurity Center, appels à l'action) et les sections grises sont des panneaux en retrait des bords.
+- **Couleurs** : rouge `#8C2826`, noir nuit `#141112` pour les panneaux, noir du logo `#231F20` pour les textes et le pied de page, blanc et gris clair `#F6F5F5`.
+- **Typographie** : Instrument Serif pour les grands titres (h1, h2), IBM Plex Sans pour les textes et l'interface.
+- **Carte réseau des 7 bureaux** : dans la section Bureaux de l'accueil et sur la page À propos.
 - **Regroupement des services** en 4 domaines : Infrastructure & Networks, Security & Continuity, Business Applications, Consulting & Transformation.
 - Tous les tokens (couleurs, polices, espacements, rayons) sont dans `:root`, au début de `assets/css/main.css`.
 
@@ -111,4 +113,5 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à la charte Bosto
 - [ ] **Portraits en haute définition** : les portraits font 170 à 335 px de large sur le site actuel.
 - [ ] **Active Directory** : pas d'image dédiée sur le site actuel ; une ancienne image de bannière (globe) la remplace.
 - [ ] **Images avec texte incrusté** (ERP, « Backup & Restore », « Network Security », « Project Management ») : des versions sans texte seraient plus propres.
+- [ ] **Diaporama du hero** : l'image `slide3__c.jpeg` du carrousel actuel (477 px de large) est trop petite pour un fond plein écran et n'est pas utilisée. Des versions haute définition des images du carrousel donneraient un rendu encore meilleur.
 - [ ] **Photo du bâtiment** : `about-building.webp` est recadrée depuis la couverture de la plaquette de présentation (meilleure définition que l'image d'origine).
