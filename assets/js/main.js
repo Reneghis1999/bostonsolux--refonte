@@ -224,3 +224,49 @@
     if (map.getBoundingClientRect().top > window.innerHeight) observer.observe(map);
   });
 })();
+
+/* ==========================================================================
+   Hero slideshow: photos fade into each other behind the hero content.
+   Paused from the start when the visitor prefers reduced motion.
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var slides = document.querySelector('[data-slides]');
+  var toggle = document.querySelector('[data-slides-toggle]');
+  if (!slides || !toggle) return;
+
+  var images = slides.querySelectorAll('.hero-slides__image');
+  var current = 0;
+  var timer = null;
+  var DELAY = 6000;
+
+  function show(index) {
+    images[current].classList.remove('hero-slides__image--active');
+    current = index % images.length;
+    images[current].classList.add('hero-slides__image--active');
+  }
+
+  function play() {
+    timer = window.setInterval(function () { show(current + 1); }, DELAY);
+    toggle.setAttribute('aria-pressed', 'false');
+    toggle.setAttribute('aria-label', toggle.getAttribute('data-label-pause'));
+  }
+
+  function pause() {
+    window.clearInterval(timer);
+    timer = null;
+    toggle.setAttribute('aria-pressed', 'true');
+    toggle.setAttribute('aria-label', toggle.getAttribute('data-label-play'));
+  }
+
+  toggle.addEventListener('click', function () {
+    if (timer) pause(); else play();
+  });
+
+  if (images.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    pause();
+  } else {
+    play();
+  }
+})();
