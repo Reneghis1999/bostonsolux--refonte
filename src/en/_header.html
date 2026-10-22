@@ -1,0 +1,99 @@
+<!-- ============================== header.php ============================== -->
+<header class="site-header" data-site-header>
+  <div class="site-header__inner container">
+    <a class="site-header__brand" href="index.html" aria-label="BostonSolux, home">
+      <img class="site-header__logo" src="assets/img/logo-bostonsolux.webp" alt="BostonSolux, Focus on Solutions" width="1011" height="247">
+    </a>
+
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="site-header__toggle-bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-site-nav>
+      <ul class="site-nav__list">
+        <li class="site-nav__item site-nav__item--has-panel">
+          <button class="site-nav__link site-nav__link--trigger{{current-class:services}}" type="button" aria-expanded="false" aria-controls="panel-services" data-panel-toggle>
+            Services
+            <svg class="site-nav__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="mega-panel" id="panel-services" data-panel>
+            <div class="mega-panel__inner container">
+              <div class="mega-panel__group">
+                <p class="mega-panel__heading">Infrastructure &amp; Networks</p>
+                <ul class="mega-panel__list">
+                  <li><a class="mega-panel__link" href="service-detail.html">Network Design &amp; Implementations</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Active Directory Design &amp; Implementations</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Corporate Desktop Deployments and Support</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Hardware &amp; Software Application Solutions</a></li>
+                </ul>
+              </div>
+              <div class="mega-panel__group">
+                <p class="mega-panel__heading">Security &amp; Continuity</p>
+                <ul class="mega-panel__list">
+                  <li><a class="mega-panel__link" href="service-detail.html">Network Security</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Business Continuity and Disaster Recovery</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Enterprise Backup Solutions</a></li>
+                </ul>
+              </div>
+              <div class="mega-panel__group">
+                <p class="mega-panel__heading">Business Applications</p>
+                <ul class="mega-panel__list">
+                  <li><a class="mega-panel__link" href="service-detail.html">ERP &amp; PLM Implementations</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Enterprise Messaging Implementations</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Monetics</a></li>
+                </ul>
+              </div>
+              <div class="mega-panel__group">
+                <p class="mega-panel__heading">Consulting &amp; Transformation</p>
+                <ul class="mega-panel__list">
+                  <li><a class="mega-panel__link" href="service-detail.html">Digital Transformation</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Project Management</a></li>
+                </ul>
+                <a class="mega-panel__all" href="services.html">All services</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="site-nav__item site-nav__item--has-panel">
+          <button class="site-nav__link site-nav__link--trigger{{current-class:solutions}}" type="button" aria-expanded="false" aria-controls="panel-solutions" data-panel-toggle>
+            Solutions
+            <svg class="site-nav__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--compact" id="panel-solutions" data-panel>
+            <div class="mega-panel__inner container">
+              <ul class="mega-panel__products">
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">Bsecured Park</span><span class="mega-panel__product-desc">Information system security on Cisco and Microsoft</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">BSmartGrid</span><span class="mega-panel__product-desc">Business management for utilities</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">Mobile Banking</span><span class="mega-panel__product-desc">Banking services on mobile phones</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">Bsales Pro</span><span class="mega-panel__product-desc">Point of sale for hospitality and services</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">SSLoGe</span><span class="mega-panel__product-desc">Dedicated secure link for banks</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">Quick Billing</span><span class="mega-panel__product-desc">Modular billing application</span></a></li>
+              </ul>
+              <a class="mega-panel__all" href="solutions.html">All solutions</a>
+            </div>
+          </div>
+        </li>
+        <li class="site-nav__item"><a class="site-nav__link" href="news.html"{{current:news}}>News &amp; Insights</a></li>
+        <li class="site-nav__item">
+          <a class="site-nav__link" href="https://bostonsoluxacademy.com/" target="_blank" rel="noopener">
+            Academy
+            <svg class="site-nav__external" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12"/></svg>
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        </li>
+        <li class="site-nav__item"><a class="site-nav__link" href="careers.html"{{current:careers}}>Careers</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="contact.html"{{current:contact}}>Contact</a></li>
+      </ul>
+
+      <div class="site-nav__actions">
+        <ul class="lang-switch" aria-label="Language">
+          <li><a class="lang-switch__link lang-switch__link--active" href="{{href_en}}" lang="en" hreflang="en" aria-current="true">EN</a></li>
+          <li><a class="lang-switch__link" href="{{href_fr}}" lang="fr" hreflang="fr">FR</a></li>
+        </ul>
+        <a class="btn btn--primary btn--small" href="contact.html">Contact us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- ============================ /header.php ============================== -->
