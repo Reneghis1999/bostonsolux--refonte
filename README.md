@@ -11,7 +11,7 @@ Maquette HTML/CSS/JS (vanilla, sans build) de la refonte de [bostonsolux.com](ht
   ```
   puis ouvrir http://localhost:8000.
 
-Une connexion Internet est nécessaire pour charger la police IBM Plex Sans (Google Fonts). Sans connexion, le site s'affiche avec une police de secours.
+Une connexion Internet est nécessaire pour charger les polices Instrument Serif et IBM Plex Sans (Google Fonts). Sans connexion, le site s'affiche avec des polices de secours.
 
 ## Pages
 
@@ -31,12 +31,15 @@ Toutes les pages partagent exactement le même header et le même footer. Seul c
 
 ## Direction artistique
 
-- **Charte** : rouge, noir et blanc, tirés du logo.
-  - Rouge `#991B1F` (accent : boutons, liens, nœuds de la carte)
-  - Noir `#231F20` (titres, bloc CyberSecurity Center, pied de page)
-  - Blanc `#FFFFFF`, gris clair `#F6F5F5` pour les fonds alternés
-- **Typographie** : IBM Plex Sans, une seule famille.
-- **Élément signature** : la carte réseau des 7 bureaux dans le hero. Elle se dessine au chargement ; c'est la seule animation automatique du site, désactivée si l'utilisateur a demandé à réduire les animations.
+Inspirée du style de la page d'accueil de CinetPay, adaptée à la charte BostonSolux (rouge, noir, blanc) :
+
+- **Hero** : grande carte noire arrondie, légèrement en retrait des bords, avec un halo rouge dans les coins et de fines lignes concentriques. Contenu centré : badge pilule, grand titre serif avec un mot mis en valeur dans un bloc rouge incliné, sous-titre, boutons pilules, puis bandeau de chiffres réels (7 bureaux, 3 continents, 12 services, 6 solutions).
+- **Panneaux arrondis** : les blocs sombres (héros des pages intérieures, CyberSecurity Center, appels à l'action) et les sections grises reprennent ce format de carte arrondie en retrait.
+- **Couleurs** : rouge `#991B1F` (et dégradé `#8E1A1E` → `#C23A2E` pour les boutons), noir nuit `#141112` pour les panneaux, noir du logo `#231F20` pour les textes et le pied de page, blanc et gris clair `#F6F5F5`.
+- **Typographie** : Instrument Serif pour les grands titres (h1, h2), IBM Plex Sans pour les textes, sous-titres et interfaces.
+- **Boutons** en forme de pilule ; liens soulignés en rouge.
+- **Carte réseau des 7 bureaux** : dans la section Bureaux de l'accueil et sur la page À propos ; elle se dessine quand elle arrive à l'écran.
+- **Animations** : apparition en cascade du contenu du hero au chargement, tracé de la carte. Toutes deux sont désactivées si l'utilisateur a demandé à réduire les animations.
 - **Regroupement des services** en 4 domaines : Infrastructure & Networks, Security & Continuity, Business Applications, Consulting & Transformation.
 - Tous les tokens (couleurs, polices, espacements, rayons) sont dans `:root`, au début de `assets/css/main.css`.
 
@@ -62,7 +65,7 @@ Toutes les pages partagent exactement le même header et le même footer. Seul c
 ## Éléments `[À COMPLÉTER]` / à valider
 
 ### Contenus
-- [ ] **Titre du hero** de l'accueil : proposition de positionnement, à valider.
+- [ ] **Titre du hero** de l'accueil (« Your IT, secured and built to grow. ») : proposition de positionnement, à valider.
 - [ ] **URL de l'Academy** : le CLAUDE.md indique https://bostonsoluxacademy.com/, mais la page Power Training du site actuel mentionne https://bostonsoluxedu.com/. Laquelle est la bonne ?
 - [ ] **Page ERP & PLM du site actuel** : elle affiche par erreur le texte de Network Security. Le texte réellement consacré à l'ERP se trouve sur la page Project Management ; c'est lui qui a été utilisé pour ERP & PLM.
 - [ ] **Project Management** : sans texte propre sur le site actuel, la description reprend l'article « BostonSolux PMO: Center of Excellence ».
