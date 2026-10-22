@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BostonSolux | IT Integration, Cybersecurity &amp; Enterprise Solutions</title>
+  <meta name="description" content="BostonSolux designs, secures and runs IT systems for banks, ministries and enterprises: networks, cybersecurity, ERP, backup and digital transformation. Offices in Rockville, Paris and five African capitals.">
+  <link rel="icon" type="image/webp" href="assets/img/logo-bostonsolux.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================== header.php ============================== -->
+<header class="site-header" data-site-header>
+  <div class="site-header__inner container">
+    <a class="site-header__brand" href="index.html" aria-label="BostonSolux, home">
+      <img class="site-header__logo" src="assets/img/logo-bostonsolux.webp" alt="BostonSolux, Focus on Solutions" width="1011" height="247">
+    </a>
+
+    <button class="site-header__toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="site-header__toggle-bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation" data-site-nav>
+      <ul class="site-nav__list">
+        <li class="site-nav__item site-nav__item--has-panel">
+          <button class="site-nav__link site-nav__link--trigger" type="button" aria-expanded="false" aria-controls="panel-services" data-panel-toggle>
+            Services
+            <svg class="site-nav__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="mega-panel" id="panel-services" data-panel>
+            <div class="mega-panel__inner container">
+              <div class="mega-panel__group">
+                <p class="mega-panel__heading">Infrastructure &amp; Networks</p>
+                <ul class="mega-panel__list">
+                  <li><a class="mega-panel__link" href="service-detail.html">Network Design &amp; Implementations</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Active Directory Design &amp; Implementations</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Corporate Desktop Deployments and Support</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Hardware &amp; Software Application Solutions</a></li>
+                </ul>
+              </div>
+              <div class="mega-panel__group">
+                <p class="mega-panel__heading">Security &amp; Continuity</p>
+                <ul class="mega-panel__list">
+                  <li><a class="mega-panel__link" href="service-detail.html">Network Security</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Business Continuity and Disaster Recovery</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Enterprise Backup Solutions</a></li>
+                </ul>
+              </div>
+              <div class="mega-panel__group">
+                <p class="mega-panel__heading">Business Applications</p>
+                <ul class="mega-panel__list">
+                  <li><a class="mega-panel__link" href="service-detail.html">ERP &amp; PLM Implementations</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Enterprise Messaging Implementations</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Monetics</a></li>
+                </ul>
+              </div>
+              <div class="mega-panel__group">
+                <p class="mega-panel__heading">Consulting &amp; Transformation</p>
+                <ul class="mega-panel__list">
+                  <li><a class="mega-panel__link" href="service-detail.html">Digital Transformation</a></li>
+                  <li><a class="mega-panel__link" href="service-detail.html">Project Management</a></li>
+                </ul>
+                <a class="mega-panel__all" href="services.html">All services</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="site-nav__item site-nav__item--has-panel">
+          <button class="site-nav__link site-nav__link--trigger" type="button" aria-expanded="false" aria-controls="panel-solutions" data-panel-toggle>
+            Solutions
+            <svg class="site-nav__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="mega-panel mega-panel--compact" id="panel-solutions" data-panel>
+            <div class="mega-panel__inner container">
+              <ul class="mega-panel__products">
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">Bsecured Park</span><span class="mega-panel__product-desc">Information system security on Cisco and Microsoft</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">BSmartGrid</span><span class="mega-panel__product-desc">Business management for utilities</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">Mobile Banking</span><span class="mega-panel__product-desc">Banking services on mobile phones</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">Bsales Pro</span><span class="mega-panel__product-desc">Point of sale for hospitality and services</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">SSLoGe</span><span class="mega-panel__product-desc">Dedicated secure link for banks</span></a></li>
+                <li><a class="mega-panel__product" href="solution-detail.html"><span class="mega-panel__product-name">Quick Billing</span><span class="mega-panel__product-desc">Modular billing application</span></a></li>
+              </ul>
+              <a class="mega-panel__all" href="solutions.html">All solutions</a>
+            </div>
+          </div>
+        </li>
+        <li class="site-nav__item"><a class="site-nav__link" href="news.html">News &amp; Insights</a></li>
+        <li class="site-nav__item">
+          <a class="site-nav__link" href="https://bostonsoluxacademy.com/" target="_blank" rel="noopener">
+            Academy
+            <svg class="site-nav__external" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12"/></svg>
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        </li>
+        <li class="site-nav__item"><a class="site-nav__link" href="careers.html">Careers</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="site-nav__actions">
+        <ul class="lang-switch" aria-label="Language">
+          <li><a class="lang-switch__link lang-switch__link--active" href="index.html" lang="en" aria-current="true">EN</a></li>
+          <li><a class="lang-switch__link" href="#" lang="fr" hreflang="fr">FR</a></li>
+        </ul>
+        <a class="btn btn--primary btn--small" href="contact.html">Contact us</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<!-- ============================ /header.php ============================== -->
+
+<main id="main">
+
+  <!-- Hero -->
+  <section class="section-hero">
+    <div class="section-hero__inner container">
+      <div class="section-hero__content">
+        <h1 class="section-hero__title">Secure, integrated IT for banks, ministries and enterprises.</h1>
+        <p class="section-hero__lead">From network design to cybersecurity and ERP, BostonSolux delivers with speed and efficiency to better serve its partners, from Rockville to Malabo.</p>
+        <div class="section-hero__actions">
+          <a class="btn btn--primary" href="services.html">Explore our services</a>
+          <a class="btn btn--secondary" href="contact.html">Contact us</a>
+        </div>
+      </div>
+
+      <figure class="network-map section-hero__visual">
+        <svg class="network-map__svg" viewBox="-70 0 790 370" role="img" aria-labelledby="network-map-title">
+          <title id="network-map-title">Map of the BostonSolux offices: Rockville headquarters, Paris, Conakry, Lomé, Cotonou, Malabo and N'Djamena</title>
+          <g class="network-map__grid" aria-hidden="true">
+            <path d="M80 10V350M170 10V350M260 10V350M350 10V350M440 10V350M530 10V350M620 10V350"/>
+            <path d="M-60 70H700M-60 160H700M-60 250H700"/>
+            <path class="network-map__equator" d="M-60 340H700"/>
+          </g>
+          <g class="network-map__links" aria-hidden="true">
+            <path class="network-map__link network-map__link--1" pathLength="1" d="M67 106Q300 -20 544 47"/>
+            <path class="network-map__link network-map__link--2" pathLength="1" d="M67 106Q230 260 448 282"/>
+            <path class="network-map__link network-map__link--3" pathLength="1" d="M544 47Q620 140 620 267"/>
+            <path class="network-map__link network-map__link--3" pathLength="1" d="M544 47Q510 180 535 303"/>
+            <path class="network-map__link network-map__link--4" pathLength="1" d="M448 282Q495 280 535 303"/>
+            <path class="network-map__link network-map__link--4" pathLength="1" d="M535 303Q541 296 547 300"/>
+            <path class="network-map__link network-map__link--5" pathLength="1" d="M547 300Q570 302 583 318"/>
+            <path class="network-map__link network-map__link--5" pathLength="1" d="M583 318Q612 300 620 267"/>
+          </g>
+          <g class="network-map__nodes">
+            <circle class="network-map__node network-map__node--hq" cx="67" cy="106" r="7"/>
+            <circle class="network-map__node" cx="544" cy="47" r="4.5"/>
+            <circle class="network-map__node" cx="448" cy="282" r="4.5"/>
+            <circle class="network-map__node" cx="535" cy="303" r="4.5"/>
+            <circle class="network-map__node" cx="547" cy="300" r="4.5"/>
+            <circle class="network-map__node" cx="583" cy="318" r="4.5"/>
+            <circle class="network-map__node" cx="620" cy="267" r="4.5"/>
+          </g>
+          <g class="network-map__labels" aria-hidden="true">
+            <text class="network-map__label network-map__label--hq" x="52" y="105" text-anchor="end">Rockville</text>
+            <text class="network-map__sublabel" x="52" y="122" text-anchor="end">Headquarters</text>
+            <text class="network-map__label" x="557" y="52">Paris</text>
+            <text class="network-map__label" x="448" y="308" text-anchor="middle">Conakry</text>
+            <text class="network-map__label" x="526" y="336" text-anchor="middle">Lomé, Cotonou</text>
+            <text class="network-map__label" x="600" y="336">Malabo</text>
+            <text class="network-map__label" x="631" y="262">N'Djamena</text>
+          </g>
+        </svg>
+        <figcaption class="network-map__caption">Seven offices on three continents: Rockville (headquarters), Paris, Lomé, N'Djamena, Malabo, Conakry and Cotonou.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- Technology partners -->
+  <section class="section-partners" aria-labelledby="partners-title">
+    <div class="container">
+      <h2 class="section-partners__title" id="partners-title">Technology partners</h2>
+      <ul class="partner-list">
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/microsoft.webp" alt="Microsoft" width="298" height="64" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/cisco.webp" alt="Cisco" width="280" height="146" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/oracle.webp" alt="Oracle" width="282" height="37" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/sap.webp" alt="SAP" width="319" height="158" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/odoo.webp" alt="Odoo" width="233" height="75" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/vmware.webp" alt="VMware" width="296" height="46" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/juniper.webp" alt="Juniper Networks" width="209" height="57" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/infor.webp" alt="Infor" width="189" height="75" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/peoplesoft.webp" alt="PeopleSoft" width="204" height="50" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/pecb.webp" alt="PECB" width="209" height="88" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/ec-council.webp" alt="EC-Council" width="174" height="34" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/peoplecert.webp" alt="PeopleCert" width="348" height="128" loading="lazy"></li>
+        <li class="partner-list__item"><img class="partner-list__logo" src="assets/img/partners/bluehost.webp" alt="Bluehost" width="196" height="48" loading="lazy"></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section-about" aria-labelledby="about-title">
+    <div class="section-about__inner container">
+      <div class="section-about__content">
+        <h2 class="section-about__title" id="about-title">A consultancy built around your outcomes</h2>
+        <p class="section-about__text">BostonSolux is a business development consultancy committed to excellence in client service. We implement fully integrated enterprise solutions as well as standalone products, with proven business processes to address our clients' challenges in every area of their business.</p>
+        <p class="section-about__text">Our strengths: the depth of our consulting, the diversity of our skills and the adaptability to meet each client's expectations.</p>
+        <a class="text-link" href="about.html">About BostonSolux</a>
+      </div>
+      <figure class="section-about__media">
+        <img class="section-about__image" src="assets/img/about-office.webp" alt="BostonSolux office building" width="367" height="275" loading="lazy">
+      </figure>
+    </div>
+  </section>
+
+  <!-- Areas of expertise -->
+  <section class="section-expertise" aria-labelledby="expertise-title">
+    <div class="container">
+      <header class="section-head">
+        <h2 class="section-head__title" id="expertise-title">Areas of expertise</h2>
+        <p class="section-head__lead">Twelve services in four domains, delivered by the same teams from design to support.</p>
+      </header>
+
+      <div class="expertise-grid">
+        <article class="expertise">
+          <img class="expertise__image" src="assets/img/services/network-design.webp" alt="Network equipment and a technician's tablet" width="1200" height="800" loading="lazy">
+          <h3 class="expertise__title">Infrastructure &amp; Networks</h3>
+          <p class="expertise__intro">The foundations your teams work on every day: networks, directories, workstations and equipment.</p>
+          <ul class="expertise__list">
+            <li><a class="expertise__link" href="service-detail.html">Network Design &amp; Implementations</a></li>
+            <li><a class="expertise__link" href="service-detail.html">Active Directory Design &amp; Implementations</a></li>
+            <li><a class="expertise__link" href="service-detail.html">Corporate Desktop Deployments and Support</a></li>
+            <li><a class="expertise__link" href="service-detail.html">Hardware &amp; Software Application Solutions</a></li>
+          </ul>
+        </article>
+
+        <article class="expertise">
+          <img class="expertise__image" src="assets/img/services/enterprise-backup.webp" alt="Backup and restore illustration" width="1200" height="800" loading="lazy">
+          <h3 class="expertise__title">Security &amp; Continuity</h3>
+          <p class="expertise__intro">Protect your information system and keep it running, whatever happens.</p>
+          <ul class="expertise__list">
+            <li><a class="expertise__link" href="service-detail.html">Network Security</a></li>
+            <li><a class="expertise__link" href="service-detail.html">Business Continuity and Disaster Recovery</a></li>
+            <li><a class="expertise__link" href="service-detail.html">Enterprise Backup Solutions</a></li>
+          </ul>
+        </article>
+
+        <article class="expertise">
+          <img class="expertise__image" src="assets/img/services/erp-plm.webp" alt="ERP modules illustration: inventory, manufacturing, sales, shipping" width="1200" height="800" loading="lazy">
+          <h3 class="expertise__title">Business Applications</h3>
+          <p class="expertise__intro">The applications that run your operations, your communications and your payments.</p>
+          <ul class="expertise__list">
+            <li><a class="expertise__link" href="service-detail.html">ERP &amp; PLM Implementations</a></li>
+            <li><a class="expertise__link" href="service-detail.html">Enterprise Messaging Implementations</a></li>
+            <li><a class="expertise__link" href="service-detail.html">Monetics</a></li>
+          </ul>
+        </article>
+
+        <article class="expertise">
+          <img class="expertise__image" src="assets/img/services/digital-transformation.webp" alt="Digital transformation illustration over a world map" width="1200" height="800" loading="lazy">
+          <h3 class="expertise__title">Consulting &amp; Transformation</h3>
+          <p class="expertise__intro">Plan and steer change, from digital strategy to project delivery.</p>
+          <ul class="expertise__list">
+            <li><a class="expertise__link" href="service-detail.html">Digital Transformation</a></li>
+            <li><a class="expertise__link" href="service-detail.html">Project Management</a></li>
+          </ul>
+          <p class="expertise__note">Looking for a PMP? Write to <a href="mailto:pmo@bostonsolux.com">pmo@bostonsolux.com</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our solutions -->
+  <section class="section-solutions" aria-labelledby="solutions-title">
+    <div class="container">
+      <header class="section-head">
+        <h2 class="section-head__title" id="solutions-title">Our solutions</h2>
+        <p class="section-head__lead">Six products designed and maintained by BostonSolux.</p>
+      </header>
+
+      <ul class="solution-list">
+        <li class="solution">
+          <svg class="solution__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-4.7 11.6-11 14-6.3-2.4-11-7-11-14V7z"/><path d="M11 16l3.5 3.5L21 13"/></svg>
+          <h3 class="solution__name">Bsecured Park</h3>
+          <p class="solution__text">Integrated security for your information system, built on the latest Cisco and Microsoft technologies.</p>
+          <a class="text-link" href="solution-detail.html">Discover Bsecured Park</a>
+        </li>
+        <li class="solution">
+          <svg class="solution__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M18 3L7 18h8l-1 11 11-15h-8z"/></svg>
+          <h3 class="solution__name">BSmartGrid</h3>
+          <p class="solution__text">Integrated business management for utility companies.</p>
+          <a class="text-link" href="solution-detail.html">Discover BSmartGrid</a>
+        </li>
+        <li class="solution">
+          <svg class="solution__icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="9" y="3" width="14" height="26" rx="2.5"/><path d="M14 25h4"/><path d="M13 12h6M13 16h6"/></svg>
+          <h3 class="solution__name">Mobile Banking</h3>
+          <p class="solution__text">Banking services delivered on the mobile phone.</p>
+          <a class="text-link" href="solution-detail.html">Discover Mobile Banking</a>
+        </li>
+        <li class="solution">
+          <svg class="solution__icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="5" width="24" height="15" rx="2"/><path d="M4 15h24M12 20l-2 7h12l-2-7"/></svg>
+          <h3 class="solution__name">Bsales Pro</h3>
+          <p class="solution__text">Point of sale for bars, restaurants, dry cleaners and hotels.</p>
+          <a class="text-link" href="solution-detail.html">Discover Bsales Pro</a>
+        </li>
+        <li class="solution">
+          <svg class="solution__icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="14" width="18" height="14" rx="2"/><path d="M11 14V10a5 5 0 0110 0v4"/><path d="M16 19v4"/></svg>
+          <h3 class="solution__name">SSLoGe</h3>
+          <p class="solution__text">A dedicated secure link for banks.</p>
+          <a class="text-link" href="solution-detail.html">Discover SSLoGe</a>
+        </li>
+        <li class="solution">
+          <svg class="solution__icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 3h16v26l-4-2.5-4 2.5-4-2.5L8 29z"/><path d="M12 10h8M12 15h8M12 20h5"/></svg>
+          <h3 class="solution__name">Quick Billing</h3>
+          <p class="solution__text">A modular billing application organised around a standard core.</p>
+          <a class="text-link" href="solution-detail.html">Discover Quick Billing</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Highlights: CyberSecurity Center and Power Training -->
+  <section class="section-highlights" aria-label="BostonSolux CyberSecurity Center and Power Training">
+    <article class="feature feature--dark">
+      <div class="feature__inner container">
+        <img class="feature__image" src="assets/img/cybersecurity-center.webp" alt="Digital lock and security alerts on a network" width="898" height="505" loading="lazy">
+        <div class="feature__content">
+          <h2 class="feature__title">BostonSolux CyberSecurity Center</h2>
+          <p class="feature__text">The benefits of a global company, with local presence and experience. Our security audit measures, evaluates and improves the security of your information system, and our penetration tests find the flaws before an attacker does.</p>
+          <ul class="feature__list">
+            <li>Security audit</li>
+            <li>Internal penetration testing</li>
+            <li>Wireless penetration testing</li>
+            <li>Cybersecurity solution integration</li>
+            <li>Specialised and customised work</li>
+          </ul>
+          <a class="btn btn--primary" href="contact.html">Request a security audit</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature feature--reverse">
+      <div class="feature__inner container">
+        <img class="feature__image" src="assets/img/power-training.webp" alt="A trainer presenting to a team in a meeting room" width="852" height="480" loading="lazy">
+        <div class="feature__content">
+          <h2 class="feature__title">BostonSolux Power Training</h2>
+          <p class="feature__text">A company is worth the skills of its people. BostonSolux offers personalised, targeted training in management, human resources, leadership, quality, security and technology.</p>
+          <a class="btn btn--secondary" href="https://bostonsoluxacademy.com/" target="_blank" rel="noopener">Visit BostonSolux Academy<span class="visually-hidden"> (opens in a new tab)</span></a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Case study -->
+  <section class="section-case-study" aria-labelledby="case-title">
+    <div class="section-case-study__inner container">
+      <img class="section-case-study__image" src="assets/img/case-mmie-malabo.webp" alt="Office building of the Ministry of Mines, Industry and Energy in Malabo" width="1170" height="550" loading="lazy">
+      <div class="section-case-study__content">
+        <p class="section-case-study__kicker">Case study</p>
+        <h2 class="section-case-study__title" id="case-title">The Ministry of Mines, Industry and Energy goes live with Bsecured Park</h2>
+        <dl class="case-facts">
+          <div class="case-facts__row">
+            <dt class="case-facts__term">Client</dt>
+            <dd class="case-facts__desc">Ministry of Mines, Industry and Energy (MMIE), Malabo, Equatorial Guinea</dd>
+          </div>
+          <div class="case-facts__row">
+            <dt class="case-facts__term">Challenge</dt>
+            <dd class="case-facts__desc">Move to new offices in a highly secured environment, with modern tools from day one.</dd>
+          </div>
+          <div class="case-facts__row">
+            <dt class="case-facts__term">Solution</dt>
+            <dd class="case-facts__desc">Bsecured Park, on Cisco and Microsoft: secured telecommunications, dedicated email, advanced telephony and video, Linux servers and storage in a robust data centre, and Voice over IP ready to connect other government sites.</dd>
+          </div>
+          <div class="case-facts__row">
+            <dt class="case-facts__term">Outcome</dt>
+            <dd class="case-facts__desc">Delivered on time and on budget.</dd>
+          </div>
+        </dl>
+        <div class="section-case-study__actions">
+          <a class="btn btn--primary" href="solution-detail.html">Discover Bsecured Park</a>
+          <a class="text-link" href="https://bostonsolux.com/mmie-ministry-of-mines-industry-and-energy-malabo-guinea-equatorial-goes-live-with-bostonsolux-bsecured-park-solution-2/">Read the announcement</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interviews -->
+  <section class="section-interviews" aria-labelledby="interviews-title">
+    <div class="container">
+      <header class="section-head section-head--split">
+        <div>
+          <h2 class="section-head__title" id="interviews-title">In their words</h2>
+          <p class="section-head__lead">Interviews with the BostonSolux team and its experts.</p>
+        </div>
+        <a class="text-link" href="https://www.youtube.com/channel/UCd7b9K_BGh5menUsi_QJyAg" target="_blank" rel="noopener">Watch BostonSolux TV<span class="visually-hidden"> (opens in a new tab)</span></a>
+      </header>
+
+      <ul class="interview-list">
+        <li class="interview">
+          <img class="interview__photo" src="assets/img/people/richard-dotse.webp" alt="Portrait of Richard Dotse" width="335" height="200" loading="lazy">
+          <blockquote class="interview__quote">
+            <p>We bring the innovative solutions to you. We have the experience and knowledge you need to face the business challenges of the 21st century.</p>
+          </blockquote>
+          <p class="interview__name">Richard Dotse</p>
+          <p class="interview__role">CEO, BostonSolux</p>
+          <a class="text-link" href="https://bostonsolux.com/interview-with-bostonsolux-ceo/">Read the interview</a>
+        </li>
+        <li class="interview">
+          <img class="interview__photo" src="assets/img/people/yvon-vodounon.webp" alt="Portrait of Yvon Vodounon" width="200" height="250" loading="lazy">
+          <blockquote class="interview__quote">
+            <p>BostonSolux relies on the best technologies and open-ended solutions to build long-lasting results for its clients.</p>
+          </blockquote>
+          <p class="interview__name">Yvon Vodounon</p>
+          <p class="interview__role">Expert in Electronic Document Management</p>
+          <a class="text-link" href="https://bostonsolux.com/document-management-interview-with-yvon-vodounon/">Read the interview</a>
+        </li>
+        <li class="interview">
+          <img class="interview__photo" src="assets/img/people/spero-houmey.webp" alt="Portrait of Spéro Houmey" width="170" height="200" loading="lazy">
+          <blockquote class="interview__quote">
+            <p>What can we bring as members of the diaspora in Africa, and what is our contribution alongside African businesses?</p>
+          </blockquote>
+          <p class="interview__name">Spéro Houmey</p>
+          <p class="interview__role">Senior Consultant in Human Resources</p>
+          <a class="text-link" href="https://bostonsolux.com/human-resources-management-interview-with-spero-houmey/">Read the interview</a>
+        </li>
+        <li class="interview">
+          <img class="interview__photo" src="assets/img/people/ruben-coulibaly.webp" alt="Portrait of Ruben M. Coulibaly" width="335" height="200" loading="lazy">
+          <blockquote class="interview__quote">
+            <p>Our strategic objective is to give our partners optimal availability of their information systems.</p>
+          </blockquote>
+          <p class="interview__name">Ruben M. Coulibaly</p>
+          <p class="interview__role">CCNP, Support Lead</p>
+          <a class="text-link" href="https://bostonsolux.com/our-support-strategy-by-ruben-m-coulibaly-ccnp-support-lead/">Read the interview</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- News -->
+  <section class="section-news" aria-labelledby="news-title">
+    <div class="container">
+      <header class="section-head section-head--split">
+        <h2 class="section-head__title" id="news-title">News &amp; insights</h2>
+        <a class="text-link" href="news.html">All news</a>
+      </header>
+
+      <ul class="news-list">
+        <li class="news-card">
+          <img class="news-card__image" src="assets/img/news/mooflex.webp" alt="Mooflex logo" width="500" height="500" loading="lazy">
+          <time class="news-card__date" datetime="2022-10-19">19 October 2022</time>
+          <h3 class="news-card__title"><a class="news-card__link" href="https://bostonsolux.com/mooflex-the-ideal-application-for-dorikko/">Mooflex, the ideal application for Dorikko</a></h3>
+          <p class="news-card__excerpt">A user-friendly application developed by the BostonSolux development team to manage Dorikko's entire herd.</p>
+        </li>
+        <li class="news-card">
+          <img class="news-card__image" src="assets/img/news/pecb-partnership.webp" alt="PECB logo" width="1500" height="500" loading="lazy">
+          <time class="news-card__date" datetime="2022-10-03">3 October 2022</time>
+          <h3 class="news-card__title"><a class="news-card__link" href="https://bostonsolux.com/pecb-signs-a-partnership-agreement-with-bostonsolux/">PECB signs a partnership agreement with BostonSolux</a></h3>
+          <p class="news-card__excerpt">PECB and BostonSolux have signed a partnership agreement.</p>
+        </li>
+        <li class="news-card">
+          <img class="news-card__image" src="assets/img/case-mmie-malabo.webp" alt="MMIE office building in Malabo" width="1170" height="550" loading="lazy">
+          <time class="news-card__date" datetime="2015-09-01">1 September 2015</time>
+          <h3 class="news-card__title"><a class="news-card__link" href="https://bostonsolux.com/mmie-ministry-of-mines-industry-and-energy-malabo-guinea-equatorial-goes-live-with-bostonsolux-bsecured-park-solution-2/">MMIE in Malabo goes live with Bsecured Park</a></h3>
+          <p class="news-card__excerpt">The Ministry of Mines, Industry and Energy of Equatorial Guinea deploys the BostonSolux Bsecured Park solution, on time and on budget.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Offices -->
+  <section class="section-offices" aria-labelledby="offices-title">
+    <div class="container">
+      <header class="section-head">
+        <h2 class="section-head__title" id="offices-title">Our offices</h2>
+        <p class="section-head__lead">Headquarters in the United States, offices in Europe and in West and Central Africa.</p>
+      </header>
+
+      <ul class="office-list">
+        <li class="office office--hq">
+          <h3 class="office__city">Rockville</h3>
+          <p class="office__country">United States, headquarters</p>
+          <address class="office__address">11140 Rockville Pike, Suite 400<br>Rockville, MD 20852</address>
+          <a class="office__phone" href="tel:+12403423141">+1 240-342-3141</a>
+        </li>
+        <li class="office">
+          <h3 class="office__city">Paris</h3>
+          <p class="office__country">France</p>
+          <address class="office__address">34 Avenue des Champs-Élysées<br>75008 Paris</address>
+          <a class="office__phone" href="tel:+33667637581">+33 6 67 63 75 81</a>
+        </li>
+        <li class="office">
+          <h3 class="office__city">Lomé</h3>
+          <p class="office__country">Togo</p>
+          <address class="office__address">Route Nationale N°2, Kpogan</address>
+          <a class="office__phone" href="tel:+22891061873">+228 91 06 18 73</a>
+        </li>
+        <li class="office">
+          <h3 class="office__city">N'Djamena</h3>
+          <p class="office__country">Chad</p>
+          <address class="office__address">Radisson Blu Hotel, Office N°20<br>2nd floor, Block C</address>
+          <a class="office__phone" href="tel:+23568808180">+235 68 80 81 80</a>
+        </li>
+        <li class="office">
+          <h3 class="office__city">Malabo</h3>
+          <p class="office__country">Equatorial Guinea</p>
+          <address class="office__address">Edificio Davinci, Malabo II</address>
+          <a class="office__phone" href="tel:+24055195850">+240 551 95 85 00</a>
+        </li>
+        <li class="office">
+          <h3 class="office__city">Conakry</h3>
+          <p class="office__country">Guinea</p>
+          <address class="office__address">Sonoco Trade Center, Office 175</address>
+          <a class="office__phone" href="tel:+224628355881">+224 628 35 58 81</a>
+        </li>
+        <li class="office">
+          <h3 class="office__city">Cotonou</h3>
+          <p class="office__country">Benin</p>
+          <address class="office__address">003 BP 2277<br>Sodexca partnership</address>
+          <a class="office__phone" href="tel:+22921049678">+229 21 04 96 78</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Final call to action -->
+  <section class="section-cta" aria-labelledby="cta-title">
+    <div class="section-cta__inner container">
+      <h2 class="section-cta__title" id="cta-title">Let's talk about your project.</h2>
+      <p class="section-cta__text">Tell us what you need to build, secure or modernise. A consultant will get back to you.</p>
+      <div class="section-cta__actions">
+        <a class="btn btn--primary btn--large" href="contact.html">Contact us</a>
+        <a class="text-link" href="mailto:info@bostonsolux.com">info@bostonsolux.com</a>
+      </div>
+      <p class="section-cta__note">Looking for a PMP? Write to <a href="mailto:pmo@bostonsolux.com">pmo@bostonsolux.com</a></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== footer.php ============================== -->
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <div class="site-footer__brand">
+      <img class="site-footer__logo" src="assets/img/logo-bostonsolux.webp" alt="BostonSolux" width="1011" height="247" loading="lazy">
+      <p class="site-footer__about">Consulting and IT integration for enterprises, banks and public institutions. Focus on Solutions.</p>
+      <ul class="social-list">
+        <li><a class="social-list__link" href="https://www.linkedin.com/company/bostonsolux" target="_blank" rel="noopener" aria-label="BostonSolux on LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg>
+        </a></li>
+        <li><a class="social-list__link" href="https://www.facebook.com/BostonSolux/" target="_blank" rel="noopener" aria-label="BostonSolux on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.87.25-1.46 1.5-1.46h1.6V4.46A21 21 0 0014.27 4.3c-2.3 0-3.87 1.4-3.87 3.98v2.22H7.8v3h2.6V21z"/></svg>
+        </a></li>
+        <li><a class="social-list__link" href="https://twitter.com/Bostonsolux" target="_blank" rel="noopener" aria-label="BostonSolux on X">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"/></svg>
+        </a></li>
+        <li><a class="social-list__link" href="https://www.youtube.com/channel/UCd7b9K_BGh5menUsi_QJyAg" target="_blank" rel="noopener" aria-label="BostonSolux on YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 00-1.77-1.77C18.27 5 12 5 12 5s-6.27 0-7.83.43A2.5 2.5 0 002.4 7.2 26 26 0 002 12a26 26 0 00.4 4.8 2.5 2.5 0 001.77 1.77C5.73 19 12 19 12 19s6.27 0 7.83-.43a2.5 2.5 0 001.77-1.77A26 26 0 0022 12a26 26 0 00-.4-4.8zM10 15V9l5.2 3z"/></svg>
+        </a></li>
+      </ul>
+    </div>
+
+    <nav class="site-footer__col" aria-labelledby="footer-company">
+      <h2 class="site-footer__heading" id="footer-company">Company</h2>
+      <ul class="site-footer__links">
+        <li><a href="about.html">About us</a></li>
+        <li><a href="news.html">News &amp; Insights</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="https://bostonsoluxacademy.com/" target="_blank" rel="noopener">Academy<span class="visually-hidden"> (opens in a new tab)</span></a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <nav class="site-footer__col" aria-labelledby="footer-services">
+      <h2 class="site-footer__heading" id="footer-services">Services</h2>
+      <ul class="site-footer__links">
+        <li><a href="services.html">Infrastructure &amp; Networks</a></li>
+        <li><a href="services.html">Security &amp; Continuity</a></li>
+        <li><a href="services.html">Business Applications</a></li>
+        <li><a href="services.html">Consulting &amp; Transformation</a></li>
+      </ul>
+      <h2 class="site-footer__heading site-footer__heading--spaced" id="footer-solutions">Solutions</h2>
+      <ul class="site-footer__links site-footer__links--inline" aria-labelledby="footer-solutions">
+        <li><a href="solution-detail.html">Bsecured Park</a></li>
+        <li><a href="solution-detail.html">BSmartGrid</a></li>
+        <li><a href="solution-detail.html">Mobile Banking</a></li>
+        <li><a href="solution-detail.html">Bsales Pro</a></li>
+        <li><a href="solution-detail.html">SSLoGe</a></li>
+        <li><a href="solution-detail.html">Quick Billing</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-footer__col">
+      <h2 class="site-footer__heading">Offices</h2>
+      <ul class="site-footer__offices">
+        <li><strong>Rockville, USA</strong>, headquarters <a href="tel:+12403423141">+1 240-342-3141</a></li>
+        <li><strong>Paris, France</strong> <a href="tel:+33667637581">+33 6 67 63 75 81</a></li>
+        <li><strong>Lomé, Togo</strong> <a href="tel:+22891061873">+228 91 06 18 73</a></li>
+        <li><strong>N'Djamena, Chad</strong> <a href="tel:+23568808180">+235 68 80 81 80</a></li>
+        <li><strong>Malabo, Equatorial Guinea</strong> <a href="tel:+24055195850">+240 551 95 85 00</a></li>
+        <li><strong>Conakry, Guinea</strong> <a href="tel:+224628355881">+224 628 35 58 81</a></li>
+        <li><strong>Cotonou, Benin</strong> <a href="tel:+22921049678">+229 21 04 96 78</a></li>
+      </ul>
+    </div>
+
+    <div class="site-footer__col">
+      <h2 class="site-footer__heading">Contact</h2>
+      <dl class="site-footer__contacts">
+        <dt>General enquiries</dt>
+        <dd><a href="mailto:info@bostonsolux.com">info@bostonsolux.com</a></dd>
+        <dt>Support</dt>
+        <dd><a href="mailto:support@bostonsolux.com">support@bostonsolux.com</a></dd>
+        <dd><a href="tel:+22891381717">+228 91 38 17 17</a></dd>
+        <dt>Project management</dt>
+        <dd><a href="mailto:pmo@bostonsolux.com">pmo@bostonsolux.com</a></dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom container">
+    <p class="site-footer__copyright">© 2026 BostonSolux</p>
+  </div>
+</footer>
+<!-- ============================ /footer.php ============================== -->
+
+</body>
+</html>
