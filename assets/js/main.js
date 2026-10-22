@@ -108,9 +108,31 @@
   var EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
   var PHONE = /^\+?[\d\s().-]{6,}$/;
 
+  // Messages follow the page language (<html lang="...">)
+  var MESSAGES = {
+    en: {
+      required: 'Please fill in {field}.',
+      field: 'this field',
+      email: 'Enter an email address like name@company.com.',
+      phone: 'Enter a phone number with digits only, including the country code.',
+      one: 'One field needs your attention.',
+      many: '{count} fields need your attention.'
+    },
+    fr: {
+      required: 'Veuillez renseigner le champ « {field} ».',
+      field: 'ce champ',
+      email: 'Saisissez une adresse email au format nom@entreprise.com.',
+      phone: 'Saisissez un numéro de téléphone avec l\u2019indicatif du pays, uniquement des chiffres.',
+      one: 'Un champ demande votre attention.',
+      many: '{count} champs demandent votre attention.'
+    }
+  };
+  var lang = (document.documentElement.lang || 'en').slice(0, 2);
+  var text = MESSAGES[lang] || MESSAGES.en;
+
   function labelText(control) {
     var label = document.querySelector('label[for="' + control.id + '"]');
-    return label ? label.firstChild.textContent.trim().toLowerCase() : 'this field';
+    return label ? label.firstChild.textContent.trim().toLowerCase() : text.field;
   }
 
   function validate(control) {
@@ -118,11 +140,11 @@
     var message = '';
 
     if (control.required && !value) {
-      message = control.getAttribute('data-error-required') || 'Please fill in ' + labelText(control) + '.';
+      message = control.getAttribute('data-error-required') || text.required.replace('{field}', labelText(control));
     } else if (value && control.type === 'email' && !EMAIL.test(value)) {
-      message = 'Enter an email address like name@company.com.';
+      message = text.email;
     } else if (value && control.type === 'tel' && !PHONE.test(value)) {
-      message = 'Enter a phone number with digits only, including the country code.';
+      message = text.phone;
     }
 
     var error = document.getElementById(control.id + '-error');
@@ -156,8 +178,8 @@
       if (invalid.length) {
         status.classList.remove('form__status--success');
         status.textContent = invalid.length === 1
-          ? 'One field needs your attention.'
-          : invalid.length + ' fields need your attention.';
+          ? text.one
+          : text.many.replace('{count}', invalid.length);
         invalid[0].focus();
         return;
       }
