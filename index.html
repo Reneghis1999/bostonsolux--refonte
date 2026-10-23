@@ -19,6 +19,32 @@
 <a class="skip-link" href="#main">Skip to content</a>
 
 <!-- ============================== header.php ============================== -->
+<div class="topbar" role="region" aria-label="Contact details, language and social networks">
+  <div class="topbar__inner container">
+    <ul class="topbar__contacts">
+      <li><a class="topbar__link" href="tel:+12403423141"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5l2.6-.5 1.6 4.1-2 1.4a12 12 0 006.7 6.7l1.4-2 4.1 1.6-.5 2.6a2 2 0 01-2 1.6A16.5 16.5 0 015 5.5a2 2 0 011.6-2z"/></svg>+1 240-342-3141</a></li>
+      <li><a class="topbar__link" href="mailto:info@bostonsolux.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 6l9 7 9-7"/></svg>info@bostonsolux.com</a></li>
+    </ul>
+    <div class="topbar__tools">
+      <div class="lang-menu" data-lang-menu>
+        <button class="lang-menu__toggle" type="button" aria-expanded="false" aria-controls="lang-menu-list" aria-label="Language: English. Choose a language" data-lang-toggle>
+          <svg class="lang-menu__globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+          <span class="lang-menu__current" aria-hidden="true">EN</span>
+          <svg class="lang-menu__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+        </button>
+        <ul class="lang-menu__list" id="lang-menu-list">
+          <li><a class="lang-menu__link" href="index.html" lang="en" hreflang="en" aria-current="true">English</a></li>
+          <li><a class="lang-menu__link" href="fr/index.html" lang="fr" hreflang="fr">Français</a></li>
+        </ul>
+      </div>
+      <ul class="header-social">
+        <li><a class="header-social__link" href="https://www.facebook.com/BostonSolux/" target="_blank" rel="noopener" aria-label="BostonSolux on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.87.25-1.46 1.5-1.46h1.6V4.46A21 21 0 0014.27 4.3c-2.3 0-3.87 1.4-3.87 3.98v2.22H7.8v3h2.6V21z"/></svg></a></li>
+        <li><a class="header-social__link" href="https://twitter.com/Bostonsolux" target="_blank" rel="noopener" aria-label="BostonSolux on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"/></svg></a></li>
+        <li><a class="header-social__link" href="https://www.linkedin.com/company/bostonsolux" target="_blank" rel="noopener" aria-label="BostonSolux on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg></a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 <header class="site-header" data-site-header>
   <div class="site-header__inner container">
     <a class="site-header__brand" href="index.html" aria-label="BostonSolux, home">
@@ -96,25 +122,18 @@
           </div>
         </li>
         <li class="site-nav__item"><a class="site-nav__link" href="news.html">News &amp; Insights</a></li>
+        <li class="site-nav__item">
+          <a class="site-nav__link" href="https://bostonsoluxacademy.com/" target="_blank" rel="noopener">
+            Academy
+            <svg class="site-nav__external" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12"/></svg>
+            <span class="visually-hidden">(opens in a new tab)</span>
+          </a>
+        </li>
+        <li class="site-nav__item"><a class="site-nav__link" href="careers.html">Careers</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="contact.html">Contact</a></li>
       </ul>
 
       <div class="site-nav__actions">
-        <div class="lang-menu" data-lang-menu>
-          <button class="lang-menu__toggle" type="button" aria-expanded="false" aria-controls="lang-menu-list" aria-label="Language: English. Choose a language" data-lang-toggle>
-            <svg class="lang-menu__globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
-            <span class="lang-menu__current" aria-hidden="true">EN</span>
-            <svg class="lang-menu__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
-          </button>
-          <ul class="lang-menu__list" id="lang-menu-list">
-            <li><a class="lang-menu__link" href="index.html" lang="en" hreflang="en" aria-current="true">English</a></li>
-            <li><a class="lang-menu__link" href="fr/index.html" lang="fr" hreflang="fr">Français</a></li>
-          </ul>
-        </div>
-        <ul class="header-social">
-          <li><a class="header-social__link" href="https://www.facebook.com/BostonSolux/" target="_blank" rel="noopener" aria-label="BostonSolux on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.87.25-1.46 1.5-1.46h1.6V4.46A21 21 0 0014.27 4.3c-2.3 0-3.87 1.4-3.87 3.98v2.22H7.8v3h2.6V21z"/></svg></a></li>
-          <li><a class="header-social__link" href="https://twitter.com/Bostonsolux" target="_blank" rel="noopener" aria-label="BostonSolux on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"/></svg></a></li>
-          <li><a class="header-social__link" href="https://www.linkedin.com/company/bostonsolux" target="_blank" rel="noopener" aria-label="BostonSolux on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4z"/></svg></a></li>
-        </ul>
         <a class="btn btn--primary btn--small" href="contact.html">Contact us</a>
       </div>
     </nav>
