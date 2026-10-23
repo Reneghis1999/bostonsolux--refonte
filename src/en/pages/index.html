@@ -16,10 +16,13 @@
         <img class="hero-slides__image" src="assets/img/hero/power-training.webp" alt="" width="1920" height="903">
         <img class="hero-slides__image" src="assets/img/hero/messaging.webp" alt="" width="1920" height="903">
       </div>
-      <button class="hero-slides__toggle" type="button" aria-pressed="false" data-slides-toggle data-label-pause="Pause the slideshow" data-label-play="Play the slideshow" aria-label="Pause the slideshow">
-        <svg class="hero-slides__icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z"/></svg>
-        <svg class="hero-slides__icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z"/></svg>
-      </button>
+      <div class="hero-slides__controls">
+        <div class="hero-slides__dots" data-slides-dots data-label="Show image {n} of {total}"></div>
+        <button class="hero-slides__toggle" type="button" aria-pressed="false" data-slides-toggle data-label-pause="Pause the slideshow" data-label-play="Play the slideshow" aria-label="Pause the slideshow">
+          <svg class="hero-slides__icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z"/></svg>
+          <svg class="hero-slides__icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z"/></svg>
+        </button>
+      </div>
       <div class="section-hero__inner container">
         <h1 class="section-hero__title">Your IT, <span class="highlight">secured</span> and built to grow.</h1>
         <p class="section-hero__lead">From network design to cybersecurity and ERP, BostonSolux serves banks, ministries and enterprises with speed and efficiency, from Rockville to Malabo.</p>

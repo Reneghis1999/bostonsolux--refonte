@@ -11,7 +11,7 @@
   var navToggle = header.querySelector('[data-nav-toggle]');
   var nav = header.querySelector('[data-site-nav]');
   var panelToggles = Array.prototype.slice.call(header.querySelectorAll('[data-panel-toggle]'));
-  var desktopQuery = window.matchMedia('(min-width: 1200px)');
+  var desktopQuery = window.matchMedia('(min-width: 1024px)');
 
   /* Header: compact state once the page has scrolled ------------------- */
   function updateHeader() {
@@ -226,8 +226,8 @@
 })();
 
 /* ==========================================================================
-   Hero slideshow: photos fade into each other behind the hero content.
-   Paused from the start when the visitor prefers reduced motion.
+   Hero slideshow: photos slide in behind the hero content, every 6 seconds.
+   It starts on its own; the pause button stops it at any time.
    ========================================================================== */
 (function () {
   'use strict';
@@ -237,17 +237,38 @@
   if (!slides || !toggle) return;
 
   var images = slides.querySelectorAll('.hero-slides__image');
+  var dotsBox = document.querySelector('[data-slides-dots]');
+  var dots = [];
   var current = 0;
   var timer = null;
   var DELAY = 6000;
+  var SLIDE_TIME = 1000;
 
   function show(index) {
-    images[current].classList.remove('hero-slides__image--active');
-    current = index % images.length;
-    images[current].classList.add('hero-slides__image--active');
+    var next = (index + images.length) % images.length;
+    if (next === current) return;
+
+    var leaving = images[current];
+    leaving.classList.remove('hero-slides__image--active');
+    leaving.classList.add('hero-slides__image--leaving');
+    // Once off-screen, send the old slide back to the right without animating
+    window.setTimeout(function () {
+      leaving.classList.add('hero-slides__image--instant');
+      leaving.classList.remove('hero-slides__image--leaving');
+      void leaving.offsetWidth;
+      leaving.classList.remove('hero-slides__image--instant');
+    }, SLIDE_TIME);
+
+    images[next].classList.add('hero-slides__image--active');
+    if (dots.length) {
+      dots[current].removeAttribute('aria-current');
+      dots[next].setAttribute('aria-current', 'true');
+    }
+    current = next;
   }
 
   function play() {
+    window.clearInterval(timer);
     timer = window.setInterval(function () { show(current + 1); }, DELAY);
     toggle.setAttribute('aria-pressed', 'false');
     toggle.setAttribute('aria-label', toggle.getAttribute('data-label-pause'));
@@ -260,13 +281,69 @@
     toggle.setAttribute('aria-label', toggle.getAttribute('data-label-play'));
   }
 
+  if (images.length < 2) {
+    toggle.hidden = true;
+    return;
+  }
+
+  // One dot per image, to jump to a given slide
+  if (dotsBox) {
+    var label = dotsBox.getAttribute('data-label');
+    Array.prototype.forEach.call(images, function (image, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'hero-slides__dot';
+      dot.setAttribute('aria-label', label.replace('{n}', i + 1).replace('{total}', images.length));
+      if (i === 0) dot.setAttribute('aria-current', 'true');
+      dot.addEventListener('click', function () {
+        show(i);
+        if (timer) play();
+      });
+      dotsBox.appendChild(dot);
+      dots.push(dot);
+    });
+  }
+
   toggle.addEventListener('click', function () {
     if (timer) pause(); else play();
   });
 
-  if (images.length < 2 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    pause();
-  } else {
-    play();
+  play();
+})();
+
+/* ==========================================================================
+   Language menu (globe icon in the header)
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var menu = document.querySelector('[data-lang-menu]');
+  if (!menu) return;
+
+  var toggle = menu.querySelector('[data-lang-toggle]');
+  var list = document.getElementById(toggle.getAttribute('aria-controls'));
+
+  function set(open) {
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    list.classList.toggle('lang-menu__list--open', open);
   }
+
+  toggle.addEventListener('click', function () {
+    set(toggle.getAttribute('aria-expanded') !== 'true');
+  });
+
+  document.addEventListener('click', function (event) {
+    if (!menu.contains(event.target)) set(false);
+  });
+
+  menu.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      set(false);
+      toggle.focus();
+    }
+  });
+
+  menu.addEventListener('focusout', function (event) {
+    if (!menu.contains(event.relatedTarget)) set(false);
+  });
 })();
