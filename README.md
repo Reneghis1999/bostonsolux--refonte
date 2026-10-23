@@ -63,7 +63,7 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 
 - **Rouge BostonSolux `#8C2826`**, mesuré sur le site actuel (barre de menu, bouton Blog). Il sert aux boutons, liens, icônes sociales et au mot mis en valeur du hero.
 - **Coins carrés partout** : boutons, cartes, images, panneaux, champs de formulaire, badges. Aucun arrondi.
-- **Hero de l'accueil** : grand panneau sombre en retrait des bords. En fond, **diaporama de 10 images du site actuel** : les 5 images du carrousel (MMIE Malabo, cabinet informatique, « Building the future », « We are here for you », consultant) et 5 images des services et mises en avant (cybersécurité, réseau, transformation digitale, Power Training, messagerie). Elles sont recadrées au format du hero, agrandies en 1920 px, plus nettes et légèrement plus contrastées, sous un voile sombre et un halo rouge pour garder le texte lisible. Le diaporama démarre seul : toutes les 6 secondes, l'image suivante glisse depuis la droite. Des petits traits en bas à droite indiquent l'image affichée et permettent d'en choisir une ; un bouton met en pause (obligatoire pour l'accessibilité). Si le visiteur a demandé à réduire les animations, les images changent en fondu au lieu de glisser.
+- **Hero de l'accueil** : grand panneau sombre en retrait des bords. En fond, **diaporama de 5 images** : la photo du ministère des Mines, de l'Industrie et de l'Énergie à Malabo (site actuel) et 4 photos professionnelles libres de droits (salle serveurs, équipe de consultants, câblage réseau, réunion client), sous un voile sombre et un halo rouge pour garder le texte lisible. Le diaporama démarre seul : toutes les 6 secondes, l'image suivante glisse depuis la droite. Des petits traits en bas à droite indiquent l'image affichée et permettent d'en choisir une ; un bouton met en pause (obligatoire pour l'accessibilité). Si le visiteur a demandé à réduire les animations, les images changent en fondu au lieu de glisser.
 - Contenu du hero centré : grand titre serif avec un mot dans un bloc rouge, sous-titre, deux boutons, bandeau de chiffres réels (7 bureaux, 3 continents, 12 services, 6 solutions).
 - **Partenaires technologiques** : bande de logos placée en bas de page, juste avant le footer (accueil et À propos).
 - **Barre du haut** (fine, noire) : téléphone du siège et email à gauche ; à droite, menu de langue (icône globe : English / Français) et icônes Facebook, X et LinkedIn.
@@ -94,6 +94,19 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 - `assets/img/partners/` : logos partenaires, **recolorés en noir monochrome** pour une bande homogène
 - `assets/img/banners/` : anciennes images de carrousel (non utilisées sur l'accueil)
 
+## Crédits photo du hero
+
+À la demande du client, 4 images du diaporama de l'accueil ne viennent pas du site actuel. Ce sont des photos Unsplash, sous licence Unsplash (usage commercial gratuit, sans attribution obligatoire) :
+
+| Fichier | Photo Unsplash |
+|---|---|
+| `assets/img/hero/data-center.webp` | `photo-1558494949-ef010cbdcc31` |
+| `assets/img/hero/consulting-team.webp` | `photo-1531482615713-2afd69097998` |
+| `assets/img/hero/network-cabling.webp` | `photo-1544197150-b99a580bb7a8` |
+| `assets/img/hero/client-partnership.webp` | `photo-1600880292203-757bb62b4baf` |
+
+Elles peuvent être remplacées à tout moment par des photos propres à BostonSolux (bureaux, équipes, projets).
+
 ## Éléments `[À COMPLÉTER]` / à valider
 
 ### Contenus
@@ -115,5 +128,5 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 - [ ] **Portraits en haute définition** : les portraits font 170 à 335 px de large sur le site actuel.
 - [ ] **Active Directory** : pas d'image dédiée sur le site actuel ; une ancienne image de bannière (globe) la remplace.
 - [ ] **Images avec texte incrusté** (ERP, « Backup & Restore », « Network Security », « Project Management ») : des versions sans texte seraient plus propres.
-- [ ] **Diaporama du hero** : l'image `slide3__c.jpeg` du carrousel actuel ne fait que 477 px de large ; elle est utilisée mais reste un peu floue en plein écran. Des versions haute définition des images du carrousel donneraient un rendu encore meilleur.
+- [ ] **Diaporama du hero** : des photos propres à BostonSolux (bureaux, équipes, projets) remplaceraient avantageusement les 4 photos Unsplash.
 - [ ] **Photo du bâtiment** : `about-building.webp` est recadrée depuis la couverture de la plaquette de présentation (meilleure définition que l'image d'origine).
