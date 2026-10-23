@@ -71,6 +71,14 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 - **Panneaux** : les blocs sombres (héros des pages intérieures, CyberSecurity Center, appels à l'action) et les sections grises sont des panneaux en retrait des bords.
 - **Couleurs** : rouge `#8C2826`, noir nuit `#141112` pour les panneaux, noir du logo `#231F20` pour les textes et le pied de page, blanc et gris clair `#F6F5F5`.
 - **Typographie** : Instrument Serif pour les grands titres (h1, h2), IBM Plex Sans pour les textes et l'interface.
+- **Animations** (toutes les pages, EN et FR) :
+  - apparition en cascade des sections, cartes et images au défilement (les images glissent depuis le côté, la carte réseau s'agrandit) ;
+  - trait rouge qui se dessine sous les titres de section ;
+  - hero : contenu qui monte en séquence, mot « secured » révélé par un balayage rouge, chiffres qui défilent de 0 à leur valeur ;
+  - survol : cartes qui se soulèvent, images qui s'éclairent, barre rouge qui glisse au-dessus des solutions et des bureaux, icônes qui basculent, boutons avec un remplissage qui glisse ;
+  - bande des partenaires qui défile en continu (pause au survol) ;
+  - barre rouge de progression de lecture en haut de l'écran et bouton « retour en haut ».
+  - Si le visiteur a demandé à réduire les animations, le contenu apparaît en fondu, sans aucun déplacement, et la bande des partenaires reste fixe.
 - **Carte réseau des 7 bureaux** : dans la section Bureaux de l'accueil et sur la page À propos.
 - **Regroupement des services** en 4 domaines : Infrastructure & Networks, Security & Continuity, Business Applications, Consulting & Transformation.
 - Tous les tokens (couleurs, polices, espacements, rayons) sont dans `:root`, au début de `assets/css/main.css`.

@@ -3279,13 +3279,368 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   9. Reduced motion
+   9. Motion
+   Scroll reveals, hover effects, logo marquee, reading progress.
+   Classes marked "js" are added by assets/js/main.js only.
+   -------------------------------------------------------------------------- */
+
+/* Scroll reveal (js): elements below the fold rise in as they appear */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal--left {
+  transform: translateX(-36px);
+}
+
+.reveal--right {
+  transform: translateX(36px);
+}
+
+.reveal--zoom {
+  transform: scale(0.94);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Section titles: a red rule draws itself under the title */
+.section-head__title::after,
+.service-category__title::after,
+.feature__title::after,
+.section-case-study__title::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 3px;
+  margin-top: var(--space-4);
+  background: var(--color-brand);
+  transform-origin: left;
+  transition: transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1) 200ms;
+}
+
+.reveal .section-head__title::after,
+.reveal.section-head__title::after,
+.reveal .service-category__title::after,
+.reveal .feature__title::after,
+.reveal .section-case-study__title::after {
+  transform: scaleX(0);
+}
+
+.reveal.is-visible .section-head__title::after,
+.reveal.is-visible.section-head__title::after,
+.reveal.is-visible .service-category__title::after,
+.reveal.is-visible .feature__title::after,
+.reveal.is-visible .section-case-study__title::after {
+  transform: scaleX(1);
+}
+
+.section-cta .section-cta__title::after {
+  display: none;
+}
+
+/* Hero: the highlighted word is revealed by a red wipe */
+@media (prefers-reduced-motion: no-preference) {
+  .highlight {
+    animation: highlight-wipe 900ms cubic-bezier(0.65, 0, 0.35, 1) 450ms both;
+  }
+
+  .page-hero__inner > *,
+  .page-hero > .container > * {
+    animation: hero-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  .page-hero > .container > :nth-child(2) { animation-delay: 80ms; }
+  .page-hero > .container > :nth-child(3) { animation-delay: 160ms; }
+  .page-hero > .container > :nth-child(4) { animation-delay: 240ms; }
+  .page-hero__inner > :nth-child(2) { animation-delay: 160ms; }
+}
+
+@keyframes highlight-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Hover: cards lift, images brighten, an accent bar slides in */
+.service-card,
+.news-card,
+.solution,
+.interview,
+.office,
+.pillar,
+.offer,
+.product,
+.expertise {
+  transition: transform 300ms ease, box-shadow 300ms ease, background-color 300ms ease;
+}
+
+.service-card__image,
+.news-card__image,
+.expertise__image,
+.feature__image,
+.interview__photo,
+.section-case-study__image,
+.case-block__image,
+.story__image,
+.news-feature__image,
+.page-hero__image,
+.section-about__image {
+  transition: filter 400ms ease, transform 400ms ease;
+}
+
+.service-card:hover,
+.news-card:hover,
+.solution:hover,
+.interview:hover {
+  transform: translateY(-6px);
+}
+
+.service-card:hover .service-card__image,
+.news-card:hover .news-card__image,
+.expertise:hover .expertise__image,
+.interview:hover .interview__photo {
+  filter: saturate(1.15) brightness(1.06);
+  box-shadow: 0 18px 40px -22px rgba(35, 31, 32, 0.55);
+}
+
+.solution,
+.pillar,
+.office {
+  position: relative;
+}
+
+.solution::before,
+.office::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.solution:hover::before,
+.office:hover::before {
+  transform: scaleX(1);
+}
+
+.solution__icon,
+.product__icon,
+.offer__icon {
+  transition: transform 400ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.solution:hover .solution__icon,
+.product:hover .product__icon,
+.offer:hover .offer__icon {
+  transform: translateY(-4px) rotate(-6deg);
+}
+
+.expertise__link {
+  position: relative;
+}
+
+.expertise__link::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 350ms ease;
+}
+
+.expertise__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Buttons: a darker fill slides in from the left */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color var(--transition), border-color var(--transition), transform 200ms ease, box-shadow 200ms ease;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--color-brand-dark);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 350ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.btn--secondary::before {
+  background: var(--color-ink);
+}
+
+.page-hero .btn--secondary::before,
+.section-hero .btn--secondary::before,
+.section-cta .btn--secondary::before,
+.feature--dark .btn--secondary::before,
+.section-block--dark .btn--secondary::before {
+  background: var(--color-white);
+}
+
+.btn:hover::before {
+  transform: scaleX(1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--primary:hover {
+  background: var(--color-brand);
+}
+
+.btn--secondary:hover,
+.page-hero .btn--secondary:hover,
+.section-hero .btn--secondary:hover,
+.section-cta .btn--secondary:hover,
+.feature--dark .btn--secondary:hover,
+.section-block--dark .btn--secondary:hover {
+  background: transparent;
+}
+
+/* Partner logos: an endless strip (js duplicates the logos) */
+.partner-list--marquee {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 0;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.partner-list--marquee .partner-list__item {
+  width: 11rem;
+  flex-shrink: 0;
+  padding-inline: var(--space-5);
+}
+
+.partner-marquee {
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.partner-marquee:hover .partner-list--marquee {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reading progress bar (js) */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 3px;
+  background: var(--color-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* Back to top button (js) */
+.back-to-top {
+  position: fixed;
+  right: var(--space-5);
+  bottom: var(--space-5);
+  z-index: 40;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  background: var(--color-brand);
+  border: 0;
+  color: var(--color-white);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 300ms ease, transform 300ms ease, visibility 300ms, background-color var(--transition);
+}
+
+.back-to-top--visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.back-to-top:hover {
+  background: var(--color-brand-dark);
+}
+
+.back-to-top svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.back-to-top:focus-visible {
+  outline-color: var(--color-ink);
+}
+
+/* --------------------------------------------------------------------------
+   10. Reduced motion
+   Content still fades in, but nothing moves, slides or scrolls on its own.
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
+  .reveal,
+  .reveal--left,
+  .reveal--right,
+  .reveal--zoom {
+    transform: none;
+  }
+
+  .partner-list--marquee {
+    animation: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+  }
+
+  .partner-marquee {
+    mask-image: none;
+  }
+
+  .service-card:hover,
+  .news-card:hover,
+  .solution:hover,
+  .interview:hover,
+  .btn:hover {
+    transform: none;
   }
 }
