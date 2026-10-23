@@ -1,6 +1,6 @@
 /* ==========================================================================
    BostonSolux — main stylesheet
-   Mobile-first. Breakpoints: 768px, 1024px, 1440px (navigation: 1200px).
+   Mobile-first. Breakpoints: 768px, 1024px, 1440px.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -81,7 +81,7 @@
   --transition: 180ms ease;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   :root {
     --header-h: 5.25rem;
   }
@@ -315,32 +315,96 @@ button {
   text-decoration-thickness: 2px;
 }
 
-/* Language switch */
-.lang-switch {
-  display: flex;
+/* Language menu: globe icon with a short dropdown */
+.lang-menu {
+  position: relative;
+}
+
+.lang-menu__toggle {
+  display: inline-flex;
   align-items: center;
+  gap: var(--space-2);
+  height: 2.5rem;
+  padding: 0 var(--space-3);
+  background: none;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink);
+  font-size: 0.875rem;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.lang-menu__toggle:hover,
+.lang-menu__toggle[aria-expanded="true"] {
+  border-color: var(--color-ink);
+}
+
+.lang-menu__globe {
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.lang-menu__chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--transition);
+}
+
+.lang-menu__toggle[aria-expanded="true"] .lang-menu__chevron {
+  transform: rotate(180deg);
+}
+
+.lang-menu__list {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  left: 0;
+  z-index: 60;
+  display: none;
+  min-width: 10rem;
+  padding: var(--space-2) 0;
+  background: var(--color-white);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-panel);
+}
+
+.lang-menu__list--open {
+  display: block;
+}
+
+.lang-menu__link {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  color: var(--color-ink);
   font-size: 0.9375rem;
-}
-
-.lang-switch li + li {
-  margin-left: var(--space-2);
-  padding-left: var(--space-2);
-  border-left: 1px solid var(--color-line);
-}
-
-.lang-switch__link {
-  color: var(--color-muted);
   text-decoration: none;
 }
 
-.lang-switch__link:hover {
-  color: var(--color-ink);
+.lang-menu__link:hover {
+  background: var(--color-surface);
+  color: var(--color-brand);
 }
 
-.lang-switch__link--active {
-  color: var(--color-ink);
+.lang-menu__link[aria-current="true"] {
   font-weight: var(--fw-semibold);
+  box-shadow: inset 3px 0 0 var(--color-brand);
 }
+
+@media (min-width: 1024px) {
+  .lang-menu__list {
+    right: 0;
+    left: auto;
+  }
+}
+
 
 /* --------------------------------------------------------------------------
    5. Header and navigation (header.php)
@@ -392,13 +456,13 @@ button {
   justify-content: center;
   width: 2.25rem;
   height: 2.25rem;
-  background: var(--color-brand);
-  color: var(--color-white);
-  transition: background-color var(--transition);
+  color: var(--color-ink);
+  transition: background-color var(--transition), color var(--transition);
 }
 
 .header-social__link:hover {
-  background: var(--color-brand-dark);
+  background: var(--color-brand);
+  color: var(--color-white);
 }
 
 .header-social__link svg {
@@ -607,8 +671,8 @@ button {
   text-underline-offset: 0.3em;
 }
 
-/* The full navigation needs 1200px; below that the burger menu is used */
-@media (min-width: 1200px) {
+/* Full navigation from 1024px; below that the burger menu is used */
+@media (min-width: 1024px) {
   .site-header__logo {
     height: 2.75rem;
   }
@@ -713,7 +777,7 @@ button {
 }
 
 /* Narrow desktops: tighten the menu so it stays on one line */
-@media (min-width: 1200px) and (max-width: 1399px) {
+@media (min-width: 1024px) and (max-width: 1279px) {
   .site-header__inner {
     gap: var(--space-3);
   }
@@ -741,7 +805,7 @@ button {
   }
 }
 
-@media (min-width: 1200px) and (hover: hover) {
+@media (min-width: 1024px) and (hover: hover) {
   .site-nav__item--has-panel:hover > .mega-panel {
     opacity: 1;
     visibility: visible;
@@ -777,18 +841,41 @@ button {
   overflow: hidden;
 }
 
+/* Slides wait on the right, slide in, then leave to the left */
 .hero-slides__image {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0;
-  transition: opacity 1.4s ease;
+  transform: translateX(100%);
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .hero-slides__image--active {
-  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-slides__image--leaving {
+  transform: translateX(-100%);
+}
+
+.hero-slides__image--instant {
+  transition: none;
+}
+
+/* Reduced motion: a simple cross-fade instead of the slide */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slides__image,
+  .hero-slides__image--leaving {
+    transform: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .hero-slides__image--active {
+    opacity: 1;
+  }
 }
 
 /* Dark veil and red glow keep the white text readable on every photo */
@@ -809,15 +896,46 @@ button {
 
 @keyframes hero-zoom {
   from {
-    transform: scale(1.08);
+    scale: 1.08;
   }
 }
 
-.hero-slides__toggle {
+/* Slide controls: dots and pause button, bottom right */
+.hero-slides__controls {
   position: absolute;
   right: var(--space-5);
   bottom: var(--space-5);
   z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.hero-slides__dots {
+  display: none;
+  gap: var(--space-2);
+}
+
+.hero-slides__dot {
+  width: 1.5rem;
+  height: 3px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border: 0;
+  cursor: pointer;
+}
+
+.hero-slides__dot[aria-current="true"] {
+  background: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .hero-slides__dots {
+    display: flex;
+  }
+}
+
+.hero-slides__toggle {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
@@ -1740,7 +1858,7 @@ button {
   color: var(--color-brand);
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1024px) {
   .site-nav__link[aria-current="page"],
   .site-nav__link--current {
     box-shadow: inset 0 -2px 0 var(--color-brand);

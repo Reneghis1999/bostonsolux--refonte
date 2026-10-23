@@ -96,22 +96,20 @@
           </div>
         </li>
         <li class="site-nav__item"><a class="site-nav__link" href="news.html">Actualités</a></li>
-        <li class="site-nav__item">
-          <a class="site-nav__link" href="https://bostonsoluxacademy.com/" target="_blank" rel="noopener">
-            Formation
-            <svg class="site-nav__external" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3h7v7M13 3L4 12"/></svg>
-            <span class="visually-hidden">(s'ouvre dans un nouvel onglet)</span>
-          </a>
-        </li>
-        <li class="site-nav__item"><a class="site-nav__link" href="careers.html" aria-current="page">Carrières</a></li>
-        <li class="site-nav__item"><a class="site-nav__link" href="contact.html">Contact</a></li>
       </ul>
 
       <div class="site-nav__actions">
-        <ul class="lang-switch" aria-label="Langue">
-          <li><a class="lang-switch__link" href="../careers.html" lang="en" hreflang="en">EN</a></li>
-          <li><a class="lang-switch__link lang-switch__link--active" href="careers.html" lang="fr" hreflang="fr" aria-current="true">FR</a></li>
-        </ul>
+        <div class="lang-menu" data-lang-menu>
+          <button class="lang-menu__toggle" type="button" aria-expanded="false" aria-controls="lang-menu-list" aria-label="Langue : français. Choisir une langue" data-lang-toggle>
+            <svg class="lang-menu__globe" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+            <span class="lang-menu__current" aria-hidden="true">FR</span>
+            <svg class="lang-menu__chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <ul class="lang-menu__list" id="lang-menu-list">
+            <li><a class="lang-menu__link" href="../careers.html" lang="en" hreflang="en">English</a></li>
+            <li><a class="lang-menu__link" href="careers.html" lang="fr" hreflang="fr" aria-current="true">Français</a></li>
+          </ul>
+        </div>
         <ul class="header-social">
           <li><a class="header-social__link" href="https://www.facebook.com/BostonSolux/" target="_blank" rel="noopener" aria-label="BostonSolux sur Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.5H16l.4-3H13.5V8.6c0-.87.25-1.46 1.5-1.46h1.6V4.46A21 21 0 0014.27 4.3c-2.3 0-3.87 1.4-3.87 3.98v2.22H7.8v3h2.6V21z"/></svg></a></li>
           <li><a class="header-social__link" href="https://twitter.com/Bostonsolux" target="_blank" rel="noopener" aria-label="BostonSolux sur X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78zm-1.08 16.18h1.7L7.4 4.73H5.58z"/></svg></a></li>

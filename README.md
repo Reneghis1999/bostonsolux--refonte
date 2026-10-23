@@ -15,7 +15,7 @@ Une connexion Internet est nécessaire pour charger les polices Instrument Serif
 
 ## Version française
 
-Le site existe en anglais (racine du dossier) et en français (dossier `fr/`). Le sélecteur **EN / FR** du header renvoie vers la même page dans l'autre langue, et chaque page déclare son équivalent avec `<link rel="alternate" hreflang>`.
+Le site existe en anglais (racine du dossier) et en français (dossier `fr/`). Le menu de langue du header (icône globe) renvoie vers la même page dans l'autre langue, et chaque page déclare son équivalent avec `<link rel="alternate" hreflang>`.
 
 - Les noms des services reprennent ceux de la version française du site actuel (« Conception et mise en place de réseaux », « Monétique », « Gestion de projet »…).
 - Les messages d'erreur des formulaires suivent la langue de la page.
@@ -63,10 +63,10 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 
 - **Rouge BostonSolux `#8C2826`**, mesuré sur le site actuel (barre de menu, bouton Blog). Il sert aux boutons, liens, icônes sociales et au mot mis en valeur du hero.
 - **Coins carrés partout** : boutons, cartes, images, panneaux, champs de formulaire, badges. Aucun arrondi.
-- **Hero de l'accueil** : grand panneau sombre en retrait des bords. En fond, **diaporama de 10 images du site actuel** : les 5 images du carrousel (MMIE Malabo, cabinet informatique, « Building the future », « We are here for you », consultant) et 5 images des services et mises en avant (cybersécurité, réseau, transformation digitale, Power Training, messagerie). Elles sont recadrées au format du hero, agrandies en 1920 px, plus nettes et légèrement plus contrastées, sous un voile sombre et un halo rouge pour garder le texte lisible. Les images se fondent toutes les 6 secondes avec un léger zoom ; un bouton permet de mettre en pause (obligatoire pour l'accessibilité), et le diaporama reste à l'arrêt si l'utilisateur a demandé à réduire les animations.
+- **Hero de l'accueil** : grand panneau sombre en retrait des bords. En fond, **diaporama de 10 images du site actuel** : les 5 images du carrousel (MMIE Malabo, cabinet informatique, « Building the future », « We are here for you », consultant) et 5 images des services et mises en avant (cybersécurité, réseau, transformation digitale, Power Training, messagerie). Elles sont recadrées au format du hero, agrandies en 1920 px, plus nettes et légèrement plus contrastées, sous un voile sombre et un halo rouge pour garder le texte lisible. Le diaporama démarre seul : toutes les 6 secondes, l'image suivante glisse depuis la droite. Des petits traits en bas à droite indiquent l'image affichée et permettent d'en choisir une ; un bouton met en pause (obligatoire pour l'accessibilité). Si le visiteur a demandé à réduire les animations, les images changent en fondu au lieu de glisser.
 - Contenu du hero centré : grand titre serif avec un mot dans un bloc rouge, sous-titre, deux boutons, bandeau de chiffres réels (7 bureaux, 3 continents, 12 services, 6 solutions).
 - **Partenaires technologiques** : bande de logos placée en bas de page, juste avant le footer (accueil et À propos).
-- **Header** : logo, menu avec lien Accueil, sélecteur EN / FR, icônes Facebook, X et LinkedIn, bouton « Contact us ».
+- **Header allégé** : logo, menu réduit à l'essentiel (Accueil, Services, Solutions, Actualités), icône globe pour choisir la langue (English / Français), icônes Facebook, X et LinkedIn, bouton « Contact us ». Formation (Academy), Carrières et Contact restent accessibles depuis le footer, et Contact aussi depuis le bouton du header. Le menu complet s'affiche dès 1024 px ; en dessous, menu burger.
 - **Panneaux** : les blocs sombres (héros des pages intérieures, CyberSecurity Center, appels à l'action) et les sections grises sont des panneaux en retrait des bords.
 - **Couleurs** : rouge `#8C2826`, noir nuit `#141112` pour les panneaux, noir du logo `#231F20` pour les textes et le pied de page, blanc et gris clair `#F6F5F5`.
 - **Typographie** : Instrument Serif pour les grands titres (h1, h2), IBM Plex Sans pour les textes et l'interface.
@@ -80,7 +80,7 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 - Une section = un bloc autonome `<section class="section-xxx">`.
 - Classes BEM, aucun style ni script inline. JS unique, chargé en `defer` : `assets/js/main.js`.
 - Contenus répétitifs (services, solutions, interviews, actualités, bureaux) : structure HTML identique d'un élément à l'autre, prête pour des boucles WordPress.
-- Navigation complète à partir de 1200 px, menu burger en dessous.
+- Navigation complète à partir de 1024 px, menu burger en dessous.
 
 ## Images
 
