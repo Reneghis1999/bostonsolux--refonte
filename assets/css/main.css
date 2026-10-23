@@ -318,6 +318,7 @@ button {
 /* Language menu: globe icon with a short dropdown */
 .lang-menu {
   position: relative;
+  z-index: 70;
 }
 
 .lang-menu__toggle {
@@ -367,7 +368,7 @@ button {
   position: absolute;
   top: calc(100% + var(--space-1));
   left: 0;
-  z-index: 60;
+  z-index: 70;
   display: none;
   min-width: 10rem;
   padding: var(--space-2) 0;
@@ -442,6 +443,89 @@ button {
   width: auto;
   height: 2.125rem;
   transition: height var(--transition);
+}
+
+/* Top bar: contacts, language and social networks, above the header */
+.topbar {
+  background: var(--color-night);
+  color: var(--color-on-dark-muted);
+  font-size: 0.8125rem;
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  max-width: none;
+  min-height: 2.5rem;
+  padding-inline: calc(var(--inset) + var(--gutter) * 0.6);
+}
+
+.topbar__contacts {
+  display: none;
+  gap: var(--space-5);
+}
+
+.topbar__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-on-dark-muted);
+  text-decoration: none;
+}
+
+.topbar__link:hover {
+  color: var(--color-white);
+}
+
+.topbar__link svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+}
+
+.topbar__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-left: auto;
+}
+
+.topbar :focus-visible {
+  outline-color: var(--color-white);
+}
+
+.topbar .lang-menu__toggle {
+  height: 2rem;
+  border-color: rgba(255, 255, 255, 0.25);
+  color: var(--color-white);
+  font-size: 0.8125rem;
+}
+
+.topbar .lang-menu__toggle:hover,
+.topbar .lang-menu__toggle[aria-expanded="true"] {
+  border-color: var(--color-white);
+}
+
+.topbar .lang-menu__list {
+  right: 0;
+  left: auto;
+}
+
+.topbar .header-social__link {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .topbar__contacts {
+    display: flex;
+  }
 }
 
 /* Social links in the header */
@@ -528,11 +612,11 @@ button {
 
 /* Mobile drawer */
 .site-nav {
-  position: fixed;
-  top: var(--header-h);
+  position: absolute;
+  top: 100%;
   right: 0;
-  bottom: 0;
   left: 0;
+  height: calc(100dvh - var(--header-h));
   display: none;
   padding: var(--space-2) var(--gutter) var(--space-8);
   overflow-y: auto;
@@ -691,6 +775,7 @@ button {
 
   .site-nav {
     position: static;
+    height: auto;
     display: flex;
     flex: 1;
     align-items: center;
@@ -777,7 +862,7 @@ button {
 }
 
 /* Narrow desktops: tighten the menu so it stays on one line */
-@media (min-width: 1024px) and (max-width: 1279px) {
+@media (min-width: 1024px) and (max-width: 1365px) {
   .site-header__inner {
     gap: var(--space-3);
   }
