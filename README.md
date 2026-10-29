@@ -68,9 +68,9 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 - **Coins carrés partout** : boutons, cartes, images, panneaux, champs de formulaire, badges. Aucun arrondi.
 - **Hero de l'accueil** : photo **bord à bord**, juste sous la barre du haut et le header blanc (le même header que sur toutes les pages). Le hero occupe le reste de la hauteur de l'écran.
 - En fond, **diaporama de 5 images** : la photo du ministère des Mines, de l'Industrie et de l'Énergie à Malabo (site actuel) et 4 photos professionnelles libres de droits (salle serveurs, équipe de consultants, câblage réseau, réunion client), sous un voile sombre plus dense côté texte pour garder le texte lisible. Le diaporama démarre seul : toutes les 6 secondes, l'image suivante glisse depuis la droite. Si le visiteur a demandé à réduire les animations, les images changent en fondu au lieu de glisser.
-- Contenu du hero aligné à gauche : surtitre « Focus on Solutions » (le slogan du logo) précédé d'un trait rouge, grand titre terminé par un point rouge, (« Speed and efficiency to better serve our partners. »), sous-titre, deux boutons (« See what we do » en rouge avec une flèche qui glisse au survol, « Contact us » en contour blanc ; empilés en pleine largeur sur téléphone). Le voile est plus sombre côté texte et s'éclaircit vers la droite pour laisser voir la photo (uniforme sur téléphone).
+- Contenu du hero aligné à gauche : surtitre « BOSTONSOLUX », grand titre (« Speed and efficiency to better serve our partners. »), sous-titre, deux boutons (« See what we do » en rouge, « Contact us » en contour blanc ; empilés en pleine largeur sur téléphone).
 - Sur ordinateur, la taille du titre et les espacements suivent aussi la **hauteur de l'écran** : tout le hero, barre du bas comprise, reste visible sur les portables (1280×620, 1366×657, 1536×730…) comme sur les grands écrans.
-- Barre du bas du hero : légende de la photo affichée (attribut `data-caption` de chaque image, mise à jour par le JS) à gauche ; à droite, un compteur « 01 / 05 », des traits qui indiquent l'image affichée et permettent d'en choisir une (le trait de l'image en cours se remplit pendant les 6 secondes d'affichage), et un bouton met en pause (obligatoire pour l'accessibilité).
+- Barre du bas du hero : légende de la photo affichée (attribut `data-caption` de chaque image, mise à jour par le JS) à gauche ; à droite, des traits indiquent l'image affichée et permettent d'en choisir une, et un bouton met en pause (obligatoire pour l'accessibilité).
 - **Partenaires technologiques** : bande de logos **en couleur** placée en bas de page, juste avant le footer (accueil et À propos).
 - **Barre du haut** (fine, noire) : téléphone du siège et email à gauche ; à droite, menu de langue (icône globe : English / Français) et icônes Facebook, X et LinkedIn.
 - **Header** : logo à gauche, menu complet **centré sur la page** (Accueil, Services, Solutions, Actualités, Formation, Carrières, Contact), bouton « Contact us » à droite. Le contenu du header est aligné sur un conteneur large (1480 px). Le menu complet s'affiche dès 1024 px ; en dessous, menu burger (la barre du haut reste visible pour la langue et les réseaux).
@@ -93,7 +93,7 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 
 ## Favicon
 
-Monogramme « BS » blanc sur carré bordeaux (`#8C2826`), dans la police du site (Plus Jakarta Sans ExtraBold, lettres vectorisées), dans `assets/img/favicon/` :
+Monogramme « BS » bordeaux (`#8C2826`) sur carré blanc, dans la police du site (Plus Jakarta Sans ExtraBold, lettres vectorisées), dans `assets/img/favicon/` :
 
 | Fichier | Usage |
 |---|---|
