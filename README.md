@@ -11,7 +11,7 @@ Maquette HTML/CSS/JS (vanilla, sans build) de la refonte de [bostonsolux.com](ht
   ```
   puis ouvrir http://localhost:8000.
 
-Une connexion Internet est nécessaire pour charger les polices Instrument Serif et IBM Plex Sans (Google Fonts). Sans connexion, le site s'affiche avec des polices de secours.
+Une connexion Internet est nécessaire pour charger les polices Instrument Serif, IBM Plex Sans et Plus Jakarta Sans (Google Fonts). Sans connexion, le site s'affiche avec des polices de secours.
 
 ## Version française
 
@@ -43,7 +43,7 @@ Les fichiers générés sont commités : la maquette s'ouvre toujours directemen
 
 | Page | Contenu |
 |---|---|
-| `index.html` | Accueil : hero avec carte réseau, partenaires, expertise, solutions, CyberSecurity Center, étude de cas MMIE, interviews, actualités, bureaux |
+| `index.html` | Accueil : hero plein écran avec diaporama, partenaires, expertise, solutions, CyberSecurity Center, étude de cas MMIE, interviews, actualités, bureaux |
 | `services.html` | Les 12 services en 4 domaines, avec navigation par domaine |
 | `service-detail.html` | Modèle de page service, rempli avec **Digital Transformation** (le contenu le plus riche du site actuel) |
 | `solutions.html` | Les 6 produits, avec leur public et leurs fonctions clés |
@@ -61,20 +61,22 @@ Toutes les pages partagent exactement le même header et le même footer. Seul c
 
 Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité BostonSolux :
 
-- **Rouge BostonSolux `#8C2826`**, mesuré sur le site actuel (barre de menu, bouton Blog). Il sert aux boutons, liens, icônes sociales et au mot mis en valeur du hero.
+- **Rouge BostonSolux `#8C2826`**, mesuré sur le site actuel (barre de menu, bouton Blog). Il sert aux boutons, liens et icônes sociales.
 - **Coins carrés partout** : boutons, cartes, images, panneaux, champs de formulaire, badges. Aucun arrondi.
-- **Hero de l'accueil** : grand panneau sombre en retrait des bords. En fond, **diaporama de 5 images** : la photo du ministère des Mines, de l'Industrie et de l'Énergie à Malabo (site actuel) et 4 photos professionnelles libres de droits (salle serveurs, équipe de consultants, câblage réseau, réunion client), sous un voile sombre et un halo rouge pour garder le texte lisible. Le diaporama démarre seul : toutes les 6 secondes, l'image suivante glisse depuis la droite. Des petits traits en bas à droite indiquent l'image affichée et permettent d'en choisir une ; un bouton met en pause (obligatoire pour l'accessibilité). Si le visiteur a demandé à réduire les animations, les images changent en fondu au lieu de glisser.
-- Contenu du hero centré : grand titre serif avec un mot dans un bloc rouge, sous-titre, deux boutons, bandeau de chiffres réels (7 bureaux, 3 continents, 12 services, 6 solutions).
+- **Hero de l'accueil** : photo **plein écran, bord à bord**. La barre du haut et le header flottent par-dessus, transparents (logo sur un cartouche blanc, liens en blanc, bouton « Contact us » en contour blanc) ; le header redevient blanc dès que la page défile, qu'un méga-menu s'ouvre ou que le menu mobile s'ouvre. Ce mode est activé par la classe `home` du `<body>` (la même que WordPress ajoute à la page d'accueil).
+- En fond, **diaporama de 5 images** : la photo du ministère des Mines, de l'Industrie et de l'Énergie à Malabo (site actuel) et 4 photos professionnelles libres de droits (salle serveurs, équipe de consultants, câblage réseau, réunion client), sous un voile sombre plus dense côté texte pour garder le texte lisible. Le diaporama démarre seul : toutes les 6 secondes, l'image suivante glisse depuis la droite. Si le visiteur a demandé à réduire les animations, les images changent en fondu au lieu de glisser.
+- Contenu du hero aligné à gauche : surtitre « BOSTONSOLUX », grand titre en Plus Jakarta Sans (« Speed and efficiency to better serve our partners. »), sous-titre, deux boutons (« See what we do » en rouge, « Contact us » en contour blanc).
+- Barre du bas du hero : légende de la photo affichée (attribut `data-caption` de chaque image, mise à jour par le JS) à gauche ; à droite, des traits indiquent l'image affichée et permettent d'en choisir une, et un bouton met en pause (obligatoire pour l'accessibilité).
 - **Partenaires technologiques** : bande de logos placée en bas de page, juste avant le footer (accueil et À propos).
 - **Barre du haut** (fine, noire) : téléphone du siège et email à gauche ; à droite, menu de langue (icône globe : English / Français) et icônes Facebook, X et LinkedIn.
 - **Header** : logo, menu complet (Accueil, Services, Solutions, Actualités, Formation, Carrières, Contact) et bouton « Contact us ». Le menu complet s'affiche dès 1024 px ; en dessous, menu burger (la barre du haut reste visible pour la langue et les réseaux).
 - **Panneaux** : les blocs sombres (héros des pages intérieures, CyberSecurity Center, appels à l'action) et les sections grises sont des panneaux en retrait des bords.
 - **Couleurs** : rouge `#8C2826`, noir nuit `#141112` pour les panneaux, noir du logo `#231F20` pour les textes et le pied de page, blanc et gris clair `#F6F5F5`.
-- **Typographie** : Instrument Serif pour les grands titres (h1, h2), IBM Plex Sans pour les textes et l'interface.
+- **Typographie** : Instrument Serif pour les grands titres (h1, h2), IBM Plex Sans pour les textes et l'interface, Plus Jakarta Sans pour le hero de l'accueil.
 - **Animations** (toutes les pages, EN et FR) :
   - apparition en cascade des sections, cartes et images au défilement (les images glissent depuis le côté, la carte réseau s'agrandit) ;
   - trait rouge qui se dessine sous les titres de section ;
-  - hero : contenu qui monte en séquence, mot « secured » révélé par un balayage rouge, chiffres qui défilent de 0 à leur valeur ;
+  - hero : contenu qui monte en séquence, léger zoom sur la photo affichée, légende qui change en fondu ;
   - survol : cartes qui se soulèvent, images qui s'éclairent, barre rouge qui glisse au-dessus des solutions et des bureaux, icônes qui basculent, boutons avec un remplissage qui glisse ;
   - bande des partenaires qui défile en continu (pause au survol) ;
   - barre rouge de progression de lecture en haut de l'écran et bouton « retour en haut ».
@@ -118,7 +120,7 @@ Elles peuvent être remplacées à tout moment par des photos propres à BostonS
 ## Éléments `[À COMPLÉTER]` / à valider
 
 ### Contenus
-- [ ] **Titre du hero** de l'accueil (« Your IT, secured and built to grow. ») : proposition de positionnement, à valider.
+- [ ] **Hero de l'accueil** : titre (« Speed and efficiency to better serve our partners. », d'après le slogan) et sous-titre repris de la maquette fournie, à valider. Les légendes des 4 photos libres de droits indiquent seulement le domaine d'expertise illustré.
 - [ ] **URL de l'Academy** : le CLAUDE.md indique https://bostonsoluxacademy.com/, mais la page Power Training du site actuel mentionne https://bostonsoluxedu.com/. Laquelle est la bonne ?
 - [ ] **Page ERP & PLM du site actuel** : elle affiche par erreur le texte de Network Security. Le texte réellement consacré à l'ERP se trouve sur la page Project Management ; c'est lui qui a été utilisé pour ERP & PLM.
 - [ ] **Project Management** : sans texte propre sur le site actuel, la description reprend l'article « BostonSolux PMO: Center of Excellence ».

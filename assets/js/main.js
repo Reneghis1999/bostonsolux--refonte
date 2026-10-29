@@ -227,7 +227,8 @@
 
 /* ==========================================================================
    Hero slideshow: photos slide in behind the hero content, every 6 seconds.
-   It starts on its own; the pause button stops it at any time.
+   It starts on its own; the pause button stops it at any time. The caption
+   in the bottom bar follows the photo on screen (data-caption).
    ========================================================================== */
 (function () {
   'use strict';
@@ -238,6 +239,7 @@
 
   var images = slides.querySelectorAll('.hero-slides__image');
   var dotsBox = document.querySelector('[data-slides-dots]');
+  var caption = document.querySelector('[data-slides-caption]');
   var dots = [];
   var current = 0;
   var timer = null;
@@ -265,6 +267,15 @@
       dots[next].setAttribute('aria-current', 'true');
     }
     current = next;
+
+    // Fade the caption out, swap its text, fade it back in
+    if (caption) {
+      caption.classList.add('section-hero__caption--hidden');
+      window.setTimeout(function () {
+        caption.textContent = images[current].getAttribute('data-caption') || '';
+        caption.classList.remove('section-hero__caption--hidden');
+      }, 250);
+    }
   }
 
   function play() {
@@ -349,7 +360,7 @@
 })();
 
 /* ==========================================================================
-   Motion: scroll reveals, counters, partner marquee, reading progress,
+   Motion: scroll reveals, partner marquee, reading progress,
    back-to-top button. Everything here is decorative: without JavaScript
    the page is complete and fully visible.
    ========================================================================== */
@@ -401,23 +412,6 @@
       observer.observe(el);
     });
   }
-
-  /* Hero counters: 0 -> 7 offices, 3 continents... ------------------------ */
-  Array.prototype.forEach.call(document.querySelectorAll('.hero-stats__value'), function (el, i) {
-    var target = parseInt(el.textContent, 10);
-    if (!target) return;
-    var start = null;
-    var DURATION = 1400;
-    el.textContent = '0';
-    window.setTimeout(function () {
-      window.requestAnimationFrame(function step(time) {
-        if (start === null) start = time;
-        var progress = Math.min((time - start) / DURATION, 1);
-        el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3)));
-        if (progress < 1) window.requestAnimationFrame(step);
-      });
-    }, 500 + i * 120);
-  });
 
   /* Partner logos: endless strip ------------------------------------------ */
   var partnerList = document.querySelector('.partner-list');

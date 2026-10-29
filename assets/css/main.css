@@ -34,6 +34,7 @@
   /* Typography */
   --font-sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
   --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
+  --font-hero: "Plus Jakarta Sans", var(--font-sans);    /* home hero only */
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
@@ -45,6 +46,7 @@
   --fs-h3: clamp(1.25rem, 1.15rem + 0.4vw, 1.5rem);
   --fs-h2: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem);
   --fs-display: clamp(2.875rem, 1.5rem + 5.6vw, 6rem);
+  --fs-hero: clamp(2.75rem, 1rem + 5.2vw, 6.75rem);
 
   --lh-tight: 1.1;
   --lh-heading: 1.2;
@@ -65,7 +67,9 @@
 
   /* Layout */
   --container-max: 75rem;                                 /* 1200px */
+  --container-wide: 92.5rem;                              /* 1480px: header and home hero */
   --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
+  --topbar-h: 2.5rem;
   --header-h: 4.25rem;
 
   /* Radii: photos are softer than controls, sections stay square */
@@ -416,17 +420,16 @@ button {
   z-index: 50;
   background: var(--color-white);
   border-bottom: 1px solid transparent;
-  transition: box-shadow var(--transition), border-color var(--transition);
+  transition: background-color var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
 
 .site-header--scrolled {
   box-shadow: 0 6px 24px -12px rgba(35, 31, 32, 0.2);
 }
 
-/* The header spans the same width as the hero panel below it */
+/* The header uses the wide container, like the home hero text below it */
 .site-header__inner {
-  max-width: none;
-  padding-inline: calc(var(--inset) + var(--gutter) * 0.6);
+  max-width: calc(var(--container-wide) + 2 * var(--gutter));
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -457,9 +460,8 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-4);
-  max-width: none;
-  min-height: 2.5rem;
-  padding-inline: calc(var(--inset) + var(--gutter) * 0.6);
+  max-width: calc(var(--container-wide) + 2 * var(--gutter));
+  min-height: var(--topbar-h);
 }
 
 .topbar__contacts {
@@ -898,28 +900,92 @@ button {
   }
 }
 
+/* Home (body class "home", as in WordPress): the top bar and the header
+   float over the full-screen hero photo. The header turns white again as
+   soon as the page scrolls, a mega panel opens or the mobile menu opens. */
+.home .topbar {
+  position: relative;
+  z-index: 60;
+  background: transparent;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.home .topbar__link {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.home .site-header__brand {
+  background: var(--color-white);
+  box-shadow: -0.25rem 0 0 0.375rem var(--color-white), 0.25rem 0 0 0.375rem var(--color-white);
+}
+
+.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) {
+  background: transparent;
+}
+
+.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) :focus-visible {
+  outline-color: var(--color-white);
+}
+
+.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-header__toggle-bar,
+.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-header__toggle-bar::before,
+.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-header__toggle-bar::after {
+  background: var(--color-white);
+}
+
+@media (min-width: 1024px) {
+  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__link {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__link:hover {
+    color: var(--color-white);
+    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__link[aria-current="page"] {
+    color: var(--color-white);
+    box-shadow: inset 0 -2px 0 var(--color-white);
+  }
+
+  /* "Contact us" becomes an outlined white button over the photo */
+  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__actions .btn--primary {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.85);
+    box-shadow: none;
+  }
+
+  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__actions .btn--primary::before {
+    background: var(--color-white);
+  }
+
+  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__actions .btn--primary:hover {
+    color: var(--color-ink);
+  }
+}
+
 /* --------------------------------------------------------------------------
    6. Sections
    -------------------------------------------------------------------------- */
 
 /* Hero ------------------------------------------------------------------- */
+/* Full-screen photo, edge to edge. It slides under the top bar and the
+   header, which float over it (see "Home" in section 5). */
 .section-hero {
-  padding-inline: var(--inset);
-}
-
-.section-hero__panel {
   position: relative;
   display: flex;
-  align-items: center;
-  min-height: min(56rem, calc(100svh - var(--header-h) - var(--inset)));
-  padding-block: var(--space-10) var(--space-8);
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin-top: calc(-1 * (var(--topbar-h) + var(--header-h)));
+  padding-top: calc(var(--topbar-h) + var(--header-h));
   overflow: hidden;
-  background: var(--glow-night), var(--color-night);
-  border-radius: var(--radius-panel);
+  background: var(--color-night);
   color: var(--color-on-dark);
+  font-family: var(--font-hero);
 }
 
-/* Background slideshow: photos of the current site under a dark veil */
+/* Background slideshow under a dark veil */
 .hero-slides {
   position: absolute;
   inset: 0;
@@ -963,14 +1029,16 @@ button {
   }
 }
 
-/* Dark veil and red glow keep the white text readable on every photo */
+/* Dark veil, deeper on the text side, at the top (header) and at the
+   bottom (caption): white text stays readable on every photo */
 .hero-slides::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    var(--glow-night),
-    linear-gradient(180deg, rgba(20, 17, 18, 0.7) 0%, rgba(20, 17, 18, 0.78) 55%, rgba(20, 17, 18, 0.92) 100%);
+    linear-gradient(180deg, rgba(20, 17, 18, 0.55) 0%, rgba(20, 17, 18, 0) 30%),
+    linear-gradient(0deg, rgba(20, 17, 18, 0.6) 0%, rgba(20, 17, 18, 0) 32%),
+    linear-gradient(90deg, rgba(20, 17, 18, 0.74) 0%, rgba(20, 17, 18, 0.56) 55%, rgba(20, 17, 18, 0.42) 100%);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -985,60 +1053,140 @@ button {
   }
 }
 
-/* Slide controls: dots and pause button, bottom right */
-.hero-slides__controls {
+.section-hero__inner,
+.section-hero__footer {
+  position: relative;
+  z-index: 1;
+  max-width: calc(var(--container-wide) + 2 * var(--gutter));
+}
+
+.section-hero__inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-block: var(--space-9) var(--space-8);
+}
+
+.section-hero__eyebrow {
+  margin-bottom: var(--space-5);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.section-hero__title {
+  max-width: 9.2em;
+  color: var(--color-on-dark);
+  font-family: var(--font-hero);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-medium);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.section-hero__lead {
+  max-width: 34rem;
+  margin-top: var(--space-6);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  line-height: 1.55;
+}
+
+.section-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-7);
+}
+
+.section-hero__actions .btn--secondary {
+  border-color: var(--color-white);
+}
+
+/* Bottom bar: caption of the current photo, slide indicators */
+.section-hero__footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding-block: var(--space-5);
+}
+
+.section-hero__footer::before {
+  content: "";
   position: absolute;
-  right: var(--space-5);
-  bottom: var(--space-5);
-  z-index: 2;
+  top: 0;
+  right: var(--gutter);
+  left: var(--gutter);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.section-hero__caption {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.9375rem;
+  transition: opacity 250ms ease;
+}
+
+.section-hero__caption--hidden {
+  opacity: 0;
+}
+
+.hero-slides__controls {
   display: flex;
   align-items: center;
   gap: var(--space-4);
 }
 
 .hero-slides__dots {
-  display: none;
+  display: flex;
   gap: var(--space-2);
 }
 
+/* Thin bars, with a taller invisible hit area */
 .hero-slides__dot {
-  width: 1.5rem;
-  height: 3px;
+  width: 2.25rem;
+  height: 1.5rem;
   padding: 0;
-  background: rgba(255, 255, 255, 0.4);
+  background: linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat;
   border: 0;
+  color: rgba(255, 255, 255, 0.35);
   cursor: pointer;
+  transition: color var(--transition);
+}
+
+.hero-slides__dot:hover {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .hero-slides__dot[aria-current="true"] {
-  background: var(--color-white);
-}
-
-@media (min-width: 768px) {
-  .hero-slides__dots {
-    display: flex;
-  }
+  color: var(--color-white);
 }
 
 .hero-slides__toggle {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 0.5rem 0.75rem;
-  background: rgba(20, 17, 18, 0.5);
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: var(--color-on-dark);
-  font-size: var(--fs-small);
   cursor: pointer;
+  transition: border-color var(--transition);
 }
 
 .hero-slides__toggle:hover {
-  background: rgba(20, 17, 18, 0.8);
+  border-color: var(--color-white);
 }
 
 .hero-slides__toggle svg {
-  width: 0.875rem;
-  height: 0.875rem;
+  width: 0.75rem;
+  height: 0.75rem;
   fill: currentColor;
 }
 
@@ -1051,116 +1199,43 @@ button {
   display: block;
 }
 
-/* Fine concentric lines, barely visible, for depth */
-.section-hero__panel::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: repeating-radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 18px);
-  pointer-events: none;
-}
-
-.section-hero__inner {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.section-hero__title {
-  max-width: 15ch;
-  color: var(--color-on-dark);
-  font-size: var(--fs-display);
-  line-height: 1;
-}
-
-/* One highlighted word in the hero title */
-.highlight {
-  display: inline-block;
-  padding: 0 0.16em 0.06em;
-  background: var(--gradient-brand);
-  border-radius: 0;
-  color: var(--color-white);
-  transform: rotate(-2deg);
-  box-shadow: 0 12px 30px -12px rgba(140, 40, 38, 0.8);
-}
-
-.section-hero__lead {
-  max-width: 44rem;
-  margin-top: var(--space-6);
-  color: rgba(255, 255, 255, 0.82);
-  font-size: var(--fs-lead);
-}
-
-.section-hero__actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-3);
-  margin-top: var(--space-7);
-}
-
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-5) var(--space-6);
-  width: 100%;
-  max-width: 64rem;
-  margin-top: var(--space-10);
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--color-on-dark-line);
-}
-
-.hero-stats__item {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--space-3);
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 1.0625rem;
-}
-
-.hero-stats__icon {
-  flex-shrink: 0;
-  width: 1.75rem;
-  height: 1.75rem;
-  fill: none;
-  stroke: var(--color-white);
-  stroke-width: 1.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.hero-stats__value {
-  color: var(--color-white);
-  font-family: var(--font-display);
-  font-size: 2rem;
-  line-height: 1;
-}
-
 @media (min-width: 768px) {
-  .hero-stats {
-    grid-template-columns: repeat(4, 1fr);
+  .section-hero__footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding-block: var(--space-6) var(--space-7);
   }
 
-  .hero-stats__item {
-    justify-content: center;
+  .section-hero__caption {
+    font-size: 1.0625rem;
+  }
+
+  .section-hero__actions {
+    margin-top: var(--space-8);
+  }
+
+  .hero-slides__dots {
+    gap: var(--space-3);
+  }
+
+  .hero-slides__dot {
+    width: 3.25rem;
   }
 }
 
 /* The page's one orchestrated moment: the hero content rises in sequence */
 @media (prefers-reduced-motion: no-preference) {
-  .section-hero__inner > * {
+  .section-hero__inner > *,
+  .section-hero__footer {
     animation: hero-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
   }
 
   .section-hero__inner > :nth-child(2) { animation-delay: 80ms; }
   .section-hero__inner > :nth-child(3) { animation-delay: 160ms; }
   .section-hero__inner > :nth-child(4) { animation-delay: 240ms; }
-  .section-hero__inner > :nth-child(5) { animation-delay: 380ms; }
+  .section-hero__footer { animation-delay: 380ms; }
 }
 
 @keyframes hero-rise {
@@ -3346,12 +3421,8 @@ button {
   display: none;
 }
 
-/* Hero: the highlighted word is revealed by a red wipe */
+/* Inner page heroes: the content rises in sequence */
 @media (prefers-reduced-motion: no-preference) {
-  .highlight {
-    animation: highlight-wipe 900ms cubic-bezier(0.65, 0, 0.35, 1) 450ms both;
-  }
-
   .page-hero__inner > *,
   .page-hero > .container > * {
     animation: hero-rise 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
@@ -3361,15 +3432,6 @@ button {
   .page-hero > .container > :nth-child(3) { animation-delay: 160ms; }
   .page-hero > .container > :nth-child(4) { animation-delay: 240ms; }
   .page-hero__inner > :nth-child(2) { animation-delay: 160ms; }
-}
-
-@keyframes highlight-wipe {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
 }
 
 /* Hover: cards lift, images brighten, an accent bar slides in */
