@@ -52,7 +52,7 @@ La carte du monde en points est produite une fois pour toutes par `tools/world_m
 | `solutions.html` | Les 6 produits, avec leur public et leurs fonctions clés |
 | `solution-detail.html` | Modèle de page solution, rempli avec **Bsecured Park** et sa référence MMIE |
 | `about.html` | Présentation, forces, présence en Afrique, dates clés, mot du CEO, partenaires, bureaux |
-| `contact.html` | Formulaire validé en JS (aucun envoi), contacts par équipe, bureaux |
+| `contact.html` | Formulaire validé en JS (aucun envoi), contacts par équipe, carte Google du bureau de Kpogan, bureaux |
 | `news.html` | Article à la une, archive des actualités, interviews |
 | `careers.html` | Les 14 postes groupés par famille, parcours d'Emmanuel Amou, formulaire de candidature avec CV |
 
@@ -87,7 +87,7 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
   - barre rouge de progression de lecture en haut de l'écran et bouton « retour en haut ».
   - Si le visiteur a demandé à réduire les animations, le contenu apparaît en fondu, sans aucun déplacement, et la bande des partenaires reste fixe.
 - **Carte du monde des 7 bureaux** (section Bureaux de l'accueil, page À propos) : continents dessinés en points (projection Miller) dans un panneau sombre, chaque bureau placé à ses coordonnées réelles, arcs depuis le siège de Rockville, chiffres clés (7 bureaux, 7 pays, 3 continents) et légende. Survoler ou parcourir au clavier la fiche d'un bureau allume son repère, son nom et son arc sur la carte. Quand la carte dispose de moins de 900 px de large (téléphone, tablette, colonne de la page À propos), elle zoome sur l'Atlantique pour que les bureaux restent lisibles. Tout le dessin des continents tient dans un seul tracé SVG de 8 Ko.
-- **Carte Google du bureau de Lomé (Kpogan)** : sous les fiches des bureaux, sur l'accueil et la page Contact, avec l'adresse, le téléphone, un bouton « Get directions » et un lien « Open in Google Maps ». La carte est chargée en différé (`loading="lazy"`), dans la langue de la page.
+- **Carte Google du bureau de Lomé (Kpogan)** : uniquement sur la page Contact, dans sa propre section juste après le formulaire (« Visit us »), avec l'adresse, le téléphone, un bouton « Get directions » et un lien « Open in Google Maps ». La carte est chargée en différé (`loading="lazy"`), dans la langue de la page.
 - **Regroupement des services** en 4 domaines : Infrastructure & Networks, Security & Continuity, Business Applications, Consulting & Transformation.
 - Tous les tokens (couleurs, polices, espacements, rayons) sont dans `:root`, au début de `assets/css/main.css`.
 

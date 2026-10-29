@@ -2256,13 +2256,14 @@ button {
   }
 }
 
-/* Google map of the Lomé office (Kpogan), below the office cards */
+/* Google map of the Lomé office (Kpogan), on the contact page */
+.section-location {
+  padding-block: var(--space-section);
+}
+
 .location {
   display: grid;
   gap: var(--space-6);
-  margin-top: var(--space-9);
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--color-line);
 }
 
 .location__title {
