@@ -243,7 +243,8 @@
 /* ==========================================================================
    Hero slideshow: photos slide in behind the hero content, every 6 seconds.
    It starts on its own; the pause button stops it at any time. The caption
-   in the bottom bar follows the photo on screen (data-caption).
+   in the bottom bar follows the photo on screen (data-caption), the counter
+   shows its number and the bar of the current photo fills up (css).
    ========================================================================== */
 (function () {
   'use strict';
@@ -255,11 +256,18 @@
   var images = slides.querySelectorAll('.hero-slides__image');
   var dotsBox = document.querySelector('[data-slides-dots]');
   var caption = document.querySelector('[data-slides-caption]');
+  var counter = document.querySelector('[data-slides-current]');
+  var total = document.querySelector('[data-slides-total]');
+  var controls = toggle.parentElement;
   var dots = [];
   var current = 0;
   var timer = null;
   var DELAY = 6000;
   var SLIDE_TIME = 1000;
+
+  function pad(n) {
+    return (n < 10 ? '0' : '') + n;
+  }
 
   function show(index) {
     var next = (index + images.length) % images.length;
@@ -282,6 +290,7 @@
       dots[next].setAttribute('aria-current', 'true');
     }
     current = next;
+    if (counter) counter.textContent = pad(current + 1);
 
     // Fade the caption out, swap its text, fade it back in
     if (caption) {
@@ -298,11 +307,19 @@
     timer = window.setInterval(function () { show(current + 1); }, DELAY);
     toggle.setAttribute('aria-pressed', 'false');
     toggle.setAttribute('aria-label', toggle.getAttribute('data-label-pause'));
+    controls.classList.remove('hero-slides__controls--paused');
+    // Restart the progress bar of the current photo along with the timer
+    if (dots.length) {
+      dots[current].removeAttribute('aria-current');
+      void dots[current].offsetWidth;
+      dots[current].setAttribute('aria-current', 'true');
+    }
   }
 
   function pause() {
     window.clearInterval(timer);
     timer = null;
+    controls.classList.add('hero-slides__controls--paused');
     toggle.setAttribute('aria-pressed', 'true');
     toggle.setAttribute('aria-label', toggle.getAttribute('data-label-play'));
   }
@@ -311,6 +328,8 @@
     toggle.hidden = true;
     return;
   }
+
+  if (total) total.textContent = pad(images.length);
 
   // One dot per image, to jump to a given slide
   if (dotsBox) {

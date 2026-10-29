@@ -312,6 +312,23 @@ button {
   font-size: 1.0625rem;
 }
 
+/* Icon at the end of a button */
+.btn__icon {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 200ms ease;
+}
+
+.btn:hover .btn__icon {
+  transform: translateX(3px);
+}
+
 /* Text link */
 .text-link {
   color: var(--color-brand);
@@ -989,14 +1006,23 @@ button {
 }
 
 /* Dark veil, deeper on the text side and at the bottom (caption):
-   white text stays readable on every photo */
+   white text stays readable on every photo. On phones the text spans the
+   whole width, so the veil stays even. */
 .hero-slides::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(0deg, rgba(20, 17, 18, 0.6) 0%, rgba(20, 17, 18, 0) 32%),
-    linear-gradient(90deg, rgba(20, 17, 18, 0.74) 0%, rgba(20, 17, 18, 0.56) 55%, rgba(20, 17, 18, 0.42) 100%);
+    linear-gradient(0deg, rgba(20, 17, 18, 0.7) 0%, rgba(20, 17, 18, 0) 34%),
+    linear-gradient(90deg, rgba(20, 17, 18, 0.72) 0%, rgba(20, 17, 18, 0.6) 100%);
+}
+
+@media (min-width: 768px) {
+  .hero-slides::after {
+    background:
+      linear-gradient(0deg, rgba(20, 17, 18, 0.7) 0%, rgba(20, 17, 18, 0) 34%),
+      linear-gradient(90deg, rgba(20, 17, 18, 0.86) 0%, rgba(20, 17, 18, 0.66) 42%, rgba(20, 17, 18, 0.22) 100%);
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -1028,12 +1054,27 @@ button {
 }
 
 .section-hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
   margin-bottom: var(--space-4);
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 0.875rem;
   font-weight: var(--fw-semibold);
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
+}
+
+.section-hero__eyebrow::before {
+  content: "";
+  width: 2.5rem;
+  height: 2px;
+  background: var(--color-brand-glow);
+}
+
+/* The full stop of the title, in the brand red */
+.section-hero__dot {
+  color: var(--color-brand-glow);
 }
 
 .section-hero__title {
@@ -1112,22 +1153,66 @@ button {
 
 /* Thin bars, with a taller invisible hit area */
 .hero-slides__dot {
+  --bar-fill: 0%;
   width: 2.25rem;
   height: 1.5rem;
   padding: 0;
-  background: linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat;
+  background:
+    linear-gradient(var(--color-white), var(--color-white)) left center / var(--bar-fill) 3px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat;
   border: 0;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
   transition: color var(--transition);
 }
 
 .hero-slides__dot:hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .hero-slides__dot[aria-current="true"] {
+  --bar-fill: 100%;
+}
+
+/* Same duration as the slideshow delay in main.js (6 s) */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-slides__dot[aria-current="true"] {
+    animation: slide-progress 6s linear both;
+  }
+
+  .hero-slides__controls--paused .hero-slides__dot[aria-current="true"] {
+    animation-play-state: paused;
+  }
+}
+
+@property --bar-fill {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@keyframes slide-progress {
+  from {
+    --bar-fill: 0%;
+  }
+  to {
+    --bar-fill: 100%;
+  }
+}
+
+/* "01 / 05" */
+.hero-slides__count {
+  flex-shrink: 0;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: var(--fs-small);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.hero-slides__current {
   color: var(--color-white);
+  font-weight: var(--fw-semibold);
 }
 
 .hero-slides__toggle {
@@ -1197,6 +1282,12 @@ button {
     gap: var(--space-3);
   }
 
+  .hero-slides__dot {
+    width: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .hero-slides__dot {
     width: 3.25rem;
   }
