@@ -12,7 +12,9 @@ Sources (one folder per language, en = root of the site, fr = fr/):
     src/<lang>/_footer.html    footer.php
     src/<lang>/_partners.html  partner logos section   -> {{PARTNERS}}
     src/<lang>/_offices.html   office directory        -> {{OFFICES}}
-    src/<lang>/_network-map.html  offices network map  -> {{NETWORK_MAP}}, {{NETWORK_MAP_DARK}}
+    src/<lang>/_world-map.html  world map of the offices -> {{WORLD_MAP}}
+                               (dots from src/_world-dots.html, see tools/world_map.py)
+    src/<lang>/_location.html  Google map of the Lomé office -> {{LOCATION}}
     src/<lang>/pages/*.html    <main> content of each page, starting with
                                <!--title: ...-->, <!--description: ...-->, <!--nav: ...-->
                                and optionally <!--body: ...--> (class of <body>,
@@ -49,12 +51,11 @@ def build(lang, name):
     meta = dict(re.findall(r'<!--(\w+): (.*?)-->', src[:800]))
     main = re.sub(r'\A(?:<!--\w+: .*?-->\n)+', '', src).strip('\n')
 
-    network_map = read(lang, '_network-map.html').strip()
     blocks = {
         '{{PARTNERS}}': read(lang, '_partners.html').strip(),
         '{{OFFICES}}': read(lang, '_offices.html').strip(),
-        '{{NETWORK_MAP}}': network_map.replace('{{map_class}}', 'section-offices__map'),
-        '{{NETWORK_MAP_DARK}}': network_map.replace('{{map_class}}', 'network-map--dark'),
+        '{{WORLD_MAP}}': read(lang, '_world-map.html').strip().replace('{{WORLD_DOTS}}', read('_world-dots.html').strip()),
+        '{{LOCATION}}': read(lang, '_location.html').strip(),
     }
     for token, value in blocks.items():
         main = main.replace(token, value)

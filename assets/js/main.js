@@ -203,25 +203,40 @@
 })();
 
 /* ==========================================================================
-   Network map: draw the links when the map scrolls into view
+   World map: the offices appear when the map scrolls into view, and
+   hovering or focusing an office card lights up its pin, label and arc
    ========================================================================== */
 (function () {
   'use strict';
 
-  var maps = document.querySelectorAll('[data-network-map]');
-  if (!maps.length || !('IntersectionObserver' in window)) return;
+  var map = document.querySelector('[data-world-map]');
+  if (!map) return;
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('network-map--animate');
-      observer.unobserve(entry.target);
+  // Only animate a map that starts below the fold, so nothing flashes
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!reduceMotion && 'IntersectionObserver' in window && map.getBoundingClientRect().top > window.innerHeight) {
+    map.classList.add('world-map--waiting');
+    var observer = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      map.classList.remove('world-map--waiting');
+      map.classList.add('world-map--animate');
+      observer.disconnect();
+    }, { rootMargin: '0px 0px -15% 0px' });
+    observer.observe(map);
+  }
+
+  function highlight(office, on) {
+    Array.prototype.forEach.call(map.querySelectorAll('[data-office~="' + office + '"]'), function (el) {
+      el.classList.toggle('is-active', on);
     });
-  }, { rootMargin: '0px 0px -15% 0px' });
+  }
 
-  Array.prototype.forEach.call(maps, function (map) {
-    // Only animate maps that start below the fold, so nothing flashes
-    if (map.getBoundingClientRect().top > window.innerHeight) observer.observe(map);
+  Array.prototype.forEach.call(document.querySelectorAll('.office[data-office]'), function (card) {
+    var office = card.getAttribute('data-office');
+    card.addEventListener('pointerenter', function () { highlight(office, true); });
+    card.addEventListener('pointerleave', function () { highlight(office, false); });
+    card.addEventListener('focusin', function () { highlight(office, true); });
+    card.addEventListener('focusout', function () { highlight(office, false); });
   });
 })();
 

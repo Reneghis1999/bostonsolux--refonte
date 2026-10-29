@@ -27,7 +27,8 @@ Les pages HTML sont **générées** à partir du dossier `src/`, pour que le hea
 
 ```
 src/_head.html              <head> commun
-src/en/  et  src/fr/        _header.html, _footer.html, blocs partagés (_offices, _partners, _network-map)
+src/_world-dots.html        continents de la carte du monde (généré, voir plus bas)
+src/en/  et  src/fr/        _header.html, _footer.html, blocs partagés (_offices, _partners, _world-map, _location)
 src/<langue>/pages/*.html   contenu principal de chaque page
 ```
 
@@ -38,6 +39,8 @@ python3 tools/build.py
 ```
 
 Les fichiers générés sont commités : la maquette s'ouvre toujours directement dans un navigateur, sans étape de build. Le CSS (`assets/css/main.css`) et le JS (`assets/js/main.js`) se modifient directement.
+
+La carte du monde en points est produite une fois pour toutes par `tools/world_map.py`, à partir des contours des continents de Natural Earth (domaine public). Il n'y a à le relancer que pour changer le cadrage ou la densité des points ; le mode d'emploi est en tête du script. Il affiche aussi la position de chaque bureau, à reporter sur les repères de `src/<langue>/_world-map.html`.
 
 ## Pages
 
@@ -75,14 +78,16 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 - **Couleurs** : rouge `#8C2826`, noir nuit `#141112` pour les panneaux, noir du logo `#231F20` pour les textes et le pied de page, blanc et gris clair `#F6F5F5`.
 - **Typographie** : **Plus Jakarta Sans sur tout le site**. Grands titres (h1, h2) en demi-gras avec un interlettrage serré, textes et interface en regular ou medium.
 - **Animations** (toutes les pages, EN et FR) :
-  - apparition en cascade des sections, cartes et images au défilement (les images glissent depuis le côté, la carte réseau s'agrandit) ;
+  - apparition en cascade des sections, cartes et images au défilement (les images glissent depuis le côté) ;
+  - carte du monde : arcs puis repères des bureaux qui apparaissent au défilement, pulsation lente des repères, flux le long des arcs ;
   - trait rouge qui se dessine sous les titres de section ;
   - hero : contenu qui monte en séquence, léger zoom sur la photo affichée, légende qui change en fondu ;
   - survol : cartes qui se soulèvent, images qui s'éclairent, barre rouge qui glisse au-dessus des solutions et des bureaux, icônes qui basculent, boutons avec un remplissage qui glisse ;
   - bande des partenaires qui défile en continu (pause au survol) ;
   - barre rouge de progression de lecture en haut de l'écran et bouton « retour en haut ».
   - Si le visiteur a demandé à réduire les animations, le contenu apparaît en fondu, sans aucun déplacement, et la bande des partenaires reste fixe.
-- **Carte réseau des 7 bureaux** : dans la section Bureaux de l'accueil et sur la page À propos.
+- **Carte du monde des 7 bureaux** (section Bureaux de l'accueil, page À propos) : continents dessinés en points (projection Miller) dans un panneau sombre, chaque bureau placé à ses coordonnées réelles, arcs depuis le siège de Rockville, chiffres clés (7 bureaux, 7 pays, 3 continents) et légende. Survoler ou parcourir au clavier la fiche d'un bureau allume son repère, son nom et son arc sur la carte. Quand la carte dispose de moins de 900 px de large (téléphone, tablette, colonne de la page À propos), elle zoome sur l'Atlantique pour que les bureaux restent lisibles. Tout le dessin des continents tient dans un seul tracé SVG de 8 Ko.
+- **Carte Google du bureau de Lomé (Kpogan)** : sous les fiches des bureaux, sur l'accueil et la page Contact, avec l'adresse, le téléphone, un bouton « Get directions » et un lien « Open in Google Maps ». La carte est chargée en différé (`loading="lazy"`), dans la langue de la page.
 - **Regroupement des services** en 4 domaines : Infrastructure & Networks, Security & Continuity, Business Applications, Consulting & Transformation.
 - Tous les tokens (couleurs, polices, espacements, rayons) sont dans `:root`, au début de `assets/css/main.css`.
 
@@ -121,6 +126,8 @@ Elles peuvent être remplacées à tout moment par des photos propres à BostonS
 ## Éléments `[À COMPLÉTER]` / à valider
 
 ### Contenus
+- [ ] **Siège** : la fiche Google Maps s'intitule « BostonSolux Siege - Kpogan », alors que le site présente Rockville comme siège. Le bloc de la carte parle donc de « bureau de Lomé, Kpogan ». À clarifier (siège Afrique ?).
+- [ ] **Carte Google et cookies** : la carte intégrée dépose des cookies Google. Selon la politique de confidentialité retenue (RGPD pour le bureau de Paris), WordPress pourra la charger seulement après consentement.
 - [ ] **Hero de l'accueil** : titre (« Speed and efficiency to better serve our partners. », d'après le slogan) et sous-titre repris de la maquette fournie, à valider. Les légendes des 4 photos libres de droits indiquent seulement le domaine d'expertise illustré.
 - [ ] **URL de l'Academy** : le CLAUDE.md indique https://bostonsoluxacademy.com/, mais la page Power Training du site actuel mentionne https://bostonsoluxedu.com/. Laquelle est la bonne ?
 - [ ] **Page ERP & PLM du site actuel** : elle affiche par erreur le texte de Network Security. Le texte réellement consacré à l'ERP se trouve sur la page Project Management ; c'est lui qui a été utilisé pour ERP & PLM.
