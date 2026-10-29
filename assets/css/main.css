@@ -927,85 +927,18 @@ button {
   }
 }
 
-/* Home (body class "home", as in WordPress): the top bar and the header
-   float over the full-screen hero photo. The header turns white again as
-   soon as the page scrolls, a mega panel opens or the mobile menu opens. */
-.home .topbar {
-  position: relative;
-  z-index: 60;
-  background: transparent;
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.14);
-}
-
-.home .topbar__link {
-  color: rgba(255, 255, 255, 0.82);
-}
-
-.home .site-header__brand {
-  background: var(--color-white);
-  box-shadow: -0.25rem 0 0 0.375rem var(--color-white), 0.25rem 0 0 0.375rem var(--color-white);
-}
-
-.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) {
-  background: transparent;
-}
-
-.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) :focus-visible {
-  outline-color: var(--color-white);
-}
-
-.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-header__toggle-bar,
-.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-header__toggle-bar::before,
-.home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-header__toggle-bar::after {
-  background: var(--color-white);
-}
-
-@media (min-width: 1024px) {
-  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__link {
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__link:hover {
-    color: var(--color-white);
-    box-shadow: inset 0 -2px 0 rgba(255, 255, 255, 0.5);
-  }
-
-  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__link[aria-current="page"] {
-    color: var(--color-white);
-    box-shadow: inset 0 -2px 0 var(--color-white);
-  }
-
-  /* "Contact us" becomes an outlined white button over the photo */
-  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__actions .btn--primary {
-    background: transparent;
-    border-color: rgba(255, 255, 255, 0.85);
-    box-shadow: none;
-  }
-
-  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__actions .btn--primary::before {
-    background: var(--color-white);
-  }
-
-  .home:not(.has-nav-open) .site-header:not(.site-header--scrolled, :has(.mega-panel--open, .site-nav__item--has-panel:hover)) .site-nav__actions .btn--primary:hover {
-    color: var(--color-ink);
-  }
-}
-
 /* --------------------------------------------------------------------------
    6. Sections
    -------------------------------------------------------------------------- */
 
 /* Hero ------------------------------------------------------------------- */
-/* Full-screen photo, edge to edge. It slides under the top bar and the
-   header, which float over it (see "Home" in section 5). */
+/* Photo edge to edge, filling the rest of the screen below the white header */
 .section-hero {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  min-height: 100svh;
-  margin-top: calc(-1 * (var(--topbar-h) + var(--header-h)));
-  padding-top: calc(var(--topbar-h) + var(--header-h));
+  min-height: calc(100vh - var(--topbar-h) - var(--header-h));
+  min-height: calc(100svh - var(--topbar-h) - var(--header-h));
   overflow: hidden;
   background: var(--color-night);
   color: var(--color-on-dark);
@@ -1055,14 +988,13 @@ button {
   }
 }
 
-/* Dark veil, deeper on the text side, at the top (header) and at the
-   bottom (caption): white text stays readable on every photo */
+/* Dark veil, deeper on the text side and at the bottom (caption):
+   white text stays readable on every photo */
 .hero-slides::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(20, 17, 18, 0.55) 0%, rgba(20, 17, 18, 0) 30%),
     linear-gradient(0deg, rgba(20, 17, 18, 0.6) 0%, rgba(20, 17, 18, 0) 32%),
     linear-gradient(90deg, rgba(20, 17, 18, 0.74) 0%, rgba(20, 17, 18, 0.56) 55%, rgba(20, 17, 18, 0.42) 100%);
 }
@@ -1344,21 +1276,21 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 3.5rem;
+  height: 4rem;
 }
 
+/* Logos in their brand colours, on a transparent background */
 .partner-list__logo {
   width: auto;
-  max-width: min(100%, 7.5rem);
+  max-width: min(100%, 8rem);
   height: auto;
-  max-height: 2.25rem;
+  max-height: 2.5rem;
   object-fit: contain;
-  opacity: 0.72;
-  transition: opacity var(--transition);
+  transition: transform var(--transition);
 }
 
 .partner-list__item:hover .partner-list__logo {
-  opacity: 1;
+  transform: scale(1.06);
 }
 
 @media (min-width: 768px) {

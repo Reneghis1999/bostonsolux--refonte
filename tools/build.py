@@ -17,8 +17,6 @@ Sources (one folder per language, en = root of the site, fr = fr/):
     src/<lang>/_location.html  Google map of the Lomé office -> {{LOCATION}}
     src/<lang>/pages/*.html    <main> content of each page, starting with
                                <!--title: ...-->, <!--description: ...-->, <!--nav: ...-->
-                               and optionally <!--body: ...--> (class of <body>,
-                               "home" for the home page as in WordPress)
 """
 import html
 import os
@@ -77,8 +75,7 @@ def build(lang, name):
             .replace('{{description}}', html.escape(html.unescape(meta['description'])))
             .replace('{{alternates}}', alternates))
 
-    body = '<body class="%s">' % meta['body'] if 'body' in meta else '<body>'
-    out = (head + body + '\n\n<a class="skip-link" href="#main">%s</a>\n\n' % SKIP_LINK[lang]
+    out = (head + '<body>\n\n<a class="skip-link" href="#main">%s</a>\n\n' % SKIP_LINK[lang]
            + header + '\n\n<main id="main">\n\n' + main + '\n\n</main>\n\n'
            + read(lang, '_footer.html').strip() + '\n\n</body>\n</html>\n')
 

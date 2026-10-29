@@ -66,12 +66,12 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 
 - **Rouge BostonSolux `#8C2826`**, mesuré sur le site actuel (barre de menu, bouton Blog). Il sert aux boutons, liens et icônes sociales.
 - **Coins carrés partout** : boutons, cartes, images, panneaux, champs de formulaire, badges. Aucun arrondi.
-- **Hero de l'accueil** : photo **plein écran, bord à bord**. La barre du haut et le header flottent par-dessus, transparents (logo sur un cartouche blanc, liens en blanc, bouton « Contact us » en contour blanc) ; le header redevient blanc dès que la page défile, qu'un méga-menu s'ouvre ou que le menu mobile s'ouvre. Ce mode est activé par la classe `home` du `<body>` (la même que WordPress ajoute à la page d'accueil).
+- **Hero de l'accueil** : photo **bord à bord**, juste sous la barre du haut et le header blanc (le même header que sur toutes les pages). Le hero occupe le reste de la hauteur de l'écran.
 - En fond, **diaporama de 5 images** : la photo du ministère des Mines, de l'Industrie et de l'Énergie à Malabo (site actuel) et 4 photos professionnelles libres de droits (salle serveurs, équipe de consultants, câblage réseau, réunion client), sous un voile sombre plus dense côté texte pour garder le texte lisible. Le diaporama démarre seul : toutes les 6 secondes, l'image suivante glisse depuis la droite. Si le visiteur a demandé à réduire les animations, les images changent en fondu au lieu de glisser.
 - Contenu du hero aligné à gauche : surtitre « BOSTONSOLUX », grand titre (« Speed and efficiency to better serve our partners. »), sous-titre, deux boutons (« See what we do » en rouge, « Contact us » en contour blanc ; empilés en pleine largeur sur téléphone).
 - Sur ordinateur, la taille du titre et les espacements suivent aussi la **hauteur de l'écran** : tout le hero, barre du bas comprise, reste visible sur les portables (1280×620, 1366×657, 1536×730…) comme sur les grands écrans.
 - Barre du bas du hero : légende de la photo affichée (attribut `data-caption` de chaque image, mise à jour par le JS) à gauche ; à droite, des traits indiquent l'image affichée et permettent d'en choisir une, et un bouton met en pause (obligatoire pour l'accessibilité).
-- **Partenaires technologiques** : bande de logos placée en bas de page, juste avant le footer (accueil et À propos).
+- **Partenaires technologiques** : bande de logos **en couleur** placée en bas de page, juste avant le footer (accueil et À propos).
 - **Barre du haut** (fine, noire) : téléphone du siège et email à gauche ; à droite, menu de langue (icône globe : English / Français) et icônes Facebook, X et LinkedIn.
 - **Header** : logo à gauche, menu complet **centré sur la page** (Accueil, Services, Solutions, Actualités, Formation, Carrières, Contact), bouton « Contact us » à droite. Le contenu du header est aligné sur un conteneur large (1480 px). Le menu complet s'affiche dès 1024 px ; en dessous, menu burger (la barre du haut reste visible pour la langue et les réseaux).
 - **Panneaux** : les blocs sombres (héros des pages intérieures, CyberSecurity Center, appels à l'action) et les sections grises sont des panneaux en retrait des bords.
@@ -107,7 +107,7 @@ Inspirée du style de la page d'accueil de CinetPay, adaptée à l'identité Bos
 - `assets/img/people/` : portraits des interviews
 - `assets/img/news/` : visuels des actualités
 - `assets/img/about-building.webp` : photo du bâtiment recadrée depuis la plaquette `company-presentation.webp`
-- `assets/img/partners/` : logos partenaires, **recolorés en noir monochrome** pour une bande homogène
+- `assets/img/partners/` : logos partenaires **en couleur**, détourés sur fond transparent et recadrés au plus près pour une bande homogène. Les logos blancs posés sur une pastille de couleur (Oracle, Infor, Odoo, Bluehost) ont pris la couleur de leur pastille. Les fichiers d'origine sont de petite taille : des logos officiels en haute définition (SVG) seraient plus nets sur écran Retina.
 - `assets/img/banners/` : anciennes images de carrousel (non utilisées sur l'accueil)
 
 ## Crédits photo du hero
