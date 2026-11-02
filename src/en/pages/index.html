@@ -1,57 +1,40 @@
 <!--title: BostonSolux | IT Integration, Cybersecurity &amp; Enterprise Solutions-->
 <!--description: BostonSolux designs, secures and runs IT systems for banks, ministries and enterprises: networks, cybersecurity, ERP, backup and digital transformation. Offices in Rockville, Paris and five African capitals.-->
 <!--nav: home-->
-  <!-- Intro: brand reveal before the hero (skipped after the first visit of the session) -->
+  <!-- Intro: the logo is revealed before the hero (first visit of the session only) -->
   <div class="intro" aria-hidden="true" data-intro>
     <div class="intro__stage">
-      <p class="intro__word"><span>B</span><span>o</span><span>s</span><span>t</span><span>o</span><span>n</span><span>S</span><span>o</span><span>l</span><span>u</span><span>x</span></p>
-      <p class="intro__meta"><span>Focus on</span><span class="intro__line"><i></i></span><span>Solutions</span></p>
+      <img class="intro__logo" src="assets/img/logo-bostonsolux.webp" alt="" width="1011" height="247">
+      <span class="intro__line"><i></i></span>
     </div>
   </div>
 
   <!-- Hero -->
-  <section class="section-hero" aria-labelledby="hero-title">
-    <div class="section-hero__grid" aria-hidden="true"></div>
+  <section class="section-hero">
+    <div class="hero-slides" data-slides>
+      <img class="hero-slides__image hero-slides__image--active" src="assets/img/hero/mmie-malabo.webp" alt="" width="1920" height="903" fetchpriority="high" data-caption="Malabo — Ministry of Mines, Industry and Energy · Bsecured Park">
+      <img class="hero-slides__image" src="assets/img/hero/data-center.webp" alt="" width="1920" height="903" data-caption="Security &amp; Continuity · Enterprise backup and disaster recovery">
+      <img class="hero-slides__image" src="assets/img/hero/consulting-team.webp" alt="" width="1920" height="903" data-caption="Consulting &amp; Transformation · Digital transformation and project management">
+      <img class="hero-slides__image" src="assets/img/hero/network-cabling.webp" alt="" width="1920" height="903" data-caption="Infrastructure &amp; Networks · Network design and implementations">
+      <img class="hero-slides__image" src="assets/img/hero/client-partnership.webp" alt="" width="1920" height="903" data-caption="Business Applications · ERP &amp; PLM, messaging and monetics">
+    </div>
     <div class="section-hero__inner container">
-      <div class="section-hero__text">
-        <p class="eyebrow eyebrow--on-dark section-hero__eyebrow">BostonSolux, Focus on Solutions</p>
-        <h1 class="section-hero__title" id="hero-title" data-split>Speed and efficiency to better serve our partners.</h1>
-        <p class="section-hero__lead">We provide the expert support and attention your company needs.</p>
-        <div class="section-hero__actions">
-          <a class="btn btn--primary btn--large" href="services.html">See what we do</a>
-          <a class="btn btn--secondary btn--large" href="contact.html">Contact us</a>
-        </div>
-      </div>
-
-      <div class="hero-mosaic" aria-hidden="true" data-mosaic>
-        <figure class="hero-mosaic__tile hero-mosaic__tile--1">
-          <img class="hero-mosaic__image" src="assets/img/hero/mmie-malabo.webp" alt="" width="1920" height="903" fetchpriority="high">
-          <figcaption class="hero-mosaic__tag">Bsecured Park in Malabo</figcaption>
-        </figure>
-        <figure class="hero-mosaic__tile hero-mosaic__tile--2">
-          <img class="hero-mosaic__image" src="assets/img/hero/data-center.webp" alt="" width="1920" height="903">
-        </figure>
-        <figure class="hero-mosaic__tile hero-mosaic__tile--3">
-          <img class="hero-mosaic__image" src="assets/img/hero/consulting-team.webp" alt="" width="1920" height="903">
-        </figure>
-        <figure class="hero-mosaic__tile hero-mosaic__tile--4">
-          <img class="hero-mosaic__image" src="assets/img/hero/network-cabling.webp" alt="" width="1920" height="903">
-        </figure>
-        <figure class="hero-mosaic__tile hero-mosaic__tile--5">
-          <img class="hero-mosaic__image" src="assets/img/hero/client-partnership.webp" alt="" width="1920" height="903">
-        </figure>
+      <p class="section-hero__eyebrow">BostonSolux</p>
+      <h1 class="section-hero__title">Speed and efficiency to better serve our partners.</h1>
+      <p class="section-hero__lead">We provide the expert support and attention your company needs.</p>
+      <div class="section-hero__actions">
+        <a class="btn btn--primary btn--large" href="services.html">See what we do</a>
+        <a class="btn btn--secondary btn--large" href="contact.html">Contact us</a>
       </div>
     </div>
-
-    <div class="section-hero__stats">
-      <div class="section-hero__stats-inner container">
-        <ul class="hero-stats">
-          <li class="hero-stats__item"><span class="hero-stats__value" data-count>12</span><span class="hero-stats__label"><span class="hero-stats__index" aria-hidden="true">01</span>Services</span></li>
-          <li class="hero-stats__item"><span class="hero-stats__value" data-count>6</span><span class="hero-stats__label"><span class="hero-stats__index" aria-hidden="true">02</span>In-house solutions</span></li>
-          <li class="hero-stats__item"><span class="hero-stats__value" data-count>7</span><span class="hero-stats__label"><span class="hero-stats__index" aria-hidden="true">03</span>Offices</span></li>
-          <li class="hero-stats__item"><span class="hero-stats__value" data-count>3</span><span class="hero-stats__label"><span class="hero-stats__index" aria-hidden="true">04</span>Continents</span></li>
-        </ul>
-        <p class="scroll-cue" aria-hidden="true"><span class="scroll-cue__track"><i></i></span>Scroll</p>
+    <div class="section-hero__footer container">
+      <p class="section-hero__caption" data-slides-caption>Malabo — Ministry of Mines, Industry and Energy · Bsecured Park</p>
+      <div class="hero-slides__controls">
+        <div class="hero-slides__dots" data-slides-dots data-label="Show image {n} of {total}"></div>
+        <button class="hero-slides__toggle" type="button" aria-pressed="false" data-slides-toggle data-label-pause="Pause the slideshow" data-label-play="Play the slideshow" aria-label="Pause the slideshow">
+          <svg class="hero-slides__icon-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z"/></svg>
+          <svg class="hero-slides__icon-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l8 5-8 5z"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -160,7 +143,7 @@
     <div class="container">
       <header class="section-head section-head--split">
         <div>
-          <p class="eyebrow eyebrow--on-dark"><span class="eyebrow__index">03</span>Our solutions</p>
+          <p class="eyebrow"><span class="eyebrow__index">03</span>Our solutions</p>
           <h2 class="section-head__title" id="solutions-title" data-split>Six products designed and maintained by BostonSolux</h2>
         </div>
         <p class="solution-explorer__counter" aria-hidden="true"><span class="solution-explorer__current" data-explorer-current>01</span> / 06</p>
@@ -330,7 +313,7 @@
   <section class="section-case-study" aria-labelledby="case-title">
     <div class="container">
       <header class="section-head">
-        <p class="eyebrow eyebrow--on-dark"><span class="eyebrow__index">06</span>Case study</p>
+        <p class="eyebrow"><span class="eyebrow__index">06</span>Case study</p>
         <h2 class="section-head__title" id="case-title" data-split>The Ministry of Mines, Industry and Energy goes live with Bsecured Park</h2>
       </header>
 
