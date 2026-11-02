@@ -283,6 +283,103 @@
 
 
 /* ==========================================================================
+   Hero slideshow: photos slide in behind the hero content, every 6 seconds.
+   It starts on its own; the pause button stops it at any time. The caption
+   in the bottom bar follows the photo on screen (data-caption).
+   ========================================================================== */
+(function () {
+  'use strict';
+
+  var slides = document.querySelector('[data-slides]');
+  var toggle = document.querySelector('[data-slides-toggle]');
+  if (!slides || !toggle) return;
+
+  var images = slides.querySelectorAll('.hero-slides__image');
+  var dotsBox = document.querySelector('[data-slides-dots]');
+  var caption = document.querySelector('[data-slides-caption]');
+  var dots = [];
+  var current = 0;
+  var timer = null;
+  var DELAY = 6000;
+  var SLIDE_TIME = 1000;
+
+  function show(index) {
+    var next = (index + images.length) % images.length;
+    if (next === current) return;
+
+    var leaving = images[current];
+    leaving.classList.remove('hero-slides__image--active');
+    leaving.classList.add('hero-slides__image--leaving');
+    // Once off-screen, send the old slide back to the right without animating
+    window.setTimeout(function () {
+      leaving.classList.add('hero-slides__image--instant');
+      leaving.classList.remove('hero-slides__image--leaving');
+      void leaving.offsetWidth;
+      leaving.classList.remove('hero-slides__image--instant');
+    }, SLIDE_TIME);
+
+    images[next].classList.add('hero-slides__image--active');
+    if (dots.length) {
+      dots[current].removeAttribute('aria-current');
+      dots[next].setAttribute('aria-current', 'true');
+    }
+    current = next;
+
+    // Fade the caption out, swap its text, fade it back in
+    if (caption) {
+      caption.classList.add('section-hero__caption--hidden');
+      window.setTimeout(function () {
+        caption.textContent = images[current].getAttribute('data-caption') || '';
+        caption.classList.remove('section-hero__caption--hidden');
+      }, 250);
+    }
+  }
+
+  function play() {
+    window.clearInterval(timer);
+    timer = window.setInterval(function () { show(current + 1); }, DELAY);
+    toggle.setAttribute('aria-pressed', 'false');
+    toggle.setAttribute('aria-label', toggle.getAttribute('data-label-pause'));
+  }
+
+  function pause() {
+    window.clearInterval(timer);
+    timer = null;
+    toggle.setAttribute('aria-pressed', 'true');
+    toggle.setAttribute('aria-label', toggle.getAttribute('data-label-play'));
+  }
+
+  if (images.length < 2) {
+    toggle.hidden = true;
+    return;
+  }
+
+  // One dot per image, to jump to a given slide
+  if (dotsBox) {
+    var label = dotsBox.getAttribute('data-label');
+    Array.prototype.forEach.call(images, function (image, i) {
+      var dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'hero-slides__dot';
+      dot.setAttribute('aria-label', label.replace('{n}', i + 1).replace('{total}', images.length));
+      if (i === 0) dot.setAttribute('aria-current', 'true');
+      dot.addEventListener('click', function () {
+        show(i);
+        if (timer) play();
+      });
+      dotsBox.appendChild(dot);
+      dots.push(dot);
+    });
+  }
+
+  toggle.addEventListener('click', function () {
+    if (timer) pause(); else play();
+  });
+
+  play();
+})();
+
+/* ==========================================================================
    Language menu (globe icon in the header)
    ========================================================================== */
 (function () {
@@ -381,10 +478,10 @@
 })();
 
 /* ==========================================================================
-   Motion: page curtain, home intro, split titles, scroll reveals, rolling
-   counters, hero mosaic parallax, footer wordmark, partner marquee,
-   reading progress. Everything here is decorative: without JavaScript the
-   page is complete and fully visible.
+   Motion: page curtain, home intro, split titles, scroll reveals, footer
+   wordmark, partner marquee, reading progress, back-to-top button.
+   Everything here is decorative: without JavaScript the page is complete
+   and fully visible.
    ========================================================================== */
 (function () {
   'use strict';
@@ -409,13 +506,6 @@
       fn();
     }, { rootMargin: margin || '0px 0px -12% 0px' });
     observer.observe(el);
-  }
-
-  // Delay before the hero sequence starts (CSS --intro-delay, in ms)
-  function introDelay() {
-    var value = getComputedStyle(document.body).getPropertyValue('--intro-delay').trim();
-    var number = parseFloat(value) || 0;
-    return value.indexOf('ms') > -1 ? number : number * 1000;
   }
 
   /* Home intro: only on the first visit of the session ------------------- */
@@ -552,78 +642,6 @@
     });
   }
 
-  /* Rolling counters: each digit spins on a strip, then stops ------------- */
-  each('[data-count]', function (counter) {
-    var value = counter.textContent.trim();
-    if (!/^\d+$/.test(value) || reduceMotion) return;
-
-    var label = document.createElement('span');
-    label.className = 'visually-hidden';
-    label.textContent = value;
-
-    var roll = document.createElement('span');
-    roll.className = 'roll';
-    roll.setAttribute('aria-hidden', 'true');
-    value.split('').forEach(function (digit, i) {
-      var col = document.createElement('span');
-      var strip = document.createElement('span');
-      col.className = 'roll__col';
-      strip.className = 'roll__strip';
-      strip.style.setProperty('--d', digit);
-      strip.style.setProperty('--c', i);
-      for (var n = 0; n < 20; n++) {
-        var cell = document.createElement('span');
-        cell.textContent = n % 10;
-        strip.appendChild(cell);
-      }
-      col.appendChild(strip);
-      roll.appendChild(col);
-    });
-
-    counter.textContent = '';
-    counter.appendChild(label);
-    counter.appendChild(roll);
-
-    function play() { roll.classList.add('roll--play'); }
-    if (counter.closest('.section-hero')) {
-      window.setTimeout(play, introDelay() + 700);
-    } else {
-      onView(counter, play);
-    }
-  });
-
-  /* Hero mosaic: tiles drift with the pointer and the scroll -------------- */
-  var mosaic = document.querySelector('[data-mosaic]');
-  var hero = mosaic && mosaic.closest('.section-hero');
-  if (mosaic && hero && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
-    var pointer = { x: 0, y: 0 };
-    var frame = null;
-
-    function render() {
-      mosaic.style.setProperty('--mx', pointer.x.toFixed(3));
-      mosaic.style.setProperty('--my', pointer.y.toFixed(3));
-      frame = null;
-    }
-
-    hero.addEventListener('pointermove', function (event) {
-      var rect = hero.getBoundingClientRect();
-      pointer.x = ((event.clientX - rect.left) / rect.width - 0.5) * 2;
-      pointer.y = ((event.clientY - rect.top) / rect.height - 0.5) * 2;
-      if (!frame) frame = window.requestAnimationFrame(render);
-    });
-
-    hero.addEventListener('pointerleave', function () {
-      pointer.x = 0;
-      pointer.y = 0;
-      if (!frame) frame = window.requestAnimationFrame(render);
-    });
-
-    window.addEventListener('scroll', function () {
-      var y = window.scrollY;
-      if (y < hero.offsetTop + hero.offsetHeight) mosaic.style.setProperty('--sy', Math.round(y));
-    }, { passive: true });
-  }
-
   /* Footer wordmark: letters rise one after the other --------------------- */
   each('[data-giant]', function (word) {
     var text = word.textContent.trim();
@@ -666,6 +684,19 @@
   bar.setAttribute('aria-hidden', 'true');
   document.body.appendChild(bar);
 
+  /* Back to top: a round floating button with a pulsing halo ------------- */
+  var lang = (document.documentElement.lang || 'en').slice(0, 2);
+  var topButton = document.createElement('button');
+  topButton.type = 'button';
+  topButton.className = 'back-to-top';
+  topButton.setAttribute('aria-label', lang === 'fr' ? 'Retour en haut de la page' : 'Back to top');
+  topButton.innerHTML = '<span class="back-to-top__halo" aria-hidden="true"></span>' +
+    '<span class="back-to-top__disc" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg></span>';
+  topButton.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+  document.body.appendChild(topButton);
+
   var ticking = false;
   function onScroll() {
     if (ticking) return;
@@ -673,6 +704,7 @@
     window.requestAnimationFrame(function () {
       var max = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+      topButton.classList.toggle('back-to-top--visible', window.scrollY > 600);
       ticking = false;
     });
   }
