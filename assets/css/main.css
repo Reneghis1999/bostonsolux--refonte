@@ -108,8 +108,8 @@
   --ease-in-out: cubic-bezier(0.76, 0, 0.24, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   --transition: 200ms ease;
-  --intro-delay: 0.45s;             /* hero sequence starts once the curtain lifts */
-  --curtain-delay: 0.05s;
+  --curtain-delay: 0.6s;            /* the logo shows on the curtain, then it lifts */
+  --intro-delay: 0.9s;              /* hero sequence starts as the curtain lifts */
 
   /* Effects */
   --shadow-panel: 0 30px 60px -30px rgba(20, 17, 18, 0.45);
@@ -121,12 +121,6 @@
   :root {
     --header-h: 4.75rem;
   }
-}
-
-/* The home page opens with the brand intro: the hero waits for it */
-body:has(.intro) {
-  --intro-delay: 1.8s;
-  --curtain-delay: 1.4s;
 }
 
 /* --------------------------------------------------------------------------
@@ -678,12 +672,14 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   5. Page curtain, home intro, header and navigation (header.php)
+   5. Page curtain (loader), header and navigation (header.php)
    -------------------------------------------------------------------------- */
 
-/* Curtain: five columns lift off every page as it opens, and cover it
-   again when an internal link is followed (js). Pure CSS on arrival, so the
-   page always shows, even without js. */
+/* Curtain (loader): every page opens on five white columns carrying the
+   BostonSolux logo and a red loading line; the logo rises away and the
+   columns lift. Following an internal link covers the page again and
+   brings the logo back (js), so it carries over to the next page. Pure
+   CSS on arrival, so the page always shows, even without js. */
 .page-curtain {
   position: fixed;
   inset: 0;
@@ -734,69 +730,61 @@ button {
   }
 }
 
-/* Home intro: the original logo opens with a wipe on the light curtain and
-   a red line fills below it, then everything lifts (first visit of the
-   session) */
-.intro {
-  position: fixed;
+.page-curtain__brand {
+  position: absolute;
   inset: 0;
-  z-index: 201;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
   padding-inline: var(--gutter);
-  pointer-events: none;
-  animation: intro-release 0.01s linear 2.4s both;
+  animation: curtain-brand-out 0.4s var(--ease-in-out) calc(var(--curtain-delay) - 0.1s) both;
 }
 
-.intro__stage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: clamp(1.25rem, 3vw, 2rem);
-  animation: intro-out 0.45s var(--ease-in-out) 1.3s both;
-}
-
-.intro__logo {
-  width: clamp(14rem, 34vw, 26rem);
+.page-curtain__logo {
+  width: clamp(12rem, 30vw, 22rem);
   height: auto;
-  animation: logo-wipe 0.9s var(--ease-in-out) 0.2s both;
 }
 
-.intro__line {
+.page-curtain__line {
   position: relative;
-  width: clamp(6rem, 16vw, 10rem);
+  width: clamp(5rem, 14vw, 8rem);
   height: 2px;
   overflow: hidden;
   background: var(--color-line-soft);
 }
 
-.intro__line i {
+.page-curtain__line i {
   position: absolute;
   inset: 0;
   background: var(--color-brand);
   transform-origin: left center;
-  animation: grow-x 0.8s var(--ease-in-out) 0.5s both;
+  animation: grow-x calc(var(--curtain-delay) - 0.1s) var(--ease-in-out) both;
 }
 
-@keyframes logo-wipe {
-  from {
-    clip-path: inset(0 100% 0 0);
-    transform: translateY(0.75rem);
-  }
+/* Leaving: the logo comes back once the columns have covered the page,
+   with an empty line that fills on the next page */
+.page-curtain--cover .page-curtain__brand {
+  animation: curtain-brand-in 0.3s var(--ease-out) 0.3s both;
 }
 
-@keyframes intro-out {
+.page-curtain--cover .page-curtain__line i {
+  animation: none;
+  transform: scaleX(0);
+}
+
+@keyframes curtain-brand-out {
   to {
     opacity: 0;
-    transform: translateY(-2.5rem);
+    transform: translateY(-1.5rem);
   }
 }
 
-@keyframes intro-release {
-  to {
-    visibility: hidden;
+@keyframes curtain-brand-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
   }
 }
 
@@ -5144,8 +5132,7 @@ img.reveal--media {
    Content still fades in, but nothing moves, slides or scrolls on its own.
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  .page-curtain,
-  .intro {
+  .page-curtain {
     display: none;
   }
 

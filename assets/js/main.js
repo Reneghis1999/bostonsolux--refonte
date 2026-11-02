@@ -478,7 +478,7 @@
 })();
 
 /* ==========================================================================
-   Motion: page curtain, home intro, split titles, scroll reveals, footer
+   Motion: page curtain, split titles, scroll reveals, footer
    wordmark, partner marquee, reading progress, back-to-top button.
    Everything here is decorative: without JavaScript the page is complete
    and fully visible.
@@ -508,18 +508,8 @@
     observer.observe(el);
   }
 
-  /* Home intro: only on the first visit of the session ------------------- */
-  var intro = document.querySelector('[data-intro]');
-  if (intro) {
-    var seen = false;
-    try {
-      seen = window.sessionStorage.getItem('bs-intro') === '1';
-      window.sessionStorage.setItem('bs-intro', '1');
-    } catch (error) { /* storage blocked: play the intro */ }
-    if (seen || reduceMotion) intro.parentNode.removeChild(intro);
-  }
-
-  /* Page curtain: covers the page before following an internal link ------ */
+  /* Page curtain: covers the page (logo back on top) before following an
+     internal link ---------------------------------------------------------- */
   var curtain = document.querySelector('[data-curtain]');
   if (curtain && !reduceMotion) {
     document.addEventListener('click', function (event) {
@@ -537,7 +527,7 @@
 
       event.preventDefault();
       curtain.classList.add('page-curtain--cover');
-      window.setTimeout(function () { window.location.href = link.href; }, 560);
+      window.setTimeout(function () { window.location.href = link.href; }, 700);
     });
 
     // Back/forward cache: the page comes back uncovered
