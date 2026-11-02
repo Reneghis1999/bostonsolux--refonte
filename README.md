@@ -46,7 +46,7 @@ La carte du monde en points est produite une fois pour toutes par `tools/world_m
 
 | Page | Contenu |
 |---|---|
-| `index.html` | Accueil : intro, hero avec mosaïque et chiffres, à propos, expertise, explorateur des solutions, CyberSecurity Center, Power Training, étude de cas MMIE, interviews, actualités, bureaux, appel à l'action, partenaires |
+| `index.html` | Accueil : intro, hero avec diaporama, à propos, expertise, explorateur des solutions, CyberSecurity Center, Power Training, étude de cas MMIE, interviews, actualités, bureaux, appel à l'action, partenaires |
 | `services.html` | Les 12 services en 4 domaines, avec navigation par domaine |
 | `service-detail.html` | Modèle de page service, rempli avec **Digital Transformation** (le contenu le plus riche du site actuel) |
 | `solutions.html` | Les 6 produits, avec leur public et leurs fonctions clés |
@@ -62,48 +62,51 @@ Toutes les pages partagent exactement le même header et le même footer. Seul c
 
 ## Direction artistique
 
-Inspirée du site de [The IT Foundation](https://the-itf.com/) (surfaces sombres quadrillées, grande typographie élargie, étiquettes en monospace, grilles à filets, animations orchestrées), adaptée à l'identité BostonSolux : le rouge de la marque remplace le violet d'origine et reste la seule couleur d'accent.
+Inspirée du site de [The IT Foundation](https://the-itf.com/) (grande typographie élargie, étiquettes en monospace, grilles à filets, animations orchestrées), adaptée à l'identité BostonSolux : le rouge de la marque reste la seule couleur d'accent. À la demande du client, le site est **majoritairement blanc** : barre du haut, header, sections, pages intérieures et pied de page sont clairs ; le noir est réservé au hero photo de l'accueil, au panneau de la carte du monde, à l'appel à l'action final et à trois bandeaux des pages intérieures.
 
 - **Couleurs** (tokens dans `:root`, au début de `assets/css/main.css`) :
-  - encre `#141112` pour le hero, les sections sombres et le pied de page, avec une **fine grille** de 84 px estompée vers les bords ;
-  - papier `#F4F3F0` (et `#EBE9E4` en alternance) pour les sections claires, blanc pour la bande des partenaires ;
+  - blanc et papier `#F4F3F0` (et `#EBE9E4` en alternance) pour la barre du haut, le header, les sections, les pages intérieures (avec une fine grille grise) et le pied de page ;
+  - encre `#141112` pour les rares blocs sombres (appel à l'action, carte du monde, bandeaux), avec une **fine grille** de 84 px ;
   - **rouge BostonSolux `#8C2826`** pour les boutons, liens et petits repères ; sur fond sombre, une version éclaircie `#E0554A` (contraste AA) pour les étiquettes, les carrés et les repères de la carte. Le rouge ne remplit jamais de grands aplats.
 - **Typographie** : **Archivo** (police variable en largeur) pour tout le site, en version **élargie et très grasse** pour les titres (hero en capitales), et **JetBrains Mono** en petites capitales espacées pour les étiquettes, numéros, dates et légendes. Les deux viennent de Google Fonts.
 - **Coins carrés partout**, sections bord à bord, cartes séparées par des filets (grilles à bordures partagées).
 - **Étiquettes de section** : `01 ■ À PROPOS`, numéro, carré rouge, libellé en monospace, au-dessus de chaque titre de l'accueil.
-- **Header sombre** sous la barre du haut : logo en version claire, menu centré (un petit carré rouge marque la page courante et apparaît au survol), bouton « Contact us » à flèche. Il **se cache quand on descend** et **réapparaît dès qu'on remonte**, avec un fond flouté. Les éléments collants (navigation par domaine de la page Services, colonnes fixes) suivent sa position.
-- **Menu mobile** plein écran, sombre, liens numérotés en grands caractères qui montent l'un après l'autre ; burger carré rouge.
+- **Logo d'origine**, sans aucune modification, dans le header, le pied de page et l'intro de l'accueil.
+- **Header blanc** sous une fine barre du haut claire : logo, menu centré (un petit carré rouge marque la page courante et apparaît au survol), bouton « Contact us » à flèche. Il **se cache quand on descend** et **réapparaît dès qu'on remonte**, avec un fond flouté. Les éléments collants (navigation par domaine de la page Services, colonnes fixes) suivent sa position.
+- **Menu mobile** plein écran, blanc, liens numérotés en grands caractères qui montent l'un après l'autre ; burger carré rouge.
 - **Boutons** : le bouton principal porte une case flèche à droite ; au survol, son remplissage envahit tout le bouton et la flèche sort puis revient. Les boutons secondaires se remplissent depuis le bas. Les liens texte ont un soulignement qui part vers la droite et se redessine.
 
 ### Accueil, section par section
 
-1. **Hero** sombre et quadrillé : surtitre, très grand titre en capitales élargies, sous-titre, deux boutons. À droite, une **mosaïque de 5 photos** décalées (photo du ministère des Mines à Malabo, avec l'étiquette « Bsecured Park in Malabo », et les 4 photos de la maquette précédente), en noir et blanc avec une tuile teintée de rouge ; la couleur revient au survol. En bas, une **barre de chiffres** (12 services, 6 solutions maison, 7 bureaux, 3 continents, tous tirés du contenu) et un indicateur « Scroll ». Le diaporama automatique et ses contrôles ont disparu (le CLAUDE.md déconseille les carrousels automatiques).
+1. **Hero** (version précédente, rétablie à la demande du client) : photo bord à bord sous le header blanc, **diaporama de 5 images** (ministère des Mines à Malabo et 4 photos libres de droits) sous un voile sombre, texte blanc aligné à gauche (surtitre, grand titre, sous-titre, deux boutons). Toutes les 6 secondes, l'image suivante glisse depuis la droite ; la barre du bas affiche la légende de la photo, des traits pour choisir une image et un bouton pause (obligatoire pour l'accessibilité). En mouvement réduit, les images changent en fondu.
 2. **À propos** : titre, photo du bâtiment, texte et les trois forces numérotées.
 3. **Domaines d'expertise** : grille de 4 cartes à filets (icône dans un carré noir, numéro, titre, liste des services). Au survol, la carte se remplit d'encre depuis le bas.
-4. **Nos solutions** : sur fond sombre, liste des 6 produits en très grands caractères, un seul ouvert à la fois (public visé, phrase, lien) ; à droite, un panneau collant où l'**icône du produit se dessine** trait par trait, avec un compteur `01 / 06`. Sans JavaScript, tous les produits restent ouverts.
+4. **Nos solutions** : sur fond blanc, liste des 6 produits en très grands caractères, un seul ouvert à la fois (public visé, phrase, lien) ; à droite, un panneau collant où l'**icône du produit se dessine** trait par trait, avec un compteur `01 / 06`. Sans JavaScript, tous les produits restent ouverts.
 5. **CyberSecurity Center** : présentation collante à gauche (texte, image, bouton), liste numérotée des 5 prestations à droite, dont les filets se tracent à l'apparition.
 6. **Power Training** : image et texte, bouton vers l'Academy.
-7. **Étude de cas MMIE** sur fond sombre : grande photo, fiche Client / Enjeu / Solution / Résultat.
+7. **Étude de cas MMIE** : grande photo, fiche Client / Enjeu / Solution / Résultat.
 8. **Interviews** : grille à filets, portraits carrés en noir et blanc (couleur au survol), citation, nom, fonction.
 9. **Actualités** : 3 cartes avec date en monospace.
 10. **Bureaux** : carte du monde dans un panneau sombre, puis grille des 7 bureaux (le siège en carte sombre).
 11. **Appel à l'action** : très grand titre « Let's talk about your project. », boutons, mention PMO.
 12. **Partenaires** : bande blanche de logos en couleur qui défile, juste avant le footer.
 
-**Pages intérieures** : même header et même footer ; hero sombre quadrillé avec fil d'Ariane en monospace, grand titre élargi et, quand il n'y a pas de photo, deux blocs (dont un carré rouge) qui poussent à droite. Les cartes de services passent du noir et blanc à la couleur au survol.
+**Pages intérieures** : même header et même footer ; hero clair à fine grille grise avec fil d'Ariane en monospace, grand titre élargi et, quand il n'y a pas de photo, deux blocs (un blanc, un carré rouge) qui poussent à droite. Les cartes de services passent du noir et blanc à la couleur au survol.
 
-**Footer** : colonnes avec titres en monospace, puis le mot **« BostonSolux » en très grand** sur toute la largeur (ses lettres montent une à une ; au survol, le B et le S passent au rouge, comme les deux lettres noires du logo), copyright et lien « Back to top ».
+**Footer** clair : logo d'origine, colonnes avec titres en monospace, puis le mot **« BostonSolux » en très grand** sur toute la largeur, dans un gris très léger (ses lettres montent une à une ; au survol, elles prennent les couleurs du logo : B et S foncés, le reste en rouge), et le copyright.
+
+**Bouton « retour en haut »** (toutes les pages), sur le modèle du bouton flottant de [reinvent-labs.com](https://www.reinvent-labs.com/) : un rond en bas à droite, anneau rouge, disque blanc avec une flèche, ombre portée et halo qui pulse doucement toutes les 3 secondes. Il apparaît après 600 px de défilement, grossit légèrement au survol et remonte en douceur en haut de la page.
 
 ### Animations
 
-- **Rideau de page** : à l'ouverture de chaque page, cinq colonnes sombres se lèvent l'une après l'autre ; quand on suit un lien interne, elles remontent pour couvrir la page avant la navigation. L'arrivée est en CSS pur : la page s'affiche toujours, même sans JavaScript.
-- **Intro de l'accueil** (première visite de la session seulement) : les lettres de « BostonSolux » montent une à une sur le rideau (B et S en clair, le reste en rouge), le trait du slogan « Focus on — Solutions » se remplit, puis le rideau se lève. Aux visites suivantes, l'accueil s'ouvre comme les autres pages.
-- **Hero** : grille qui apparaît, titre qui monte **mot par mot**, tuiles de la mosaïque qui s'ouvrent (révélations par découpe) en se posant, chiffres qui **défilent comme un compteur mécanique** avant de s'arrêter. Sur ordinateur, les tuiles **suivent légèrement la souris** et le défilement (profondeurs différentes).
+- **Rideau de page** : à l'ouverture de chaque page, cinq colonnes claires se lèvent l'une après l'autre ; quand on suit un lien interne, elles remontent pour couvrir la page avant la navigation. L'arrivée est en CSS pur : la page s'affiche toujours, même sans JavaScript.
+- **Intro de l'accueil** (première visite de la session seulement) : le logo d'origine apparaît en se dévoilant de gauche à droite sur le rideau blanc, un trait rouge se remplit dessous, puis le rideau se lève. Aux visites suivantes, l'accueil s'ouvre comme les autres pages.
+- **Hero** : le contenu monte en séquence une fois le rideau levé, léger zoom sur la photo affichée, images qui glissent, légende qui change en fondu.
 - **Titres de section** : les mots montent depuis un masque quand le titre entre à l'écran.
 - **Apparitions au défilement** : textes et cartes qui montent en cascade, photos qui s'ouvrent depuis le bas en se posant, filets qui se tracent.
 - **Survols** : cartes qui se remplissent d'encre, icônes qui pivotent, photos qui reprennent leurs couleurs, flèches qui glissent.
-- Carte du monde (arcs, repères, pulsation), bande des partenaires en continu (pause au survol), barre rouge de progression de lecture.
-- **Mouvement réduit** : si le visiteur l'a demandé, pas de rideau ni d'intro, rien ne bouge ; le contenu s'affiche directement.
+- Carte du monde (arcs, repères, pulsation), bande des partenaires en continu (pause au survol), barre rouge de progression de lecture, halo du bouton « retour en haut ».
+- **Mouvement réduit** : si le visiteur l'a demandé, pas de rideau ni d'intro, pas de halo, rien ne glisse ; le contenu s'affiche directement.
 
 - **Carte du monde des 7 bureaux** (accueil, page À propos) : continents dessinés en points (projection Miller) dans un panneau sombre, chaque bureau placé à ses coordonnées réelles, arcs depuis le siège de Rockville, chiffres clés (7 bureaux, 7 pays, 3 continents) et légende. Survoler ou parcourir au clavier la fiche d'un bureau allume son repère, son nom et son arc sur la carte. Quand la carte dispose de moins de 900 px de large, elle zoome sur l'Atlantique pour que les bureaux restent lisibles.
 - **Carte Google du bureau de Lomé (Kpogan)** : uniquement sur la page Contact, dans sa propre section juste après le formulaire (« Visit us »), chargée en différé, dans la langue de la page.
@@ -120,7 +123,7 @@ Monogramme « BS » bordeaux (`#8C2826`) sur carré blanc (Plus Jakarta Sans Ext
 | `apple-touch-icon.png` | icône d'écran d'accueil iPhone et iPad (180 px, carré plein : iOS arrondit lui-même) |
 | `icon-512.png` | à charger dans WordPress (Apparence › Personnaliser › Identité du site › Icône du site), qui génère lui-même toutes les tailles |
 
-La barre du navigateur mobile prend la couleur de la barre du haut et du header (`theme-color` `#141112`).
+La barre du navigateur mobile prend la couleur de la barre du haut (`theme-color` `#F4F3F0`).
 
 ## Organisation du code (pensée pour WordPress)
 
@@ -140,11 +143,10 @@ La barre du navigateur mobile prend la couleur de la barre du haut et du header 
 - `assets/img/about-building.webp` : photo du bâtiment recadrée depuis la plaquette `company-presentation.webp`
 - `assets/img/partners/` : logos partenaires **en couleur**, détourés sur fond transparent et recadrés au plus près pour une bande homogène. Les logos blancs posés sur une pastille de couleur (Oracle, Infor, Odoo, Bluehost) ont pris la couleur de leur pastille. Les fichiers d'origine sont de petite taille : des logos officiels en haute définition (SVG) seraient plus nets sur écran Retina.
 - `assets/img/banners/` : anciennes images de carrousel (non utilisées sur l'accueil)
-- `assets/img/logo-bostonsolux-light.webp` : version du logo pour fonds sombres (header et footer), produite à partir du logo d'origine : les lettres noires (B, S, « Focus on Solutions ») passent en blanc cassé, le rouge et le filet doré sont conservés
 
 ## Crédits photo du hero
 
-À la demande du client, 4 images de la mosaïque de l'accueil (l'ancien diaporama) ne viennent pas du site actuel. Ce sont des photos Unsplash, sous licence Unsplash (usage commercial gratuit, sans attribution obligatoire) :
+À la demande du client, 4 images du diaporama de l'accueil ne viennent pas du site actuel. Ce sont des photos Unsplash, sous licence Unsplash (usage commercial gratuit, sans attribution obligatoire) :
 
 | Fichier | Photo Unsplash |
 |---|---|
@@ -160,7 +162,7 @@ Elles peuvent être remplacées à tout moment par des photos propres à BostonS
 ### Contenus
 - [ ] **Siège** : la fiche Google Maps s'intitule « BostonSolux Siege - Kpogan », alors que le site présente Rockville comme siège. Le bloc de la carte parle donc de « bureau de Lomé, Kpogan ». À clarifier (siège Afrique ?).
 - [ ] **Carte Google et cookies** : la carte intégrée dépose des cookies Google. Selon la politique de confidentialité retenue (RGPD pour le bureau de Paris), WordPress pourra la charger seulement après consentement.
-- [ ] **Hero de l'accueil** : titre (« Speed and efficiency to better serve our partners. », d'après le slogan) et sous-titre repris de la maquette fournie, à valider. Les chiffres de la barre du hero (12 services, 6 solutions, 7 bureaux, 3 continents) sont tirés du contenu du site ; d'autres chiffres (années d'expérience, projets livrés, clients) pourront s'y ajouter s'ils sont fournis.
+- [ ] **Hero de l'accueil** : titre (« Speed and efficiency to better serve our partners. », d'après le slogan) et sous-titre repris de la maquette fournie, à valider. Les légendes des 4 photos libres de droits indiquent seulement le domaine d'expertise illustré. Le titre utilise désormais la police du site (Archivo) au lieu de Plus Jakarta Sans.
 - [ ] **URL de l'Academy** : le CLAUDE.md indique https://bostonsoluxacademy.com/, mais la page Power Training du site actuel mentionne https://bostonsoluxedu.com/. Laquelle est la bonne ?
 - [ ] **Page ERP & PLM du site actuel** : elle affiche par erreur le texte de Network Security. Le texte réellement consacré à l'ERP se trouve sur la page Project Management ; c'est lui qui a été utilisé pour ERP & PLM.
 - [ ] **Project Management** : sans texte propre sur le site actuel, la description reprend l'article « BostonSolux PMO: Center of Excellence ».
@@ -174,10 +176,10 @@ Elles peuvent être remplacées à tout moment par des photos propres à BostonS
 - [ ] **Traductions** : les citations de Richard Dotse et Yvon Vodounon reprennent les versions françaises du site actuel ; les autres textes sont traduits depuis l'anglais et sont à relire.
 
 ### Images
-- [ ] **Logo pour fonds sombres officiel** : `logo-bostonsolux-light.webp` a été produit à partir du logo d'origine (lettres noires passées en blanc cassé). Une version officielle en SVG serait plus nette.
+- [ ] **Logo en SVG** : le logo d'origine (`logo-bostonsolux.webp`, 1011 × 247 px) est utilisé tel quel ; une version vectorielle officielle serait plus nette sur écran Retina.
 - [ ] **Portraits en haute définition** : les portraits font 170 à 335 px de large sur le site actuel.
 - [ ] **Active Directory** : pas d'image dédiée sur le site actuel ; une ancienne image de bannière (globe) la remplace.
 - [ ] **Images avec texte incrusté** (ERP, « Backup & Restore », « Network Security », « Project Management ») : des versions sans texte seraient plus propres.
-- [ ] **Mosaïque du hero** : des photos propres à BostonSolux (bureaux, équipes, projets) remplaceraient avantageusement les 4 photos Unsplash.
+- [ ] **Diaporama du hero** : des photos propres à BostonSolux (bureaux, équipes, projets) remplaceraient avantageusement les 4 photos Unsplash.
 - [ ] **Intro et rideau de page** : à valider par le client (durée de l'intro de l'accueil : environ 2 s, une seule fois par session).
 - [ ] **Photo du bâtiment** : `about-building.webp` est recadrée depuis la couverture de la plaquette de présentation (meilleure définition que l'image d'origine).
