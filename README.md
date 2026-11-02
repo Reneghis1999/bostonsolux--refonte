@@ -46,7 +46,7 @@ La carte du monde en points est produite une fois pour toutes par `tools/world_m
 
 | Page | Contenu |
 |---|---|
-| `index.html` | Accueil : intro, hero avec diaporama, à propos, expertise, explorateur des solutions, CyberSecurity Center, Power Training, étude de cas MMIE, interviews, actualités, bureaux, appel à l'action, partenaires |
+| `index.html` | Accueil : hero avec diaporama, à propos, expertise, explorateur des solutions, CyberSecurity Center, Power Training, étude de cas MMIE, interviews, actualités, bureaux, appel à l'action, partenaires |
 | `services.html` | Les 12 services en 4 domaines, avec navigation par domaine |
 | `service-detail.html` | Modèle de page service, rempli avec **Digital Transformation** (le contenu le plus riche du site actuel) |
 | `solutions.html` | Les 6 produits, avec leur public et leurs fonctions clés |
@@ -71,7 +71,7 @@ Inspirée du site de [The IT Foundation](https://the-itf.com/) (grande typograph
 - **Typographie** : **Archivo** (police variable en largeur) pour tout le site, en version **élargie et très grasse** pour les titres (hero en capitales), et **JetBrains Mono** en petites capitales espacées pour les étiquettes, numéros, dates et légendes. Les deux viennent de Google Fonts.
 - **Coins carrés partout**, sections bord à bord, cartes séparées par des filets (grilles à bordures partagées).
 - **Étiquettes de section** : `01 ■ À PROPOS`, numéro, carré rouge, libellé en monospace, au-dessus de chaque titre de l'accueil.
-- **Logo d'origine**, sans aucune modification, dans le header, le pied de page et l'intro de l'accueil.
+- **Logo d'origine**, sans aucune modification, dans le header, le pied de page et le loader de chaque page.
 - **Header blanc** sous une fine barre du haut claire : logo, menu centré (un petit carré rouge marque la page courante et apparaît au survol), bouton « Contact us » à flèche. Il **se cache quand on descend** et **réapparaît dès qu'on remonte**, avec un fond flouté. Les éléments collants (navigation par domaine de la page Services, colonnes fixes) suivent sa position.
 - **Menu mobile** plein écran, blanc, liens numérotés en grands caractères qui montent l'un après l'autre ; burger carré rouge.
 - **Boutons** : le bouton principal porte une case flèche à droite ; au survol, son remplissage envahit tout le bouton et la flèche sort puis revient. Les boutons secondaires se remplissent depuis le bas. Les liens texte ont un soulignement qui part vers la droite et se redessine.
@@ -99,14 +99,13 @@ Inspirée du site de [The IT Foundation](https://the-itf.com/) (grande typograph
 
 ### Animations
 
-- **Rideau de page** : à l'ouverture de chaque page, cinq colonnes claires se lèvent l'une après l'autre ; quand on suit un lien interne, elles remontent pour couvrir la page avant la navigation. L'arrivée est en CSS pur : la page s'affiche toujours, même sans JavaScript.
-- **Intro de l'accueil** (première visite de la session seulement) : le logo d'origine apparaît en se dévoilant de gauche à droite sur le rideau blanc, un trait rouge se remplit dessous, puis le rideau se lève. Aux visites suivantes, l'accueil s'ouvre comme les autres pages.
+- **Loader (rideau de page)** : à chaque ouverture ou actualisation d'une page, l'écran est couvert de cinq colonnes blanches portant le **logo BostonSolux** et un trait rouge qui se remplit comme une barre de chargement ; le logo s'efface vers le haut, puis les colonnes se lèvent l'une après l'autre (environ 1,4 s en tout). Quand on suit un lien interne, les colonnes remontent pour couvrir la page, le logo réapparaît, et la page suivante s'ouvre sur ce même logo : la transition est continue. L'arrivée est en CSS pur : la page s'affiche toujours, même sans JavaScript.
 - **Hero** : le contenu monte en séquence une fois le rideau levé, léger zoom sur la photo affichée, images qui glissent, légende qui change en fondu.
 - **Titres de section** : les mots montent depuis un masque quand le titre entre à l'écran.
 - **Apparitions au défilement** : textes et cartes qui montent en cascade, photos qui s'ouvrent depuis le bas en se posant, filets qui se tracent.
 - **Survols** : cartes qui se remplissent d'encre, icônes qui pivotent, photos qui reprennent leurs couleurs, flèches qui glissent.
 - Carte du monde (arcs, repères, pulsation), bande des partenaires en continu (pause au survol), barre rouge de progression de lecture, halo du bouton « retour en haut ».
-- **Mouvement réduit** : si le visiteur l'a demandé, pas de rideau ni d'intro, pas de halo, rien ne glisse ; le contenu s'affiche directement.
+- **Mouvement réduit** : si le visiteur l'a demandé, pas de loader, pas de halo, rien ne glisse ; le contenu s'affiche directement.
 
 - **Carte du monde des 7 bureaux** (accueil, page À propos) : continents dessinés en points (projection Miller) dans un panneau sombre, chaque bureau placé à ses coordonnées réelles, arcs depuis le siège de Rockville, chiffres clés (7 bureaux, 7 pays, 3 continents) et légende. Survoler ou parcourir au clavier la fiche d'un bureau allume son repère, son nom et son arc sur la carte. Quand la carte dispose de moins de 900 px de large, elle zoome sur l'Atlantique pour que les bureaux restent lisibles.
 - **Carte Google du bureau de Lomé (Kpogan)** : uniquement sur la page Contact, dans sa propre section juste après le formulaire (« Visit us »), chargée en différé, dans la langue de la page.
@@ -181,5 +180,5 @@ Elles peuvent être remplacées à tout moment par des photos propres à BostonS
 - [ ] **Active Directory** : pas d'image dédiée sur le site actuel ; une ancienne image de bannière (globe) la remplace.
 - [ ] **Images avec texte incrusté** (ERP, « Backup & Restore », « Network Security », « Project Management ») : des versions sans texte seraient plus propres.
 - [ ] **Diaporama du hero** : des photos propres à BostonSolux (bureaux, équipes, projets) remplaceraient avantageusement les 4 photos Unsplash.
-- [ ] **Intro et rideau de page** : à valider par le client (durée de l'intro de l'accueil : environ 2 s, une seule fois par session).
+- [ ] **Loader** : durée à valider par le client (logo affiché environ 0,6 s, page entièrement visible après environ 1,4 s).
 - [ ] **Photo du bâtiment** : `about-building.webp` est recadrée depuis la couverture de la plaquette de présentation (meilleure définition que l'image d'origine).
